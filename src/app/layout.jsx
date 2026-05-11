@@ -8,19 +8,19 @@ import BackToTop from '@/components/BackToTop';
 import Preloader from '@/components/Preloader';
 
 export const metadata = {
-  title: 'Mottalib — Portfolio & Charmatha Digital Point',
-  description: 'মোত্তালিব — ডিপ্লোমা ইঞ্জিনিয়ারিং শিক্ষার্থী ও চারমাথা ডিজিটাল পয়েন্টের স্বত্বাধিকারী। Print, Photocopy, Job Apply, CV, ID Card ও মুদি সামগ্রী।',
-  keywords: 'Charmatha Digital Point, Mottalib, Print, Photocopy, CV, ID Card, Job Apply, মুদি দোকান, চারমাথা',
+  title: 'Charmatha Digital Point — Digital Services & Daily Essentials',
+  description: 'চারমাথা ডিজিটাল পয়েন্ট — কম্পিউটার সেবা, প্রিন্ট, ফটোকপি, জব অ্যাপ্লাই, সিভি তৈরি এবং দৈনন্দিন পণ্য। Charmatha Digital Point — Your trusted hub for print, photocopy, CV, job applications & daily essentials.',
+  keywords: 'Charmatha Digital Point, Mottalib, Print, Photocopy, CV, ID Card, Job Apply, মুদি দোকান, চারমাথা, ডিজিটাল সেবা',
   authors: [{ name: 'Mottalib' }],
   openGraph: {
-    title: 'Mottalib — Portfolio & Charmatha Digital Point',
+    title: 'Charmatha Digital Point — Digital Services & Daily Essentials',
     description: 'ডিজিটাল সেবা ও দৈনন্দিন পণ্যের বিশ্বস্ত প্রতিষ্ঠান — চারমাথা ডিজিটাল পয়েন্ট।',
     type: 'website',
     locale: 'bn_BD',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mottalib — Charmatha Digital Point',
+    title: 'Charmatha Digital Point',
     description: 'ডিজিটাল সেবা ও দৈনন্দিন পণ্যের বিশ্বস্ত প্রতিষ্ঠান।',
   },
   robots: 'index, follow',
@@ -30,10 +30,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="bn" suppressHydrationWarning>
       <head>
-        <meta name="theme-color" content="#0d0d0d" />
+        <meta name="theme-color" content="#000000" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
         <script
           type="application/ld+json"
