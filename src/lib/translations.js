@@ -1,0 +1,122 @@
+export const translations = {
+  en: {
+    // Nav
+    nav_about: "ABOUT", nav_skills: "SKILLS", nav_services: "SERVICES",
+    nav_store: "STORE", nav_projects: "PROJECTS", nav_contact: "CONTACT",
+    // Hero
+    hero_tag: "AVAILABLE FOR WORK",
+    hero_title_2: "STUDENT &",
+    hero_title_3: "ENTREPRENEUR",
+    hero_desc: "Diploma in Engineering (7th Semester) student. Alongside studies, I run 'Charmatha Digital Point' — offering all computer services and daily essentials.",
+    hero_btn1: "EXPLORE SERVICES",
+    hero_btn2: "LEARN MORE",
+    stat_clients: "HAPPY CLIENTS",
+    stat_services: "SERVICES",
+    stat_years: "YEARS",
+    // About
+    sec_about: "ABOUT",
+    about_title_1: "Study &",
+    about_title_2: "Entrepreneurship",
+    about_title_3: "Perfect Combination",
+    about_p1: "Currently studying <strong>Diploma in Engineering (7th Semester)</strong>. As an entrepreneur, I run a hybrid shop called <strong>'Charmatha Digital Point'</strong>.",
+    about_p2: "My goal is to simplify people's daily tasks through technology and innovation.",
+    // Skills
+    sec_skills: "SKILLS",
+    skills_accent: "EXPERTISE",
+    // Services
+    sec_svc: "DIGITAL SERVICES",
+    svc_title_1: "Charmatha Digital",
+    svc_title_2: "Point's",
+    svc_title_3: "Services",
+    svc_sub: "All your online and computer-related work done here.",
+    // Store
+    sec_store: "STORE",
+    store_title_1: "Store",
+    store_title_2: "Products",
+    store_sub: "Daily essentials alongside digital services.",
+    // Projects
+    sec_proj: "PROJECTS",
+    proj_title_1: "My",
+    proj_title_2: "Work & Projects",
+    proj_sub: "Current and future projects.",
+    status_current: "CURRENT",
+    status_web: "WEB",
+    status_coming_soon: "COMING SOON",
+    // Contact
+    sec_contact: "CONTACT",
+    contact_title: "GET IN",
+    contact_accent: "TOUCH",
+    ct_desc: "Contact us for any work or information.",
+    f_name: "NAME",
+    f_email: "EMAIL",
+    f_msg: "MESSAGE",
+    f_send: "SEND MESSAGE",
+    f_sending: "SENDING...",
+    f_success: "✅ Message sent successfully!",
+    f_error: "❌ Failed to send message.",
+    // Footer
+    footer_desc: "Charmatha Digital Point — Your trusted digital service provider.",
+    footer_links: "LINKS",
+    footer_services: "SERVICES",
+  },
+  bn: {
+    // Nav
+    nav_about: "পরিচয়", nav_skills: "দক্ষতা", nav_services: "সেবা",
+    nav_store: "স্টোর", nav_projects: "প্রজেক্ট", nav_contact: "যোগাযোগ",
+    // Hero
+    hero_tag: "কাজের জন্য প্রস্তুত",
+    hero_title_2: "STUDENT &",
+    hero_title_3: "ENTREPRENEUR",
+    hero_desc: "ডিপ্লোমা ইন ইঞ্জিনিয়ারিং (৭ম সেমিস্টার) শিক্ষার্থী। পড়াশোনার পাশাপাশি 'চারমাথা ডিজিটাল পয়েন্ট' পরিচালনা করছি — যেখানে সকল প্রকার কম্পিউটার সেবা এবং দৈনন্দিন পণ্য পাওয়া যায়।",
+    hero_btn1: "সেবা দেখুন",
+    hero_btn2: "আরও জানুন",
+    stat_clients: "সন্তুষ্ট ক্লায়েন্ট",
+    stat_services: "সেবা",
+    stat_years: "বছর",
+    // About
+    sec_about: "পরিচয়",
+    about_title_1: "পড়াশোনা ও",
+    about_title_2: "উদ্যোগের",
+    about_title_3: "অপূর্ব সমন্বয়",
+    about_p1: "বর্তমানে আমি <strong>ডিপ্লোমা ইন ইঞ্জিনিয়ারিং (৭ম সেমিস্টার)</strong>-এ পড়াশোনা করছি। আমি একজন উদ্যোক্তা হিসেবে <strong>'চারমাথা ডিজিটাল পয়েন্ট'</strong> নামে একটি হাইব্রিড শপ পরিচালনা করছি।",
+    about_p2: "আমার লক্ষ্য হচ্ছে টেকনোলজি এবং উদ্ভাবনের মাধ্যমে সমাজের মানুষের দৈনন্দিন কাজকে সহজ করা।",
+    // Skills
+    sec_skills: "দক্ষতা",
+    skills_accent: "বিশেষত্ব",
+    // Services
+    sec_svc: "ডিজিটাল সেবা",
+    svc_title_1: "চারমাথা ডিজিটাল",
+    svc_title_2: "পয়েন্টের",
+    svc_title_3: "সেবাসমূহ",
+    svc_sub: "আপনার সকল প্রকার অনলাইন এবং কম্পিউটার সংক্রান্ত কাজ করা হয়।",
+    // Store
+    sec_store: "স্টোর",
+    store_title_1: "দোকানের",
+    store_title_2: "পণ্যসমূহ",
+    store_sub: "ডিজিটাল সেবার পাশাপাশি দৈনন্দিন প্রয়োজনীয় সামগ্রী।",
+    // Projects
+    sec_proj: "প্রজেক্ট",
+    proj_title_1: "আমার",
+    proj_title_2: "কাজ ও প্রজেক্ট",
+    proj_sub: "বর্তমান এবং ভবিষ্যতের প্রজেক্টসমূহ।",
+    status_current: "বর্তমান",
+    status_web: "ওয়েব",
+    status_coming_soon: "শীঘ্রই আসছে",
+    // Contact
+    sec_contact: "যোগাযোগ",
+    contact_title: "যোগাযোগ",
+    contact_accent: "করুন",
+    ct_desc: "যেকোনো কাজ বা তথ্যের জন্য যোগাযোগ করুন।",
+    f_name: "নাম",
+    f_email: "ইমেইল",
+    f_msg: "মেসেজ",
+    f_send: "মেসেজ পাঠান",
+    f_sending: "পাঠানো হচ্ছে...",
+    f_success: "✅ মেসেজ সফলভাবে পাঠানো হয়েছে!",
+    f_error: "❌ মেসেজ পাঠাতে সমস্যা হয়েছে।",
+    // Footer
+    footer_desc: "চারমাথা ডিজিটাল পয়েন্ট — আপনার বিশ্বস্ত ডিজিটাল সেবা প্রতিষ্ঠান।",
+    footer_links: "লিংক",
+    footer_services: "সেবাসমূহ",
+  }
+};
