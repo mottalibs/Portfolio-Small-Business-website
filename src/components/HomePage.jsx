@@ -233,15 +233,22 @@ export default function HomePage({ services, skills, storeItems, projects, confi
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             <AnimatedSection direction="left">
               <p className="mb-10 leading-[1.85] text-[.92rem]" style={{ color: 'var(--muted)' }}>{t.ct_desc}</p>
-              {[{ icon: <FaMapMarkerAlt/>, label: 'ADDRESS', value: address }, { icon: <FaEnvelope/>, label: 'EMAIL', value: email }, { icon: <FaPhoneAlt/>, label: 'PHONE', value: phone }].map((item, i) => (
-                <div key={i} className="group flex gap-4 items-center mb-5 py-3 transition-all duration-400">
-                  <div className="w-10 h-10 rounded-lg flex items-center justify-center text-sm flex-shrink-0" style={{ background: 'var(--accent-dim)', color: 'var(--accent)', border: '1px solid rgba(200,164,85,0.12)' }}>{item.icon}</div>
-                  <div>
-                    <small className="block text-[.55rem] tracking-[2.5px] font-bold mb-0.5" style={{ color: 'var(--muted)' }}>{item.label}</small>
-                    <span className="font-semibold text-[.88rem] text-white">{item.value}</span>
-                  </div>
-                </div>
-              ))}
+              {[
+                { icon: <FaMapMarkerAlt/>, label: 'ADDRESS', value: address, href: null },
+                { icon: <FaEnvelope/>, label: 'EMAIL', value: email, href: `mailto:${email}` },
+                { icon: <FaPhoneAlt/>, label: 'PHONE', value: phone, href: `tel:${phone.replace(/\s/g, '')}` },
+              ].map((item, i) => {
+                const Wrapper = item.href ? 'a' : 'div';
+                return (
+                  <Wrapper key={i} href={item.href} className="group flex gap-4 items-center mb-5 py-3 transition-all duration-400 hover:translate-x-1 cursor-pointer">
+                    <div className="w-10 h-10 rounded-lg flex items-center justify-center text-sm flex-shrink-0 transition-all duration-300 group-hover:scale-110" style={{ background: 'var(--accent-dim)', color: 'var(--accent)', border: '1px solid rgba(200,164,85,0.12)' }}>{item.icon}</div>
+                    <div>
+                      <small className="block text-[.55rem] tracking-[2.5px] font-bold mb-0.5" style={{ color: 'var(--muted)' }}>{item.label}</small>
+                      <span className="font-semibold text-[.88rem] text-white group-hover:text-[var(--accent)] transition-colors duration-300">{item.value}</span>
+                    </div>
+                  </Wrapper>
+                );
+              })}
               <div className="flex gap-3 mt-8">
                 {[{ icon: <FaFacebookF size={12}/>, href: config?.facebook || '#' }, { icon: <FaWhatsapp size={12}/>, href: `https://wa.me/${config?.whatsapp || '8801XXXXXXXXX'}` }, { icon: <FaInstagram size={12}/>, href: config?.instagram || '#' }, { icon: <FaGithub size={12}/>, href: config?.github || '#' }].map((s, i) => (
                   <a key={i} href={s.href} target={s.href.startsWith('http') ? '_blank' : undefined} rel="noopener" className="w-9 h-9 rounded-lg border flex items-center justify-center transition-all duration-400 hover:scale-110" style={{ borderColor: 'rgba(200,164,85,0.12)', background: 'var(--accent-dim)', color: 'var(--accent)' }} onMouseEnter={e=>{e.currentTarget.style.background='var(--accent)';e.currentTarget.style.color='#0a0a0a'}} onMouseLeave={e=>{e.currentTarget.style.background='var(--accent-dim)';e.currentTarget.style.color='var(--accent)'}}>{s.icon}</a>
