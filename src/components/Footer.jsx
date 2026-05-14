@@ -1,52 +1,85 @@
 'use client';
 import { useLanguage } from './LanguageProvider';
-import { FaFacebookF, FaWhatsapp, FaGithub, FaInstagram, FaHeart, FaMapMarkerAlt, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
+import { FaFacebookF, FaGithub, FaEnvelope, FaHeart, FaTerminal } from 'react-icons/fa';
 
 export default function Footer({ config = {} }) {
   const { t } = useLanguage();
-  const phone = config?.phone || '+880 1XXX-XXXXXX';
-  const email = config?.email || 'hello@charmathadigital.com';
-  const address = config?.address || 'চারমাথা ডিজিটাল পয়েন্ট';
+  const email = config?.email || 'mottalib@example.com';
 
   return (
     <footer style={{ borderTop: '1px solid var(--border)', background: 'var(--bg)' }}>
-      <div className="max-w-[1100px] mx-auto px-6 lg:px-8 pt-16 pb-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pb-12">
-          <div className="col-span-2 md:col-span-1">
-            <span className="font-display text-[.85rem] font-bold tracking-[6px] uppercase text-white">CHARMATHA</span>
-            <p className="mt-3 text-[.8rem] leading-[1.7] max-w-[260px]" style={{ color: 'var(--muted)' }}>{t.footer_desc}</p>
-            <div className="flex gap-2 mt-5">
-              {[{ icon: <FaFacebookF size={12}/>, href: config.facebook || '#' }, { icon: <FaWhatsapp size={12}/>, href: `https://wa.me/${config.whatsapp || ''}` }, { icon: <FaInstagram size={12}/>, href: config.instagram || '#' }, { icon: <FaGithub size={12}/>, href: config.github || '#' }].map((s, i) => (
-                <a key={i} href={s.href} target={s.href.startsWith('http') ? '_blank' : undefined} rel="noopener" className="w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110" style={{ background: 'var(--accent-dim)', color: 'var(--accent)', border: '1px solid rgba(200,164,85,0.1)' }} onMouseEnter={e=>{e.currentTarget.style.background='var(--accent)';e.currentTarget.style.color='#0a0a0a'}} onMouseLeave={e=>{e.currentTarget.style.background='var(--accent-dim)';e.currentTarget.style.color='var(--accent)'}}>
-                  {s.icon}
-                </a>
-              ))}
-            </div>
-          </div>
+      <div className="max-w-[1100px] mx-auto px-6 lg:px-8 py-12">
+        {/* Top section */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 pb-8" style={{ borderBottom: '1px solid var(--border)' }}>
           <div>
-            <h5 className="text-[.58rem] tracking-[3px] font-bold mb-4 uppercase" style={{ color: 'var(--accent)' }}>{t.footer_links}</h5>
-            {['#about', '#services', '#skills', '#store', '#projects', '#contact'].map(link => (
-              <a key={link} href={link} className="block text-[.8rem] py-1 transition-all duration-300 hover:text-[var(--accent)]" style={{ color: 'var(--muted)' }}>
-                {link.replace('#', '').charAt(0).toUpperCase() + link.replace('#', '').slice(1)}
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: 'var(--accent-dim)', border: '1px solid rgba(0,212,170,0.1)' }}>
+                <FaTerminal size={12} style={{ color: 'var(--accent)' }} />
+              </div>
+              <span className="font-display text-[.85rem] font-bold tracking-[5px] uppercase" style={{ color: 'var(--text)' }}>
+                MOTTALIB
+              </span>
+            </div>
+            <p className="text-[.82rem] leading-[1.7] max-w-[320px]" style={{ color: 'var(--muted)' }}>
+              {t.footer_tagline}
+            </p>
+          </div>
+
+          {/* Quick links */}
+          <div className="flex gap-6">
+            {['#about', '#skills', '#projects', '#contact'].map(link => (
+              <a
+                key={link}
+                href={link}
+                className="text-[.72rem] font-medium tracking-[2px] uppercase transition-all duration-300 hover:text-[var(--accent)] font-mono"
+                style={{ color: 'var(--muted)' }}
+              >
+                {link.replace('#', '')}
               </a>
             ))}
           </div>
-          <div>
-            <h5 className="text-[.58rem] tracking-[3px] font-bold mb-4 uppercase" style={{ color: 'var(--accent)' }}>{t.footer_services}</h5>
-            {['Print & Copy', 'Job Apply', 'CV & ID Card', 'Chuktinama', 'Data Entry'].map(s => (
-              <a key={s} href="#services" className="block text-[.8rem] py-1 transition-all duration-300 hover:text-[var(--accent)]" style={{ color: 'var(--muted)' }}>{s}</a>
+
+          {/* Social icons */}
+          <div className="flex gap-2">
+            {[
+              { icon: <FaFacebookF size={12} />, href: config.facebook || '#' },
+              { icon: <FaGithub size={12} />, href: config.github || '#' },
+              { icon: <FaEnvelope size={12} />, href: `mailto:${email}` },
+            ].map((s, i) => (
+              <a
+                key={i}
+                href={s.href}
+                target={s.href.startsWith('http') ? '_blank' : undefined}
+                rel="noopener"
+                className="w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
+                style={{
+                  background: 'var(--accent-dim)',
+                  color: 'var(--accent)',
+                  border: '1px solid rgba(0,212,170,0.08)',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = 'var(--accent)';
+                  e.currentTarget.style.color = '#0a0a0f';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = 'var(--accent-dim)';
+                  e.currentTarget.style.color = 'var(--accent)';
+                }}
+              >
+                {s.icon}
+              </a>
             ))}
           </div>
-          <div>
-            <h5 className="text-[.58rem] tracking-[3px] font-bold mb-4 uppercase" style={{ color: 'var(--accent)' }}>{t.sec_contact}</h5>
-            <div className="flex items-start gap-2 mb-3"><FaMapMarkerAlt size={9} style={{ color: 'var(--accent)', marginTop: 5 }} /><span className="text-[.78rem] leading-[1.6]" style={{ color: 'var(--muted)' }}>{address}</span></div>
-            <div className="flex items-center gap-2 mb-3"><FaEnvelope size={9} style={{ color: 'var(--accent)' }} /><span className="text-[.78rem]" style={{ color: 'var(--muted)' }}>{email}</span></div>
-            <div className="flex items-center gap-2"><FaPhoneAlt size={9} style={{ color: 'var(--accent)' }} /><span className="text-[.78rem]" style={{ color: 'var(--muted)' }}>{phone}</span></div>
-          </div>
         </div>
-        <div className="flex flex-col sm:flex-row justify-between items-center py-5 gap-2" style={{ borderTop: '1px solid var(--border)' }}>
-          <p className="text-[.65rem] tracking-[1px]" style={{ color: 'rgba(255,255,255,0.15)' }}>&copy; {new Date().getFullYear()} Charmatha Digital Point.</p>
-          <p className="text-[.65rem] tracking-[1px] flex items-center gap-1" style={{ color: 'rgba(255,255,255,0.1)' }}>Built with <FaHeart size={8} style={{ color: 'var(--accent)' }} /> by Mottalib</p>
+
+        {/* Bottom bar */}
+        <div className="flex flex-col sm:flex-row justify-between items-center pt-6 gap-2">
+          <p className="text-[.65rem] tracking-[1px] font-mono" style={{ color: 'rgba(255,255,255,0.15)' }}>
+            &copy; {new Date().getFullYear()} Mottalib. All rights reserved.
+          </p>
+          <p className="text-[.65rem] tracking-[1px] flex items-center gap-1 font-mono" style={{ color: 'rgba(255,255,255,0.1)' }}>
+            Built with <FaHeart size={8} style={{ color: 'var(--accent)' }} /> & Linux
+          </p>
         </div>
       </div>
     </footer>

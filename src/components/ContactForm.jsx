@@ -34,10 +34,14 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-7">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-6">
       {/* Name */}
       <div className="relative group">
-        <label htmlFor="cf-name" className="block text-[.62rem] tracking-[3px] font-semibold mb-3 uppercase transition-colors duration-300 group-focus-within:text-[var(--accent)]" style={{ color: 'var(--muted)' }}>
+        <label
+          htmlFor="cf-name"
+          className="block text-[.62rem] tracking-[3px] font-semibold mb-3 uppercase transition-colors duration-300 group-focus-within:text-[var(--accent)] font-mono"
+          style={{ color: 'var(--muted)' }}
+        >
           {t.f_name}
         </label>
         <input
@@ -51,7 +55,11 @@ export default function ContactForm() {
 
       {/* Email */}
       <div className="relative group">
-        <label htmlFor="cf-email" className="block text-[.62rem] tracking-[3px] font-semibold mb-3 uppercase transition-colors duration-300 group-focus-within:text-[var(--accent)]" style={{ color: 'var(--muted)' }}>
+        <label
+          htmlFor="cf-email"
+          className="block text-[.62rem] tracking-[3px] font-semibold mb-3 uppercase transition-colors duration-300 group-focus-within:text-[var(--accent)] font-mono"
+          style={{ color: 'var(--muted)' }}
+        >
           {t.f_email}
         </label>
         <input
@@ -65,7 +73,11 @@ export default function ContactForm() {
 
       {/* Message */}
       <div className="relative group">
-        <label htmlFor="cf-msg" className="block text-[.62rem] tracking-[3px] font-semibold mb-3 uppercase transition-colors duration-300 group-focus-within:text-[var(--accent)]" style={{ color: 'var(--muted)' }}>
+        <label
+          htmlFor="cf-msg"
+          className="block text-[.62rem] tracking-[3px] font-semibold mb-3 uppercase transition-colors duration-300 group-focus-within:text-[var(--accent)] font-mono"
+          style={{ color: 'var(--muted)' }}
+        >
           {t.f_msg}
         </label>
         <textarea
@@ -73,15 +85,15 @@ export default function ContactForm() {
           rows={4}
           placeholder={t.f_msg + '...'}
           required
-          className="form-input resize-none"
+          className="form-input"
         />
       </div>
 
       {/* Status Message */}
       {status.msg && (
         <div className={`flex items-center gap-2 text-sm font-semibold px-4 py-3 rounded-xl ${
-          status.type === 'success' 
-            ? 'text-emerald-400 bg-emerald-400/5 border border-emerald-400/10' 
+          status.type === 'success'
+            ? 'text-emerald-400 bg-emerald-400/5 border border-emerald-400/10'
             : 'text-red-400 bg-red-400/5 border border-red-400/10'
         }`}>
           {status.type === 'success' ? <FaCheckCircle /> : <FaTimesCircle />}
@@ -93,15 +105,10 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={sending}
-        className="w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full text-[.78rem] font-bold tracking-[2px] uppercase border-none cursor-pointer transition-all duration-500 hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed mt-2"
-        style={{
-          background: 'var(--accent)',
-          color: '#0a0a0a',
-          boxShadow: '0 8px 30px rgba(200,164,85,.15)',
-        }}
+        className="w-full btn-primary mt-2 py-4 disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {sending ? (
-          <><FaSpinner className="animate-spin" /> {t.f_sending}</>
+          <><FaSpinner className="animate-spin" /> <span>{t.f_sending}</span></>
         ) : (
           <><span>{t.f_send}</span> <FaPaperPlane size={12} /></>
         )}

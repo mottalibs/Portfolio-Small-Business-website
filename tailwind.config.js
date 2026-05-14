@@ -15,33 +15,31 @@ module.exports = {
         'background-4': 'var(--bg4)',
         foreground: 'var(--text)',
         primary: 'var(--accent)',
+        'primary-2': 'var(--accent-2)',
         muted: 'var(--muted)',
         border: 'var(--border)',
       },
       fontFamily: {
-        sans: ['Outfit', 'Inter', 'Noto Sans Bengali', 'system-ui', 'sans-serif'],
-        display: ['Space Grotesk', 'Outfit', 'system-ui', 'sans-serif'],
-        bengali: ['Noto Sans Bengali', 'sans-serif'],
+        sans: ['Inter', 'Outfit', 'system-ui', 'sans-serif'],
+        display: ['Outfit', 'Space Grotesk', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
       },
       borderRadius: {
-        'card': '20px',
+        'card': '16px',
       },
       animation: {
         'spin-slow': 'spin 30s linear infinite',
-        'spin-slow-reverse': 'spin 30s linear infinite reverse',
-        'wa-pulse': 'waPulse 2s infinite',
         'fade-in-up': 'fadeInUp 0.7s ease forwards',
         'load-bar': 'loadBar 1s infinite',
-        'marquee': 'marquee 30s linear infinite',
+        'marquee': 'marquee 40s linear infinite',
         'float': 'float 20s ease-in-out infinite',
         'glow-pulse': 'glowPulse 3s ease-in-out infinite',
-        'gradient': 'gradientShift 8s ease-in-out infinite',
+        'gradient': 'gradientFlow 6s ease-in-out infinite',
+        'cursor-blink': 'cursorBlink 1s step-end infinite',
+        'dot-pulse': 'dotPulse 2s ease-in-out infinite',
+        'scroll-wheel': 'scrollWheel 2s ease-in-out infinite',
       },
       keyframes: {
-        waPulse: {
-          '0%, 100%': { boxShadow: '0 4px 20px rgba(37,211,102,.4)' },
-          '50%': { boxShadow: '0 4px 35px rgba(37,211,102,.6)' },
-        },
         fadeInUp: {
           from: { opacity: '0', transform: 'translateY(28px)' },
           to: { opacity: '1', transform: 'none' },
@@ -61,12 +59,24 @@ module.exports = {
           '75%': { transform: 'translate(20px, 20px) scale(1.02)' },
         },
         glowPulse: {
-          '0%, 100%': { boxShadow: '0 0 40px rgba(124,255,107,0.15)' },
-          '50%': { boxShadow: '0 0 60px rgba(124,255,107,0.25)' },
+          '0%, 100%': { boxShadow: '0 0 40px rgba(0,212,170,0.08)' },
+          '50%': { boxShadow: '0 0 60px rgba(0,212,170,0.15)' },
         },
-        gradientShift: {
+        gradientFlow: {
           '0%, 100%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },
+        },
+        cursorBlink: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0' },
+        },
+        dotPulse: {
+          '0%, 100%': { opacity: '1', boxShadow: '0 0 0 0 rgba(0, 212, 170, 0.4)' },
+          '50%': { opacity: '0.6', boxShadow: '0 0 0 6px rgba(0, 212, 170, 0)' },
+        },
+        scrollWheel: {
+          '0%': { transform: 'translateX(-50%) translateY(0)', opacity: '1' },
+          '100%': { transform: 'translateX(-50%) translateY(12px)', opacity: '0' },
         },
       },
     },

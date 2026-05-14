@@ -2,15 +2,15 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { translations } from '@/lib/translations';
 
-const LanguageContext = createContext({ lang: 'bn', t: translations.bn, toggleLang: () => {} });
+const LanguageContext = createContext({ lang: 'en', t: translations.en, toggleLang: () => {} });
 
 export function useLanguage() { return useContext(LanguageContext); }
 
 export default function LanguageProvider({ children }) {
-  const [lang, setLang] = useState('bn');
+  const [lang, setLang] = useState('en');
 
   useEffect(() => {
-    const saved = localStorage.getItem('lang') || 'bn';
+    const saved = localStorage.getItem('lang') || 'en';
     setLang(saved);
     document.documentElement.lang = saved;
   }, []);
