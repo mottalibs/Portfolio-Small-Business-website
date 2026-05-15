@@ -35,7 +35,6 @@ module.exports = {
         'float': 'float 20s ease-in-out infinite',
         'glow-pulse': 'glowPulse 3s ease-in-out infinite',
         'gradient': 'gradientFlow 6s ease-in-out infinite',
-        'cursor-blink': 'cursorBlink 1s step-end infinite',
         'dot-pulse': 'dotPulse 2s ease-in-out infinite',
         'scroll-wheel': 'scrollWheel 2s ease-in-out infinite',
       },
@@ -59,20 +58,16 @@ module.exports = {
           '75%': { transform: 'translate(20px, 20px) scale(1.02)' },
         },
         glowPulse: {
-          '0%, 100%': { boxShadow: '0 0 40px rgba(0,212,170,0.08)' },
-          '50%': { boxShadow: '0 0 60px rgba(0,212,170,0.15)' },
+          '0%, 100%': { boxShadow: '0 0 40px rgba(255,204,0,0.06)' },
+          '50%': { boxShadow: '0 0 60px rgba(255,204,0,0.12)' },
         },
         gradientFlow: {
           '0%, 100%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },
         },
-        cursorBlink: {
-          '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0' },
-        },
         dotPulse: {
-          '0%, 100%': { opacity: '1', boxShadow: '0 0 0 0 rgba(0, 212, 170, 0.4)' },
-          '50%': { opacity: '0.6', boxShadow: '0 0 0 6px rgba(0, 212, 170, 0)' },
+          '0%, 100%': { opacity: '1', boxShadow: '0 0 0 0 rgba(255, 204, 0, 0.4)' },
+          '50%': { opacity: '0.6', boxShadow: '0 0 0 6px rgba(255, 204, 0, 0)' },
         },
         scrollWheel: {
           '0%': { transform: 'translateX(-50%) translateY(0)', opacity: '1' },
