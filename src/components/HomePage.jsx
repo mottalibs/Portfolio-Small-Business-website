@@ -55,40 +55,51 @@ export default function HomePage({ config }) {
 
         {/* Hero Photo */}
         <div className="hero-image-wrap">
-          <Image src="/Me.jpg" alt="Mottalib" fill sizes="(max-width:768px) 280px, 500px" className="object-cover object-top" priority />
+          <Image src="/Me.jpg" alt="Mottalib" fill sizes="(max-width:768px) 300px, 600px" className="object-cover object-top" priority />
           <div className="hero-image-gradient" />
         </div>
 
         {/* Content overlay */}
-        <div className="hero-content px-6 lg:px-16 pt-32 pb-40">
-          <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
-            {/* Left text */}
-            <AnimatedSection>
-              <p className="text-[1rem] leading-[1.9] max-w-[340px]" style={{ color: 'var(--text-secondary)' }}>
-                {t.hero_desc}
+        <div className="hero-content px-6 lg:px-20">
+          {/* Left text */}
+          <div className="absolute left-6 lg:left-20 top-1/2 -translate-y-1/2 max-w-[320px] pointer-events-auto z-10 hidden md:block">
+            <AnimatedSection direction="left">
+              <p className="text-[1.05rem] leading-[1.8] text-[var(--text-secondary)] font-light">
+                {t.hero_desc || "I create clean, modern interfaces and seamless experiences that turn user needs into business growth."}
               </p>
             </AnimatedSection>
+          </div>
 
-            {/* Right CTA */}
-            <AnimatedSection delay={200}>
+          {/* Right CTA */}
+          <div className="absolute right-6 lg:right-20 top-1/2 -translate-y-1/2 pointer-events-auto z-10 hidden md:block">
+            <AnimatedSection direction="right" delay={200}>
               <a href="#contact" className="btn-primary">
                 <span>Book a free call</span>
-                <FaArrowRight size={12} />
               </a>
             </AnimatedSection>
+          </div>
+          
+          {/* Mobile Text & CTA (Visible only on small screens) */}
+          <div className="absolute bottom-32 left-0 right-0 flex flex-col items-center gap-6 md:hidden px-6 text-center pointer-events-auto z-10">
+             <p className="text-[.95rem] leading-[1.7] text-[var(--text-secondary)] font-light max-w-[300px]">
+                {t.hero_desc || "I create clean, modern interfaces and seamless experiences that turn user needs into business growth."}
+             </p>
+             <a href="#contact" className="btn-primary">
+               <span>Book a free call</span>
+             </a>
           </div>
         </div>
 
         {/* Bottom Service Pills */}
         <div className="hero-bottom-row">
-          <div className="max-w-[1200px] mx-auto">
-            <div className="service-pills">
+          <div className="max-w-[1400px] mx-auto flex justify-center">
+            <div className="service-pills pb-4 px-4 w-full justify-start md:justify-center">
               {servicePills.map((pill, i) => (
-                <div key={i} className="service-pill">
-                  <div className="pill-icon" style={{ background: `${pill.color}20`, color: pill.color }}>
+                <div key={i} className="service-pill" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
+                  <div className="pill-icon" style={{ color: pill.color }}>
                     {pill.icon}
                   </div>
-                  <span>{pill.label}</span>
+                  <span className="text-[.85rem] font-medium text-[var(--text-secondary)]">{pill.label}</span>
                 </div>
               ))}
             </div>

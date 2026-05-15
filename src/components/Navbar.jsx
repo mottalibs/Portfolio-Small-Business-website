@@ -1,7 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { useLanguage } from './LanguageProvider';
-import { FaArrowRight } from 'react-icons/fa';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -22,45 +21,40 @@ export default function Navbar() {
   const closeMenu = () => setMenuOpen(false);
   const navLinks = [
     { href: '#', label: 'Home' },
-    { href: '#services', label: t.nav_services },
-    { href: '#projects', label: t.nav_works },
+    { href: '#services', label: t.nav_services || 'Services' },
+    { href: '#projects', label: t.nav_works || 'Projects' },
     { href: '#about', label: 'About' },
   ];
 
   return (
-    <nav id="nav" className={`fixed top-0 w-full z-[999] transition-all duration-500 ${scrolled ? 'py-3' : 'py-5'}`}>
+    <nav id="nav" className={`fixed top-0 w-full z-[999] transition-all duration-500 ${scrolled ? 'py-4' : 'py-8'}`}>
       <div className="absolute inset-0 transition-all duration-500" style={{
-        background: scrolled ? 'rgba(13,13,13,0.88)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(30px) saturate(1.5)' : 'none',
+        background: scrolled ? 'rgba(18,14,12,0.9)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(30px)' : 'none',
         borderBottom: scrolled ? '1px solid rgba(255,255,255,0.04)' : '1px solid transparent',
       }} />
 
-      <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-8 flex items-center justify-between">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 flex items-center justify-between">
         {/* Brand */}
-        <a href="#" className="font-display text-[.9rem] font-bold tracking-[2px] uppercase hover:text-[var(--accent)] transition-colors" style={{ color: 'var(--text)' }}>
-          MOTTALIB <span style={{ fontWeight: 800 }}>TECH</span>
+        <a href="#" className="font-display text-[1.1rem] tracking-[1px] hover:text-[var(--accent)] transition-colors" style={{ color: 'var(--text)', fontWeight: 400 }}>
+          MOTTALIB <span style={{ fontStyle: 'italic', color: 'var(--text-secondary)' }}>TECH</span>
         </a>
 
         {/* Center Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-10 bg-[rgba(255,255,255,0.03)] px-8 py-3 rounded-full border border-[rgba(255,255,255,0.05)]">
           {navLinks.map((link, i) => (
             <a key={link.href + i} href={link.href}
-              className="text-[.78rem] font-medium tracking-[1px] transition-all duration-300 hover:text-[var(--accent)]"
-              style={{ color: i === 0 ? 'var(--text)' : 'var(--muted)' }}>
+              className="text-[.85rem] transition-all duration-300 hover:text-white"
+              style={{ color: i === 0 ? 'white' : 'var(--text-secondary)' }}>
               {link.label}
             </a>
           ))}
         </div>
 
         {/* Right */}
-        <div className="flex items-center gap-3">
-          <button onClick={toggleLang}
-            className="hidden md:flex text-[.68rem] font-semibold tracking-[1px] uppercase hover:text-[var(--accent)] cursor-pointer bg-transparent border-none transition-all"
-            style={{ color: 'var(--muted)' }} aria-label="Language">
-            {lang === 'bn' ? 'EN' : 'বাং'}
-          </button>
-          <a href="#contact" className="hidden md:inline-flex btn-outline-accent">
-            Get in Touch <FaArrowRight size={10} />
+        <div className="flex items-center gap-4">
+          <a href="#contact" className="hidden md:inline-flex px-6 py-2.5 rounded-full text-[.85rem] border border-[rgba(255,255,255,0.15)] text-white hover:bg-white hover:text-black transition-all duration-300">
+            Get in Touch
           </a>
 
           {/* Hamburger */}
@@ -85,15 +79,10 @@ export default function Navbar() {
             {link.label}
           </a>
         ))}
-        <button onClick={() => { toggleLang(); closeMenu(); }}
-          className="mt-4 text-sm font-semibold tracking-[2px] uppercase bg-transparent border-none cursor-pointer text-left"
-          style={{ color: 'var(--accent)', opacity: menuOpen ? 1 : 0, transition: `opacity .4s ease ${navLinks.length * 80}ms` }}>
-          {lang === 'bn' ? 'Switch to English' : 'বাংলায় দেখুন'}
-        </button>
         <a href="#contact" onClick={closeMenu}
-          className="mt-2 btn-primary w-fit"
+          className="mt-6 px-6 py-3 rounded-full text-[.9rem] border border-[rgba(255,255,255,0.15)] text-white text-center hover:bg-white hover:text-black transition-all duration-300"
           style={{ opacity: menuOpen ? 1 : 0, transition: `opacity .4s ease ${(navLinks.length + 1) * 80}ms` }}>
-          Get in Touch <FaArrowRight size={12} />
+          Get in Touch
         </a>
       </div>
     </nav>
