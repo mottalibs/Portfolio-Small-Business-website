@@ -1,13 +1,14 @@
 'use client';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import { useLanguage } from '@/components/LanguageProvider';
 import AnimatedSection from '@/components/AnimatedSection';
 import ContactForm from '@/components/ContactForm';
 import TestimonialCarousel from '@/components/TestimonialCarousel';
 import TypeWriter from '@/components/TypeWriter';
+import DetailModal from '@/components/DetailModal';
 import { DynamicIcon } from '@/lib/icons';
-import { FaFacebookF, FaGithub, FaEnvelope, FaArrowRight, FaArrowDown, FaPrint, FaRocket, FaLaptopCode, FaMobileAlt, FaPalette, FaSearch, FaLinux, FaPython, FaNodeJs, FaReact, FaDocker, FaDatabase, FaTerminal, FaCogs, FaCloud, FaShieldAlt, FaBrain, FaCode } from 'react-icons/fa';
+import { FaFacebookF, FaGithub, FaEnvelope, FaArrowRight, FaArrowDown, FaPrint, FaRocket, FaLaptopCode, FaMobileAlt, FaPalette, FaSearch, FaLinux, FaPython, FaNodeJs, FaReact, FaDocker, FaDatabase, FaTerminal, FaCogs, FaCloud, FaShieldAlt, FaBrain, FaCode, FaExpandAlt, FaTimes } from 'react-icons/fa';
 
 /* CountUp */
 function useCountUp(end, duration = 2000) {
@@ -31,11 +32,67 @@ function useCountUp(end, duration = 2000) {
   return { count, ref };
 }
 
+/* Blog Modal */
+function BlogModal({ open, onClose, post }) {
+  useEffect(() => {
+    if (open) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = '';
+    return () => { document.body.style.overflow = ''; };
+  }, [open]);
+  useEffect(() => {
+    const handleEsc = (e) => { if (e.key === 'Escape') onClose(); };
+    if (open) window.addEventListener('keydown', handleEsc);
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, [open, onClose]);
+
+  if (!open || !post) return null;
+  return (
+    <div onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
+      style={{
+        position: 'fixed', inset: 0, zIndex: 10000, background: 'rgba(0,0,0,0.7)',
+        backdropFilter: 'blur(12px)', display: 'flex', alignItems: 'center', justifyContent: 'center',
+        padding: '1.5rem', animation: 'modalOverlayIn .3s ease forwards',
+      }}>
+      <div style={{
+        width: '100%', maxWidth: '560px', background: 'var(--bg2)',
+        border: '1px solid rgba(0,212,170,0.12)', borderRadius: '24px',
+        padding: '2.5rem 2rem', position: 'relative',
+        animation: 'modalPanelIn .4s cubic-bezier(.16,1,.3,1) forwards',
+      }}>
+        <button onClick={onClose} style={{
+          position: 'absolute', top: '16px', right: '16px', width: '36px', height: '36px',
+          borderRadius: '12px', border: '1px solid var(--border)', background: 'var(--bg3)',
+          color: 'var(--muted)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+        }} aria-label="Close"><FaTimes size={14} /></button>
+
+        <span className="block text-[.65rem] tracking-[2px] uppercase mb-2 font-semibold" style={{ color: 'var(--accent)' }}>{post.date}</span>
+        <h3 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: '1.4rem', color: 'var(--text)', letterSpacing: '-0.02em', marginBottom: '1rem', lineHeight: 1.3 }}>
+          {post.title}
+        </h3>
+        <p style={{ fontSize: '.92rem', lineHeight: 1.9, color: 'var(--text-secondary)' }}>{post.content}</p>
+      </div>
+    </div>
+  );
+}
+
 export default function HomePage({ config }) {
   const { t } = useLanguage();
   const email = config?.email || 'mottalib@example.com';
   const yearsCounter = useCountUp(t.stat_years_value, 1500);
   const clientsCounter = useCountUp(t.stat_clients_value, 2000);
+
+  // Modal state
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalData, setModalData] = useState(null);
+  const [modalType, setModalType] = useState('service');
+  const [blogModalOpen, setBlogModalOpen] = useState(false);
+  const [blogModalData, setBlogModalData] = useState(null);
+
+  const openDetail = useCallback((data, type) => {
+    setModalData(data);
+    setModalType(type);
+    setModalOpen(true);
+  }, []);
 
   const servicePills = [
     { icon: <FaPrint size={12} />, label: 'IT Services', color: '#00d4aa' },
@@ -47,34 +104,30 @@ export default function HomePage({ config }) {
   ];
 
   const techStack = [
-    { icon: <FaLinux />, name: 'Linux' },
-    { icon: <FaPython />, name: 'Python' },
-    { icon: <FaNodeJs />, name: 'Node.js' },
-    { icon: <FaReact />, name: 'React' },
-    { icon: <FaDocker />, name: 'Docker' },
-    { icon: <FaDatabase />, name: 'Database' },
-    { icon: <FaTerminal />, name: 'Shell' },
-    { icon: <FaCogs />, name: 'Automation' },
-    { icon: <FaCloud />, name: 'Cloud' },
-    { icon: <FaShieldAlt />, name: 'Security' },
-    { icon: <FaBrain />, name: 'AI/ML' },
-    { icon: <FaCode />, name: 'Web Dev' },
+    { icon: <FaLinux />, name: 'Linux' }, { icon: <FaPython />, name: 'Python' },
+    { icon: <FaNodeJs />, name: 'Node.js' }, { icon: <FaReact />, name: 'React' },
+    { icon: <FaDocker />, name: 'Docker' }, { icon: <FaDatabase />, name: 'Database' },
+    { icon: <FaTerminal />, name: 'Shell' }, { icon: <FaCogs />, name: 'Automation' },
+    { icon: <FaCloud />, name: 'Cloud' }, { icon: <FaShieldAlt />, name: 'Security' },
+    { icon: <FaBrain />, name: 'AI/ML' }, { icon: <FaCode />, name: 'Web Dev' },
   ];
 
   return (
     <div className="relative overflow-hidden w-full">
 
+      {/* Detail Modal */}
+      <DetailModal open={modalOpen} onClose={() => setModalOpen(false)} data={modalData} type={modalType} />
+      {/* Blog Modal */}
+      <BlogModal open={blogModalOpen} onClose={() => setBlogModalOpen(false)} post={blogModalData} />
+
       {/* ===== HERO ===== */}
       <header className="hero-section">
         <div className="hero-bg-name" aria-hidden="true">MOTTALIB</div>
-
         <div className="hero-image-wrap">
           <Image src="/Me.jpg" alt="Mottalib" fill sizes="(max-width:768px) 300px, 600px" className="object-cover object-top" priority />
           <div className="hero-image-gradient" />
         </div>
-
         <div className="hero-content px-6 lg:px-20">
-          {/* Left text */}
           <div className="absolute left-6 lg:left-20 top-1/2 -translate-y-1/2 max-w-[340px] pointer-events-auto z-10 hidden md:block">
             <AnimatedSection direction="left">
               <div className="mb-4">
@@ -87,17 +140,11 @@ export default function HomePage({ config }) {
               </p>
             </AnimatedSection>
           </div>
-
-          {/* Right CTA */}
           <div className="absolute right-6 lg:right-20 top-1/2 -translate-y-1/2 pointer-events-auto z-10 hidden md:block">
             <AnimatedSection direction="right" delay={200}>
-              <a href="#contact" className="btn-primary">
-                <span>Book a free call</span>
-              </a>
+              <a href="#contact" className="btn-primary"><span>Book a free call</span></a>
             </AnimatedSection>
           </div>
-
-          {/* Mobile */}
           <div className="absolute bottom-32 left-0 right-0 flex flex-col items-center gap-5 md:hidden px-6 text-center pointer-events-auto z-10">
             <span className="text-[.7rem] font-semibold tracking-[3px] uppercase" style={{ color: 'var(--accent)' }}>
               <TypeWriter words={['Tech Entrepreneur', 'Linux Expert', 'AI Enthusiast']} typeSpeed={60} deleteSpeed={30} pauseDuration={2500} />
@@ -105,13 +152,9 @@ export default function HomePage({ config }) {
             <p className="text-[.9rem] leading-[1.7] text-[var(--text-secondary)] font-light max-w-[300px]">
               {t.hero_desc || "I create clean, modern interfaces and seamless experiences that turn user needs into business growth."}
             </p>
-            <a href="#contact" className="btn-primary">
-              <span>Book a free call</span>
-            </a>
+            <a href="#contact" className="btn-primary"><span>Book a free call</span></a>
           </div>
         </div>
-
-        {/* Bottom Service Pills */}
         <div className="hero-bottom-row">
           <div className="max-w-[1400px] mx-auto flex justify-center">
             <div className="service-pills pb-4 px-4 w-full justify-start md:justify-center">
@@ -124,8 +167,6 @@ export default function HomePage({ config }) {
             </div>
           </div>
         </div>
-
-        {/* Scroll Indicator */}
         <div className="scroll-indicator hidden md:flex">
           <span className="text-[.6rem] tracking-[3px] uppercase" style={{ color: 'var(--muted)' }}>Scroll</span>
           <FaArrowDown size={10} style={{ color: 'var(--accent)', animation: 'fadeInUp 1.5s ease-in-out infinite' }} />
@@ -162,7 +203,7 @@ export default function HomePage({ config }) {
 
       <div className="animated-line" />
 
-      {/* ===== SERVICES ===== */}
+      {/* ===== SERVICES (Clickable!) ===== */}
       <section id="services" className="relative z-10 py-20 lg:py-28" style={{ background: 'var(--bg2)' }}>
         <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
           <AnimatedSection><div className="sec-label mb-5">{t.sec_services}</div></AnimatedSection>
@@ -174,13 +215,22 @@ export default function HomePage({ config }) {
           <AnimatedSection delay={80}>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {t.services.map((svc, i) => (
-                <div key={i} className={`service-card ${i === 0 ? 'active' : ''}`}>
+                <div key={i}
+                  className={`service-card clickable ${i === 0 ? 'active' : ''}`}
+                  onClick={() => openDetail(svc, 'service')}
+                  role="button" tabIndex={0}
+                  onKeyDown={(e) => { if (e.key === 'Enter') openDetail(svc, 'service'); }}
+                >
                   <div className="flex items-start justify-between mb-6">
                     <div className="service-icon"><DynamicIcon name={svc.icon} size={22} /></div>
                     <span className="service-num">{svc.num}</span>
                   </div>
                   <h4 className="text-[1rem] font-bold mb-3 tracking-tight" style={{ color: 'var(--text)' }}>{svc.title}</h4>
                   <p className="text-[.85rem] leading-[1.7]" style={{ color: 'var(--muted)' }}>{svc.desc}</p>
+                  <div className="click-hint">
+                    <FaExpandAlt size={8} />
+                    <span>Click for details</span>
+                  </div>
                 </div>
               ))}
             </div>
@@ -220,7 +270,7 @@ export default function HomePage({ config }) {
         </div>
       </section>
 
-      {/* ===== PROJECTS ===== */}
+      {/* ===== PROJECTS (Clickable!) ===== */}
       <section id="projects" className="relative z-10 py-20 lg:py-28">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
           <AnimatedSection>
@@ -240,7 +290,12 @@ export default function HomePage({ config }) {
           <AnimatedSection delay={80}>
             <div className="masonry-grid">
               {t.projects.map((proj, i) => (
-                <div key={i} className="project-card group">
+                <div key={i}
+                  className="project-card group clickable"
+                  onClick={() => openDetail(proj, 'project')}
+                  role="button" tabIndex={0}
+                  onKeyDown={(e) => { if (e.key === 'Enter') openDetail(proj, 'project'); }}
+                >
                   <div className="project-icon-area relative">
                     <DynamicIcon name={proj.icon} size={56} className="transition-all duration-700 group-hover:scale-125" style={{ color: 'rgba(0,212,170,0.12)' }} />
                     <div className="project-overlay">
@@ -251,8 +306,13 @@ export default function HomePage({ config }) {
                   </div>
                   <div className="p-5" style={{ borderTop: '1px solid var(--border)' }}>
                     <p className="text-[.82rem] mb-4 leading-[1.7]" style={{ color: 'var(--muted)' }}>{proj.desc}</p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {proj.tags.map((tag, j) => (<span key={j} className="tag-chip">{tag}</span>))}
+                    <div className="flex items-center justify-between">
+                      <div className="flex flex-wrap gap-1.5">
+                        {proj.tags.map((tag, j) => (<span key={j} className="tag-chip">{tag}</span>))}
+                      </div>
+                      <div className="click-hint" style={{ marginTop: 0 }}>
+                        <FaExpandAlt size={8} />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -262,7 +322,7 @@ export default function HomePage({ config }) {
         </div>
       </section>
 
-      {/* ===== BLOG ===== */}
+      {/* ===== BLOG (Clickable!) ===== */}
       <section className="relative z-10 py-20 lg:py-28" style={{ background: 'var(--bg2)', borderTop: '1px solid var(--border)' }}>
         <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
@@ -274,13 +334,19 @@ export default function HomePage({ config }) {
             <AnimatedSection delay={100} direction="right">
               <div className="flex flex-col">
                 {t.blog_posts.map((post, i) => (
-                  <a key={i} href="#" className="group flex items-center justify-between py-5 transition-all hover:pl-2" style={{ borderBottom: '1px solid var(--border)' }}>
+                  <div key={i}
+                    className="blog-post-link group flex items-center justify-between py-5 transition-all hover:pl-2"
+                    style={{ borderBottom: '1px solid var(--border)', cursor: 'pointer' }}
+                    onClick={() => { setBlogModalData(post); setBlogModalOpen(true); }}
+                    role="button" tabIndex={0}
+                    onKeyDown={(e) => { if (e.key === 'Enter') { setBlogModalData(post); setBlogModalOpen(true); } }}
+                  >
                     <div>
                       <span className="block text-[.68rem] tracking-[1px] uppercase mb-1 font-semibold" style={{ color: 'var(--muted)' }}>{post.date}</span>
                       <span className="text-[.92rem] font-medium group-hover:text-[var(--accent)] transition-colors" style={{ color: 'var(--text)' }}>{post.title}</span>
                     </div>
                     <FaArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-all" style={{ color: 'var(--accent)' }} />
-                  </a>
+                  </div>
                 ))}
               </div>
             </AnimatedSection>

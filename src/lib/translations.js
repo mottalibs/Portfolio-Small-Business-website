@@ -29,18 +29,24 @@ export const translations = {
         desc: "Lab-quality photo printing, photo restoration, graphic design, document optimization, and complete computer services.",
         icon: "FaPrint",
         num: "01",
+        details: "We provide professional-grade digital services right at your doorstep in Sariakandi. From passport-size photos to large banners, from simple photocopies to complex legal document formatting — we handle it all with precision and care. Our equipment is regularly maintained to ensure the highest output quality.",
+        features: ["Lab-quality photo printing & restoration", "High-resolution scanning & digitization", "Professional CV & resume design", "Government form fill-up assistance", "Banner, poster & visiting card design", "Document formatting & optimization"],
       },
       {
         title: "AI & Automation",
         desc: "Local AI model deployment, Google AI Studio integration, WhatsApp Business AI automation, and smart workflow solutions.",
         icon: "FaRocket",
         num: "02",
+        details: "Leveraging the power of artificial intelligence to automate repetitive tasks, enhance customer interactions, and streamline business operations. We deploy AI solutions locally so your data stays private and secure, while still benefiting from cutting-edge technology.",
+        features: ["Local AI model deployment & fine-tuning", "Google AI Studio integration", "WhatsApp Business AI chatbot automation", "Smart workflow & task automation", "AI-powered document processing", "Custom AI solutions for small businesses"],
       },
       {
         title: "Linux & Hardware",
         desc: "Expert-level Linux administration, Arch Linux setup, hardware diagnostics, component-level analysis, and system optimization.",
         icon: "FaLaptopCode",
         num: "03",
+        details: "With deep expertise in Linux systems and hardware diagnostics, we offer comprehensive technical support. Whether you need a fresh Arch Linux installation, system performance tuning, or component-level hardware repair — we deliver reliable solutions that keep your systems running at peak performance.",
+        features: ["Arch Linux & EndeavourOS setup", "Server administration & security hardening", "Hardware diagnostics & repair", "Component-level motherboard analysis", "System performance optimization", "Data recovery & backup solutions"],
       },
     ],
     // Projects
@@ -57,6 +63,8 @@ export const translations = {
         tags: ["Business", "IT Services", "Retail"],
         icon: "FaStoreAlt",
         category: "Business",
+        details: "Chan Matha Digital Point is a pioneering hybrid business in rural Sariakandi that combines modern IT/Computer services with a traditional retail store. It serves as the go-to destination for all digital needs — from printing and scanning to AI-powered solutions — while also providing daily essentials to the local community.",
+        features: ["Full-service IT & computer solutions", "Daily essentials & retail products", "Community tech hub & training center", "Digital literacy workshops"],
       },
       {
         title: "Academic Planner",
@@ -65,6 +73,8 @@ export const translations = {
         tags: ["Education", "Planning", "Design"],
         icon: "FaFileAlt",
         category: "Education",
+        details: "A comprehensive academic planning tool designed specifically for secondary school students and teachers in Bangladesh. Features professionally formatted lesson plans, dialogue scripts, and study materials that align with the national curriculum.",
+        features: ["Curriculum-aligned lesson planning", "Professionally designed templates", "Interactive dialogue formats", "Print-ready document output"],
       },
       {
         title: "NGO & School IT Support",
@@ -73,6 +83,8 @@ export const translations = {
         tags: ["NGO", "Education", "Community"],
         icon: "FaGlobe",
         category: "Community",
+        details: "Providing end-to-end IT and administrative support to local non-governmental organizations and Chaluabari High School. From digitizing records to creating professional documentation, this initiative bridges the technology gap in community organizations.",
+        features: ["Digital record management", "Professional document design", "IT infrastructure setup", "Staff training & support"],
       },
     ],
     // Testimonials
@@ -108,9 +120,9 @@ export const translations = {
     blog_title: "What's new?",
     blog_sub: "My blog and news.",
     blog_posts: [
-      { date: "Mar 21, Blog", title: "Let this be pleasant to you" },
-      { date: "May 11", title: "How do you use time looking for projects?" },
-      { date: "Apr 17", title: "Tips and empathy in design" },
+      { date: "Mar 21, Blog", title: "Let this be pleasant to you", content: "Exploring the joy of building digital solutions for local communities. How small tech initiatives can create big impact in rural areas and transform everyday life through accessible technology." },
+      { date: "May 11", title: "How do you use time looking for projects?", content: "Time management strategies for freelancers and entrepreneurs. Discovering the balance between searching for new opportunities and delivering excellence on current projects." },
+      { date: "Apr 17", title: "Tips and empathy in design", content: "Why empathy is the cornerstone of great design. Understanding your users, their pain points, and crafting solutions that genuinely improve their experience and workflow." },
     ],
   },
   bn: {
@@ -143,18 +155,24 @@ export const translations = {
         desc: "ল্যাব-কোয়ালিটি ফটো প্রিন্টিং, ফটো রিস্টোরেশন, গ্রাফিক ডিজাইন, ডকুমেন্ট অপটিমাইজেশন।",
         icon: "FaPrint",
         num: "০১",
+        details: "সারিয়াকান্দিতে আপনার দোরগোড়ায় প্রফেশনাল-গ্রেড ডিজিটাল সেবা প্রদান করি। পাসপোর্ট সাইজ ফটো থেকে বড় ব্যানার, সাধারণ ফটোকপি থেকে জটিল আইনি ডকুমেন্ট ফরম্যাটিং — সবকিছু নিখুঁতভাবে করা হয়।",
+        features: ["ল্যাব-কোয়ালিটি ফটো প্রিন্টিং", "হাই-রেজোলিউশন স্ক্যানিং", "প্রফেশনাল সিভি ডিজাইন", "সরকারি ফরম ফিলাপ", "ব্যানার ও ভিজিটিং কার্ড ডিজাইন", "ডকুমেন্ট ফরম্যাটিং"],
       },
       {
         title: "AI ও অটোমেশন",
         desc: "লোকাল AI মডেল, Google AI Studio ইন্টিগ্রেশন, WhatsApp Business AI অটোমেশন।",
         icon: "FaRocket",
         num: "০২",
+        details: "কৃত্রিম বুদ্ধিমত্তার শক্তি কাজে লাগিয়ে পুনরাবৃত্তিমূলক কাজ স্বয়ংক্রিয় করা, গ্রাহক ইন্টারঅ্যাকশন উন্নত করা এবং ব্যবসায়িক কার্যক্রম সুগম করা হয়।",
+        features: ["লোকাল AI মডেল ডিপ্লয়মেন্ট", "Google AI Studio ইন্টিগ্রেশন", "WhatsApp Business AI চ্যাটবট", "স্মার্ট ওয়ার্কফ্লো অটোমেশন", "AI-ভিত্তিক ডকুমেন্ট প্রসেসিং", "ছোট ব্যবসার জন্য কাস্টম AI"],
       },
       {
         title: "লিনাক্স ও হার্ডওয়্যার",
         desc: "বিশেষজ্ঞ-স্তরের লিনাক্স প্রশাসন, আর্চ লিনাক্স সেটআপ, হার্ডওয়্যার ডায়াগনস্টিকস।",
         icon: "FaLaptopCode",
         num: "০৩",
+        details: "লিনাক্স সিস্টেম এবং হার্ডওয়্যার ডায়াগনস্টিকসে গভীর দক্ষতার সাথে ব্যাপক প্রযুক্তিগত সহায়তা প্রদান করি।",
+        features: ["আর্চ লিনাক্স ও EndeavourOS সেটআপ", "সার্ভার অ্যাডমিনিস্ট্রেশন", "হার্ডওয়্যার ডায়াগনস্টিকস ও মেরামত", "মাদারবোর্ড বিশ্লেষণ", "সিস্টেম পারফরম্যান্স অপটিমাইজেশন", "ডাটা রিকভারি"],
       },
     ],
     // Projects
@@ -171,6 +189,8 @@ export const translations = {
         tags: ["ব্যবসা", "IT সেবা", "খুচরা"],
         icon: "FaStoreAlt",
         category: "ব্যবসা",
+        details: "চান মাথা ডিজিটাল পয়েন্ট সারিয়াকান্দিতে একটি অগ্রণী হাইব্রিড ব্যবসা যা আধুনিক IT সেবা ও ঐতিহ্যবাহী খুচরা দোকান একত্রিত করেছে।",
+        features: ["পূর্ণ-সেবা IT ও কম্পিউটার সমাধান", "দৈনন্দিন পণ্য ও খুচরা", "কমিউনিটি টেক হাব", "ডিজিটাল সাক্ষরতা কর্মশালা"],
       },
       {
         title: "একাডেমিক প্ল্যানার",
@@ -179,6 +199,8 @@ export const translations = {
         tags: ["শিক্ষা", "পরিকল্পনা", "ডিজাইন"],
         icon: "FaFileAlt",
         category: "শিক্ষা",
+        details: "বাংলাদেশের মাধ্যমিক বিদ্যালয়ের শিক্ষার্থী ও শিক্ষকদের জন্য বিশেষভাবে ডিজাইন করা একটি ব্যাপক একাডেমিক পরিকল্পনা টুল।",
+        features: ["পাঠ্যক্রম-সংযুক্ত পাঠ পরিকল্পনা", "প্রফেশনালভাবে ডিজাইন করা টেমপ্লেট", "ইন্টারেক্টিভ ডায়ালগ ফরম্যাট", "প্রিন্ট-রেডি আউটপুট"],
       },
       {
         title: "NGO ও স্কুল IT সাপোর্ট",
@@ -187,6 +209,8 @@ export const translations = {
         tags: ["NGO", "শিক্ষা", "সম্প্রদায়"],
         icon: "FaGlobe",
         category: "সম্প্রদায়",
+        details: "স্থানীয় বেসরকারি সংস্থা ও চালুয়াবাড়ী উচ্চ বিদ্যালয়কে সম্পূর্ণ IT ও প্রশাসনিক সহায়তা প্রদান।",
+        features: ["ডিজিটাল রেকর্ড ম্যানেজমেন্ট", "প্রফেশনাল ডকুমেন্ট ডিজাইন", "IT অবকাঠামো সেটআপ", "কর্মী প্রশিক্ষণ ও সাপোর্ট"],
       },
     ],
     // Testimonials
@@ -222,9 +246,9 @@ export const translations = {
     blog_title: "নতুন কী?",
     blog_sub: "আমার ব্লগ ও খবর।",
     blog_posts: [
-      { date: "মার্চ ২১, ব্লগ", title: "এটি আপনার জন্য আনন্দদায়ক হোক" },
-      { date: "মে ১১", title: "প্রজেক্ট খোঁজার জন্য সময় কীভাবে ব্যবহার করবেন?" },
-      { date: "এপ্রিল ১৭", title: "ডিজাইনে টিপস ও সহানুভূতি" },
+      { date: "মার্চ ২১, ব্লগ", title: "এটি আপনার জন্য আনন্দদায়ক হোক", content: "স্থানীয় সম্প্রদায়ের জন্য ডিজিটাল সমাধান তৈরির আনন্দ অন্বেষণ। ছোট প্রযুক্তি উদ্যোগ কীভাবে গ্রামীণ এলাকায় বড় প্রভাব তৈরি করতে পারে।" },
+      { date: "মে ১১", title: "প্রজেক্ট খোঁজার জন্য সময় কীভাবে ব্যবহার করবেন?", content: "ফ্রিল্যান্সার ও উদ্যোক্তাদের জন্য সময় ব্যবস্থাপনা কৌশল। নতুন সুযোগ খোঁজা ও বর্তমান প্রজেক্টে শ্রেষ্ঠত্ব অর্জনের মধ্যে ভারসাম্য।" },
+      { date: "এপ্রিল ১৭", title: "ডিজাইনে টিপস ও সহানুভূতি", content: "কেন সহানুভূতি দুর্দান্ত ডিজাইনের ভিত্তি। আপনার ব্যবহারকারীদের বোঝা এবং তাদের অভিজ্ঞতা উন্নত করার সমাধান তৈরি করা।" },
     ],
   }
 };

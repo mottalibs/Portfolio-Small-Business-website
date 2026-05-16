@@ -442,6 +442,31 @@ textarea.form-input { min-height:130px; resize:none; }
 .count-up { font-variant-numeric:tabular-nums; }
 @keyframes fadeInUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
 
+/* ===== DETAIL MODAL ===== */
+@keyframes modalOverlayIn { from{opacity:0} to{opacity:1} }
+@keyframes modalPanelIn { from{opacity:0;transform:translateY(30px) scale(.97)} to{opacity:1;transform:translateY(0) scale(1)} }
+
+.detail-modal-panel::-webkit-scrollbar { width:4px; }
+.detail-modal-panel::-webkit-scrollbar-track { background:transparent; }
+.detail-modal-panel::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.08); border-radius:10px; }
+
+/* Clickable cards */
+.service-card.clickable, .project-card.clickable { cursor:pointer; }
+.service-card.clickable:active, .project-card.clickable:active { transform:translateY(-2px) scale(0.98); }
+
+/* Click hint badge */
+.click-hint {
+  display:inline-flex; align-items:center; gap:4px;
+  font-size:.6rem; letter-spacing:1px; text-transform:uppercase; font-weight:600;
+  color:var(--muted); opacity:0; transition:opacity .3s;
+  margin-top:.75rem;
+}
+.service-card:hover .click-hint, .project-card:hover .click-hint { opacity:1; }
+
+/* Blog post clickable */
+.blog-post-link { cursor:pointer; }
+.blog-post-link:active { transform:scale(0.99); }
+
 /* WhatsApp Pulse */
 @keyframes waPulse {
   0%{box-shadow:0 0 0 0 rgba(37,211,102,.4)} 70%{box-shadow:0 0 0 12px rgba(37,211,102,0)} 100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}
