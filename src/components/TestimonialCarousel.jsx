@@ -15,15 +15,29 @@ export default function TestimonialCarousel({ testimonials: prop }) {
   const { lang, t } = useLanguage();
   const [current, setCurrent] = useState(0);
   const [auto, setAuto] = useState(true);
+  const [progress, setProgress] = useState(0);
   const timer = useRef(null);
+  const progressRef = useRef(null);
   const next = useCallback(() => setCurrent(p => (p + 1) % testimonials.length), [testimonials.length]);
   const prev = useCallback(() => setCurrent(p => (p - 1 + testimonials.length) % testimonials.length), [testimonials.length]);
 
   useEffect(() => {
     if (!auto) return;
-    timer.current = setInterval(next, 5000);
-    return () => clearInterval(timer.current);
-  }, [auto, next]);
+    setProgress(0);
+    const duration = 5000;
+    const start = Date.now();
+    const tick = () => {
+      const elapsed = Date.now() - start;
+      setProgress(Math.min((elapsed / duration) * 100, 100));
+      if (elapsed < duration) {
+        progressRef.current = requestAnimationFrame(tick);
+      } else {
+        next();
+      }
+    };
+    progressRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(progressRef.current);
+  }, [auto, current, next]);
 
   const manual = (fn) => { setAuto(false); fn(); setTimeout(() => setAuto(true), 10000); };
 
@@ -33,14 +47,16 @@ export default function TestimonialCarousel({ testimonials: prop }) {
         <AnimatedSection>
           <div className="relative text-center py-16" onMouseEnter={() => setAuto(false)} onMouseLeave={() => setAuto(true)}>
             <div className="flex justify-center mb-8">
-              <FaQuoteLeft size={48} style={{ color: 'rgba(212,98,43,0.12)' }} />
+              <FaQuoteLeft size={48} style={{ color: 'rgba(0,212,170,0.1)' }} />
             </div>
-            <p className="text-[1.15rem] sm:text-[1.35rem] leading-[2] mb-10 max-w-[700px] mx-auto" style={{ color: 'var(--text-secondary)', fontStyle: 'italic' }}>
-              &ldquo;{lang === 'bn' ? testimonials[current]?.text_bn : testimonials[current]?.text_en}&rdquo;
-            </p>
+            <div className="relative overflow-hidden" style={{ minHeight: '120px' }}>
+              <p className="text-[1.15rem] sm:text-[1.35rem] leading-[2] mb-10 max-w-[700px] mx-auto transition-all duration-500" style={{ color: 'var(--text-secondary)', fontStyle: 'italic' }}>
+                &ldquo;{lang === 'bn' ? testimonials[current]?.text_bn : testimonials[current]?.text_en}&rdquo;
+              </p>
+            </div>
             <div className="flex flex-col items-center gap-3">
-              <div className="w-16 h-16 rounded-full flex items-center justify-center text-xl font-bold"
-                style={{ background: 'var(--bg4)', color: 'var(--text)', border: '2px solid var(--border)' }}>
+              <div className="w-16 h-16 rounded-2xl flex items-center justify-center text-xl font-bold"
+                style={{ background: 'var(--bg4)', color: 'var(--accent)', border: '1px solid rgba(0,212,170,0.15)' }}>
                 {(testimonials[current]?.name || 'U')[0]}
               </div>
               <div className="text-center">
@@ -54,11 +70,17 @@ export default function TestimonialCarousel({ testimonials: prop }) {
             </div>
             <div className="flex justify-center gap-1 mt-6">
               {[...Array(5)].map((_, i) => (
-                <FaStar key={i} size={14} style={{ color: i < (testimonials[current]?.rating || 5) ? 'var(--accent)' : 'rgba(255,255,255,0.1)' }} />
+                <FaStar key={i} size={14} style={{ color: i < (testimonials[current]?.rating || 5) ? 'var(--accent)' : 'rgba(255,255,255,0.08)' }} />
               ))}
             </div>
-            <div className="flex items-center justify-center gap-6 mt-10">
-              <button onClick={() => manual(prev)} className="w-10 h-10 rounded-full border flex items-center justify-center hover:bg-[var(--accent)] hover:text-white hover:border-[var(--accent)] cursor-pointer transition-all"
+
+            {/* Auto-play progress bar */}
+            <div className="w-24 h-0.5 mx-auto mt-6 rounded-full overflow-hidden" style={{ background: 'var(--border)' }}>
+              <div className="h-full rounded-full transition-none" style={{ width: `${progress}%`, background: 'var(--gradient-accent)' }} />
+            </div>
+
+            <div className="flex items-center justify-center gap-6 mt-8">
+              <button onClick={() => manual(prev)} className="w-10 h-10 rounded-xl border flex items-center justify-center hover:bg-[var(--accent)] hover:text-[#0a0a0f] hover:border-[var(--accent)] cursor-pointer transition-all"
                 style={{ borderColor: 'var(--border)', color: 'var(--muted)', background: 'transparent' }} aria-label="Previous">
                 <FaChevronLeft size={12} />
               </button>
@@ -66,11 +88,11 @@ export default function TestimonialCarousel({ testimonials: prop }) {
                 {testimonials.map((_, i) => (
                   <button key={i} onClick={() => manual(() => setCurrent(i))}
                     className="w-2 h-2 rounded-full cursor-pointer border-none transition-all"
-                    style={{ background: i === current ? 'var(--accent)' : 'rgba(255,255,255,0.1)', transform: i === current ? 'scale(1.4)' : 'scale(1)' }}
+                    style={{ background: i === current ? 'var(--accent)' : 'rgba(255,255,255,0.08)', transform: i === current ? 'scale(1.5)' : 'scale(1)' }}
                     aria-label={`Testimonial ${i + 1}`} />
                 ))}
               </div>
-              <button onClick={() => manual(next)} className="w-10 h-10 rounded-full border flex items-center justify-center hover:bg-[var(--accent)] hover:text-white hover:border-[var(--accent)] cursor-pointer transition-all"
+              <button onClick={() => manual(next)} className="w-10 h-10 rounded-xl border flex items-center justify-center hover:bg-[var(--accent)] hover:text-[#0a0a0f] hover:border-[var(--accent)] cursor-pointer transition-all"
                 style={{ borderColor: 'var(--border)', color: 'var(--muted)', background: 'transparent' }} aria-label="Next">
                 <FaChevronRight size={12} />
               </button>

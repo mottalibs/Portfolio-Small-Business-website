@@ -5,8 +5,9 @@ import { useLanguage } from '@/components/LanguageProvider';
 import AnimatedSection from '@/components/AnimatedSection';
 import ContactForm from '@/components/ContactForm';
 import TestimonialCarousel from '@/components/TestimonialCarousel';
+import TypeWriter from '@/components/TypeWriter';
 import { DynamicIcon } from '@/lib/icons';
-import { FaFacebookF, FaGithub, FaEnvelope, FaArrowRight, FaArrowDown, FaPrint, FaRocket, FaLaptopCode, FaMobileAlt, FaPalette, FaSearch } from 'react-icons/fa';
+import { FaFacebookF, FaGithub, FaEnvelope, FaArrowRight, FaArrowDown, FaPrint, FaRocket, FaLaptopCode, FaMobileAlt, FaPalette, FaSearch, FaLinux, FaPython, FaNodeJs, FaReact, FaDocker, FaDatabase, FaTerminal, FaCogs, FaCloud, FaShieldAlt, FaBrain, FaCode } from 'react-icons/fa';
 
 /* CountUp */
 function useCountUp(end, duration = 2000) {
@@ -37,34 +38,51 @@ export default function HomePage({ config }) {
   const clientsCounter = useCountUp(t.stat_clients_value, 2000);
 
   const servicePills = [
-    { icon: <FaPrint size={12} />, label: 'IT Services', color: '#D4622B' },
-    { icon: <FaLaptopCode size={12} />, label: 'Linux Admin', color: '#E8783F' },
-    { icon: <FaRocket size={12} />, label: 'AI Automation', color: '#FF8C42' },
-    { icon: <FaPalette size={12} />, label: 'Graphic Design', color: '#D4622B' },
-    { icon: <FaSearch size={12} />, label: 'Hardware Expert', color: '#E8783F' },
-    { icon: <FaMobileAlt size={12} />, label: 'Digital Solutions', color: '#FF8C42' },
+    { icon: <FaPrint size={12} />, label: 'IT Services', color: '#00d4aa' },
+    { icon: <FaLaptopCode size={12} />, label: 'Linux Admin', color: '#7c5cfc' },
+    { icon: <FaRocket size={12} />, label: 'AI Automation', color: '#ff6b9d' },
+    { icon: <FaPalette size={12} />, label: 'Graphic Design', color: '#00d4aa' },
+    { icon: <FaSearch size={12} />, label: 'Hardware Expert', color: '#7c5cfc' },
+    { icon: <FaMobileAlt size={12} />, label: 'Digital Solutions', color: '#ff6b9d' },
+  ];
+
+  const techStack = [
+    { icon: <FaLinux />, name: 'Linux' },
+    { icon: <FaPython />, name: 'Python' },
+    { icon: <FaNodeJs />, name: 'Node.js' },
+    { icon: <FaReact />, name: 'React' },
+    { icon: <FaDocker />, name: 'Docker' },
+    { icon: <FaDatabase />, name: 'Database' },
+    { icon: <FaTerminal />, name: 'Shell' },
+    { icon: <FaCogs />, name: 'Automation' },
+    { icon: <FaCloud />, name: 'Cloud' },
+    { icon: <FaShieldAlt />, name: 'Security' },
+    { icon: <FaBrain />, name: 'AI/ML' },
+    { icon: <FaCode />, name: 'Web Dev' },
   ];
 
   return (
     <div className="relative overflow-hidden w-full">
 
-      {/* ===== HERO — Cinematic with Background Name ===== */}
+      {/* ===== HERO ===== */}
       <header className="hero-section">
-        {/* Massive Name Behind */}
         <div className="hero-bg-name" aria-hidden="true">MOTTALIB</div>
 
-        {/* Hero Photo */}
         <div className="hero-image-wrap">
           <Image src="/Me.jpg" alt="Mottalib" fill sizes="(max-width:768px) 300px, 600px" className="object-cover object-top" priority />
           <div className="hero-image-gradient" />
         </div>
 
-        {/* Content overlay */}
         <div className="hero-content px-6 lg:px-20">
           {/* Left text */}
-          <div className="absolute left-6 lg:left-20 top-1/2 -translate-y-1/2 max-w-[320px] pointer-events-auto z-10 hidden md:block">
+          <div className="absolute left-6 lg:left-20 top-1/2 -translate-y-1/2 max-w-[340px] pointer-events-auto z-10 hidden md:block">
             <AnimatedSection direction="left">
-              <p className="text-[1.05rem] leading-[1.8] text-[var(--text-secondary)] font-light">
+              <div className="mb-4">
+                <span className="text-[.7rem] font-semibold tracking-[4px] uppercase" style={{ color: 'var(--accent)' }}>
+                  <TypeWriter words={['Tech Entrepreneur', 'Linux Expert', 'AI Enthusiast', 'Hardware Specialist']} typeSpeed={60} deleteSpeed={30} pauseDuration={2500} />
+                </span>
+              </div>
+              <p className="text-[1rem] leading-[1.9] text-[var(--text-secondary)] font-light">
                 {t.hero_desc || "I create clean, modern interfaces and seamless experiences that turn user needs into business growth."}
               </p>
             </AnimatedSection>
@@ -78,15 +96,18 @@ export default function HomePage({ config }) {
               </a>
             </AnimatedSection>
           </div>
-          
-          {/* Mobile Text & CTA (Visible only on small screens) */}
-          <div className="absolute bottom-32 left-0 right-0 flex flex-col items-center gap-6 md:hidden px-6 text-center pointer-events-auto z-10">
-             <p className="text-[.95rem] leading-[1.7] text-[var(--text-secondary)] font-light max-w-[300px]">
-                {t.hero_desc || "I create clean, modern interfaces and seamless experiences that turn user needs into business growth."}
-             </p>
-             <a href="#contact" className="btn-primary">
-               <span>Book a free call</span>
-             </a>
+
+          {/* Mobile */}
+          <div className="absolute bottom-32 left-0 right-0 flex flex-col items-center gap-5 md:hidden px-6 text-center pointer-events-auto z-10">
+            <span className="text-[.7rem] font-semibold tracking-[3px] uppercase" style={{ color: 'var(--accent)' }}>
+              <TypeWriter words={['Tech Entrepreneur', 'Linux Expert', 'AI Enthusiast']} typeSpeed={60} deleteSpeed={30} pauseDuration={2500} />
+            </span>
+            <p className="text-[.9rem] leading-[1.7] text-[var(--text-secondary)] font-light max-w-[300px]">
+              {t.hero_desc || "I create clean, modern interfaces and seamless experiences that turn user needs into business growth."}
+            </p>
+            <a href="#contact" className="btn-primary">
+              <span>Book a free call</span>
+            </a>
           </div>
         </div>
 
@@ -95,15 +116,19 @@ export default function HomePage({ config }) {
           <div className="max-w-[1400px] mx-auto flex justify-center">
             <div className="service-pills pb-4 px-4 w-full justify-start md:justify-center">
               {servicePills.map((pill, i) => (
-                <div key={i} className="service-pill" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
-                  <div className="pill-icon" style={{ color: pill.color }}>
-                    {pill.icon}
-                  </div>
-                  <span className="text-[.85rem] font-medium text-[var(--text-secondary)]">{pill.label}</span>
+                <div key={i} className="service-pill">
+                  <div className="pill-icon" style={{ color: pill.color }}>{pill.icon}</div>
+                  <span className="text-[.82rem] font-medium text-[var(--text-secondary)]">{pill.label}</span>
                 </div>
               ))}
             </div>
           </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="scroll-indicator hidden md:flex">
+          <span className="text-[.6rem] tracking-[3px] uppercase" style={{ color: 'var(--muted)' }}>Scroll</span>
+          <FaArrowDown size={10} style={{ color: 'var(--accent)', animation: 'fadeInUp 1.5s ease-in-out infinite' }} />
         </div>
       </header>
 
@@ -115,7 +140,7 @@ export default function HomePage({ config }) {
               <div className="sec-label mb-6">{t.sec_about}</div>
               <h2 className="sec-title mb-4" style={{ fontSize: 'clamp(1.5rem,3vw,2.2rem)' }}>{t.about_intro_title}</h2>
               <p className="text-[.95rem] leading-[1.9]" style={{ color: 'var(--muted)' }}>{t.about_intro_desc}</p>
-              <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-lg" style={{ background: 'var(--accent-dim)', border: '1px solid rgba(212,98,43,0.15)' }}>
+              <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-xl" style={{ background: 'var(--accent-dim)', border: '1px solid rgba(0,212,170,0.12)' }}>
                 <span className="text-[.78rem] font-semibold" style={{ color: 'var(--accent)' }}>{t.about_location}</span>
               </div>
             </AnimatedSection>
@@ -163,6 +188,38 @@ export default function HomePage({ config }) {
         </div>
       </section>
 
+      {/* ===== TECH STACK MARQUEE ===== */}
+      <section className="relative z-10 py-16" style={{ borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-8 mb-10">
+          <AnimatedSection>
+            <div className="sec-label mb-3">Tech Stack</div>
+            <h2 className="sec-title" style={{ fontSize: 'clamp(1.5rem,2.5vw,2rem)' }}>
+              Tools & <span className="gradient-text">Technologies</span>
+            </h2>
+          </AnimatedSection>
+        </div>
+        <div className="marquee-container mb-4">
+          <div className="marquee-track">
+            {[...techStack, ...techStack].map((tech, i) => (
+              <div key={i} className="tech-chip">
+                <span className="tech-icon">{tech.icon}</span>
+                <span>{tech.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="marquee-container">
+          <div className="marquee-track marquee-track-reverse">
+            {[...techStack.slice().reverse(), ...techStack.slice().reverse()].map((tech, i) => (
+              <div key={i} className="tech-chip">
+                <span className="tech-icon">{tech.icon}</span>
+                <span>{tech.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ===== PROJECTS ===== */}
       <section id="projects" className="relative z-10 py-20 lg:py-28">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
@@ -185,7 +242,7 @@ export default function HomePage({ config }) {
               {t.projects.map((proj, i) => (
                 <div key={i} className="project-card group">
                   <div className="project-icon-area relative">
-                    <DynamicIcon name={proj.icon} size={56} className="transition-all duration-700 group-hover:scale-125" style={{ color: 'rgba(212,98,43,0.15)' }} />
+                    <DynamicIcon name={proj.icon} size={56} className="transition-all duration-700 group-hover:scale-125" style={{ color: 'rgba(0,212,170,0.12)' }} />
                     <div className="project-overlay">
                       <div className="status-badge mb-2"><span className="dot" /><span>{proj.status}</span></div>
                       <h4 className="text-[1.1rem] font-bold mb-1" style={{ color: 'var(--text)' }}>{proj.title}</h4>
@@ -241,9 +298,9 @@ export default function HomePage({ config }) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
             <AnimatedSection direction="left">
               <h2 className="sec-title mb-2" style={{ fontSize: 'clamp(2rem,4vw,3.5rem)' }}>{t.contact_cta_title}</h2>
-              <h2 className="sec-title mb-8" style={{ fontSize: 'clamp(2rem,4vw,3.5rem)', color: 'var(--accent)' }}>{t.contact_cta_sub}</h2>
+              <h2 className="sec-title mb-8 gradient-text" style={{ fontSize: 'clamp(2rem,4vw,3.5rem)' }}>{t.contact_cta_sub}</h2>
               <p className="text-[.92rem] leading-[1.85] mb-8 max-w-[400px]" style={{ color: 'var(--muted)' }}>{t.contact_desc}</p>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg mb-8" style={{ background: 'var(--accent-dim)', border: '1px solid rgba(212,98,43,0.15)' }}>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl mb-8" style={{ background: 'var(--accent-dim)', border: '1px solid rgba(0,212,170,0.12)' }}>
                 <span className="text-[.78rem] font-semibold" style={{ color: 'var(--accent)' }}>{t.about_location}</span>
               </div>
               <div className="social-row mt-4">

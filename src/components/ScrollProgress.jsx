@@ -22,12 +22,12 @@ export default function ScrollProgress() {
         position: 'fixed',
         top: 0,
         left: 0,
-        height: '2px',
+        height: '3px',
         width: `${progress}%`,
-        background: 'linear-gradient(90deg, var(--accent), var(--accent-2))',
+        background: 'linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3))',
         zIndex: 10000,
         transition: 'width 0.1s linear',
-        boxShadow: '0 0 10px rgba(0, 212, 170, 0.4)',
+        boxShadow: '0 0 15px rgba(0, 212, 170, 0.5), 0 0 30px rgba(124, 92, 252, 0.3)',
       }}
       role="progressbar"
       aria-valuenow={Math.round(progress)}

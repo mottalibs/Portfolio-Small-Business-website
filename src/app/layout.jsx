@@ -6,6 +6,8 @@ import Footer from '@/components/Footer';
 import BackToTop from '@/components/BackToTop';
 import Preloader from '@/components/Preloader';
 import ScrollProgress from '@/components/ScrollProgress';
+import ParticleCanvas from '@/components/ParticleCanvas';
+import CustomCursor from '@/components/CustomCursor';
 
 export const metadata = {
   title: 'Mottalib — Tech Entrepreneur | Linux & AI Enthusiast',
@@ -30,7 +32,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <meta name="theme-color" content="#0D0D0D" />
+        <meta name="theme-color" content="#0a0a0f" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -55,6 +57,8 @@ export default function RootLayout({ children }) {
           <LanguageProvider>
             <Preloader />
             <ScrollProgress />
+            <ParticleCanvas />
+            <CustomCursor />
             <Navbar />
             <main>{children}</main>
             <Footer />
