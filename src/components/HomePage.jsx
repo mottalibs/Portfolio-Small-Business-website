@@ -4,8 +4,9 @@ import Image from 'next/image';
 import { useLanguage } from '@/components/LanguageProvider';
 import AnimatedSection from '@/components/AnimatedSection';
 import ContactForm from '@/components/ContactForm';
+import Modal from '@/components/Modal';
 import { DynamicIcon } from '@/lib/icons';
-import { FaMapMarkerAlt, FaEnvelope, FaFacebookF, FaGithub, FaTerminal, FaFingerprint, FaCrosshairs, FaRegFolderOpen } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaEnvelope, FaFacebookF, FaGithub, FaFingerprint, FaCrosshairs, FaRegFolderOpen, FaAngleRight } from 'react-icons/fa';
 
 /* ===== Progress Bar Telemetry ===== */
 function TelemetryBar({ level }) {
@@ -43,9 +44,20 @@ export default function HomePage({ config }) {
   const email = config?.email || 'mottalib@example.com';
   const address = config?.address || t.about_location;
 
+  // Modal State
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalData, setModalData] = useState(null);
+
+  const openModal = (data) => {
+    setModalData(data);
+    setModalOpen(true);
+  };
+
   return (
     <div className="relative overflow-hidden w-full">
       <div className="viewport-frame"></div>
+      
+      <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)} data={modalData} />
       
       {/* ===== HERO SECTION ===== */}
       <header id="hero" className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-6 lg:px-8 pt-20">
@@ -97,7 +109,6 @@ export default function HomePage({ config }) {
           </div>
         </AnimatedSection>
 
-        {/* Floating Background Text */}
         <div className="absolute top-[20%] left-[-5%] text-[15vw] font-bold text-white opacity-[0.02] pointer-events-none heading-serif select-none whitespace-nowrap overflow-hidden">
           DOSSIER
         </div>
@@ -115,7 +126,6 @@ export default function HomePage({ config }) {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
             
-            {/* Image Profile */}
             <div className="lg:col-span-4 relative">
               <AnimatedSection direction="left">
                 <div className="glitch-wrapper border border-[var(--border)] aspect-[3/4] w-full max-w-[400px] mx-auto relative filter grayscale hover:grayscale-0 transition-all duration-700">
@@ -123,14 +133,12 @@ export default function HomePage({ config }) {
                   <div className="rec-badge">
                     <span className="dot"></span> REC_ACTIVE
                   </div>
-                  {/* Overlay crosshairs */}
                   <div className="absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-[var(--accent)]"></div>
                   <div className="absolute bottom-4 right-4 w-4 h-4 border-b-2 border-r-2 border-[var(--accent)]"></div>
                 </div>
               </AnimatedSection>
             </div>
 
-            {/* Bio Content */}
             <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-12">
               <AnimatedSection delay={100}>
                 <div className="border border-[var(--border)] p-8 bg-[var(--bg)] h-full relative group hover:border-[var(--accent)] transition-all duration-500">
@@ -154,7 +162,6 @@ export default function HomePage({ config }) {
                 </div>
               </AnimatedSection>
 
-              {/* Skills Telemetry */}
               <AnimatedSection delay={200} direction="right">
                 <div className="border border-[var(--border)] p-8 bg-[var(--bg)] h-full">
                   <div className="text-mono text-[0.65rem] text-[var(--muted)] mb-8 tracking-[2px] uppercase flex justify-between">
@@ -202,7 +209,10 @@ export default function HomePage({ config }) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {t.services.map((svc, i) => (
               <AnimatedSection key={i} delay={i * 100}>
-                <div className="border border-[var(--border)] bg-[var(--bg2)] p-8 group hover:border-[var(--accent)] transition-all duration-400 relative overflow-hidden h-full cursor-crosshair">
+                <div 
+                  onClick={() => openModal(svc)}
+                  className="border border-[var(--border)] bg-[var(--bg2)] p-8 group hover:border-[var(--accent)] transition-all duration-400 relative overflow-hidden h-full cursor-crosshair flex flex-col"
+                >
                   <div className="absolute top-0 right-0 w-16 h-16 bg-[var(--accent-dim)] -rotate-45 translate-x-8 -translate-y-8 group-hover:bg-[var(--accent)] transition-colors"></div>
                   
                   <div className="flex justify-between items-start mb-8">
@@ -211,9 +221,13 @@ export default function HomePage({ config }) {
                   </div>
                   
                   <h3 className="text-mono text-[1.1rem] font-bold mb-4 tracking-[1px]">{svc.title}</h3>
-                  <p className="text-[0.9rem] text-[var(--text-secondary)] leading-[1.7]">
+                  <p className="text-[0.9rem] text-[var(--text-secondary)] leading-[1.7] mb-8 flex-1">
                     {svc.desc}
                   </p>
+
+                  <div className="flex items-center gap-2 text-mono text-[0.65rem] text-[var(--muted)] group-hover:text-[var(--accent)] transition-colors mt-auto pt-4 border-t border-[var(--border)]">
+                    <FaAngleRight /> [ CLICK FOR DETAILS ]
+                  </div>
                 </div>
               </AnimatedSection>
             ))}
@@ -241,12 +255,14 @@ export default function HomePage({ config }) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {t.projects.map((proj, i) => (
               <AnimatedSection key={i} delay={i * 150}>
-                <div className="evidence-card h-full flex flex-col">
-                  <div className="preview-area group cursor-pointer">
+                <div 
+                  onClick={() => openModal(proj)}
+                  className="evidence-card h-full flex flex-col cursor-crosshair"
+                >
+                  <div className="preview-area group">
                     <DynamicIcon name={proj.icon} size={60} style={{ color: proj.color }} />
                     <div className="absolute top-4 left-4 text-mono text-[0.6rem] text-[var(--muted)]">FILE_ID: 00{i+1}</div>
                     
-                    {/* Hover Overlay */}
                     <div className="hover-reveal flex-col gap-2">
                       <FaRegFolderOpen size={24} />
                       <span>[ CLICK TO DECRYPT ]</span>
@@ -324,7 +340,6 @@ export default function HomePage({ config }) {
                 </a>
               </div>
 
-              {/* Social Array */}
               <div className="mt-12 pt-8 border-t border-[var(--border)]">
                 <div className="text-mono text-[0.65rem] text-[var(--muted)] tracking-[2px] mb-4">EXTERNAL_LINKS</div>
                 <div className="flex gap-4">
