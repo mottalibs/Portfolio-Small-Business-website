@@ -1,392 +1,205 @@
 'use client';
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { useLanguage } from '@/components/LanguageProvider';
-import AnimatedSection from '@/components/AnimatedSection';
-import ContactForm from '@/components/ContactForm';
-import TestimonialCarousel from '@/components/TestimonialCarousel';
-import TypeWriter from '@/components/TypeWriter';
-import DetailModal from '@/components/DetailModal';
-import { DynamicIcon } from '@/lib/icons';
-import { FaFacebookF, FaGithub, FaEnvelope, FaArrowRight, FaArrowDown, FaPrint, FaRocket, FaLaptopCode, FaMobileAlt, FaPalette, FaSearch, FaLinux, FaPython, FaNodeJs, FaReact, FaDocker, FaDatabase, FaTerminal, FaCogs, FaCloud, FaShieldAlt, FaBrain, FaCode, FaExpandAlt, FaTimes } from 'react-icons/fa';
-
-/* CountUp */
-function useCountUp(end, duration = 2000) {
-  const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const [started, setStarted] = useState(false);
-  useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setStarted(true); obs.disconnect(); } }, { threshold: 0.3 });
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
-  useEffect(() => {
-    if (!started) return;
-    const num = parseInt(end) || 0;
-    if (!num) return;
-    let s = 0;
-    const inc = num / (duration / 16);
-    const t = setInterval(() => { s += inc; if (s >= num) { setCount(num); clearInterval(t); } else setCount(Math.floor(s)); }, 16);
-    return () => clearInterval(t);
-  }, [started, end, duration]);
-  return { count, ref };
-}
-
-/* Blog Modal */
-function BlogModal({ open, onClose, post }) {
-  useEffect(() => {
-    if (open) document.body.style.overflow = 'hidden';
-    else document.body.style.overflow = '';
-    return () => { document.body.style.overflow = ''; };
-  }, [open]);
-  useEffect(() => {
-    const handleEsc = (e) => { if (e.key === 'Escape') onClose(); };
-    if (open) window.addEventListener('keydown', handleEsc);
-    return () => window.removeEventListener('keydown', handleEsc);
-  }, [open, onClose]);
-
-  if (!open || !post) return null;
-  return (
-    <div onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
-      style={{
-        position: 'fixed', inset: 0, zIndex: 10000, background: 'rgba(0,0,0,0.7)',
-        backdropFilter: 'blur(12px)', display: 'flex', alignItems: 'center', justifyContent: 'center',
-        padding: '1.5rem', animation: 'modalOverlayIn .3s ease forwards',
-      }}>
-      <div style={{
-        width: '100%', maxWidth: '560px', background: 'var(--bg2)',
-        border: '1px solid rgba(0,212,170,0.12)', borderRadius: '24px',
-        padding: '2.5rem 2rem', position: 'relative',
-        animation: 'modalPanelIn .4s cubic-bezier(.16,1,.3,1) forwards',
-      }}>
-        <button onClick={onClose} style={{
-          position: 'absolute', top: '16px', right: '16px', width: '36px', height: '36px',
-          borderRadius: '12px', border: '1px solid var(--border)', background: 'var(--bg3)',
-          color: 'var(--muted)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
-        }} aria-label="Close"><FaTimes size={14} /></button>
-
-        <span className="block text-[.65rem] tracking-[2px] uppercase mb-2 font-semibold" style={{ color: 'var(--accent)' }}>{post.date}</span>
-        <h3 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: '1.4rem', color: 'var(--text)', letterSpacing: '-0.02em', marginBottom: '1rem', lineHeight: 1.3 }}>
-          {post.title}
-        </h3>
-        <p style={{ fontSize: '.92rem', lineHeight: 1.9, color: 'var(--text-secondary)' }}>{post.content}</p>
-      </div>
-    </div>
-  );
-}
 
 export default function HomePage({ config }) {
   const { t } = useLanguage();
-  const email = config?.email || 'mottalib@example.com';
-  const yearsCounter = useCountUp(t.stat_years_value, 1500);
-  const clientsCounter = useCountUp(t.stat_clients_value, 2000);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
-  // Modal state
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalData, setModalData] = useState(null);
-  const [modalType, setModalType] = useState('service');
-  const [blogModalOpen, setBlogModalOpen] = useState(false);
-  const [blogModalData, setBlogModalData] = useState(null);
-
-  const openDetail = useCallback((data, type) => {
-    setModalData(data);
-    setModalType(type);
-    setModalOpen(true);
+  useEffect(() => {
+    const handleMove = (e) => {
+      setMousePos({
+        x: (e.clientX / window.innerWidth - 0.5) * 20,
+        y: (e.clientY / window.innerHeight - 0.5) * 20
+      });
+    };
+    window.addEventListener('mousemove', handleMove);
+    return () => window.removeEventListener('mousemove', handleMove);
   }, []);
 
-  const servicePills = [
-    { icon: <FaPrint size={12} />, label: 'IT Services', color: '#00d4aa' },
-    { icon: <FaLaptopCode size={12} />, label: 'Linux Admin', color: '#7c5cfc' },
-    { icon: <FaRocket size={12} />, label: 'AI Automation', color: '#ff6b9d' },
-    { icon: <FaPalette size={12} />, label: 'Graphic Design', color: '#00d4aa' },
-    { icon: <FaSearch size={12} />, label: 'Hardware Expert', color: '#7c5cfc' },
-    { icon: <FaMobileAlt size={12} />, label: 'Digital Solutions', color: '#ff6b9d' },
-  ];
-
   const techStack = [
-    { icon: <FaLinux />, name: 'Linux' }, { icon: <FaPython />, name: 'Python' },
-    { icon: <FaNodeJs />, name: 'Node.js' }, { icon: <FaReact />, name: 'React' },
-    { icon: <FaDocker />, name: 'Docker' }, { icon: <FaDatabase />, name: 'Database' },
-    { icon: <FaTerminal />, name: 'Shell' }, { icon: <FaCogs />, name: 'Automation' },
-    { icon: <FaCloud />, name: 'Cloud' }, { icon: <FaShieldAlt />, name: 'Security' },
-    { icon: <FaBrain />, name: 'AI/ML' }, { icon: <FaCode />, name: 'Web Dev' },
+    'Linux', 'Python', 'Node.js', 'React', 'Docker', 'Database',
+    'Shell', 'Automation', 'Cloud', 'Security', 'AI/ML', 'Web Dev'
   ];
 
   return (
-    <div className="relative overflow-hidden w-full">
+    <div className="relative w-full min-h-screen bg-black overflow-hidden text-white font-mono">
+      
+      {/* Background Grid Pattern */}
+      <div className="fixed inset-0 z-0 pointer-events-none opacity-20" style={{
+        backgroundImage: 'linear-gradient(var(--tactical-grey) 1px, transparent 1px), linear-gradient(90deg, var(--tactical-grey) 1px, transparent 1px)',
+        backgroundSize: '50px 50px'
+      }} />
 
-      {/* Detail Modal */}
-      <DetailModal open={modalOpen} onClose={() => setModalOpen(false)} data={modalData} type={modalType} />
-      {/* Blog Modal */}
-      <BlogModal open={blogModalOpen} onClose={() => setBlogModalOpen(false)} post={blogModalData} />
-
-      {/* ===== HERO ===== */}
-      <header className="hero-section">
-        <div className="hero-bg-name" aria-hidden="true">MOTTALIB</div>
-        <div className="hero-image-wrap">
-          <Image src="/Me.jpg" alt="Mottalib" fill sizes="(max-width:768px) 300px, 600px" className="object-cover object-top" priority />
-          <div className="hero-image-gradient" />
+      {/* Hero Section */}
+      <section className="relative z-10 min-h-screen flex items-center justify-center pt-20 pb-10">
+        
+        {/* Corner Tracking Markers */}
+        <div className="absolute top-24 left-6 md:left-12 opacity-50 text-[10px] uppercase tracking-[3px]">
+          [ REC ] <span className="text-red-500 animate-pulse">●</span><br/>
+          CAM_04<br/>
+          ISO 800
         </div>
-        <div className="hero-content px-6 lg:px-20">
-          <div className="absolute left-6 lg:left-20 top-1/2 -translate-y-1/2 max-w-[340px] pointer-events-auto z-10 hidden md:block">
-            <AnimatedSection direction="left">
-              <div className="mb-4">
-                <span className="text-[.7rem] font-semibold tracking-[4px] uppercase" style={{ color: 'var(--accent)' }}>
-                  <TypeWriter words={['Tech Entrepreneur', 'Linux Expert', 'AI Enthusiast', 'Hardware Specialist']} typeSpeed={60} deleteSpeed={30} pauseDuration={2500} />
-                </span>
-              </div>
-              <p className="text-[1rem] leading-[1.9] text-[var(--text-secondary)] font-light">
-                {t.hero_desc || "I create clean, modern interfaces and seamless experiences that turn user needs into business growth."}
+        <div className="absolute top-24 right-6 md:right-12 opacity-50 text-[10px] uppercase tracking-[3px] text-right">
+          SYS.ONLINE<br/>
+          TGT.LOCKED<br/>
+          {new Date().toISOString().split('T')[0]}
+        </div>
+        <div className="absolute bottom-10 left-6 md:left-12 opacity-50 text-[10px] uppercase tracking-[3px]">
+          POS X:{Math.round(mousePos.x)}<br/>
+          POS Y:{Math.round(mousePos.y)}
+        </div>
+        <div className="absolute bottom-10 right-6 md:right-12 opacity-50 text-[10px] uppercase tracking-[3px] text-right">
+          DB_ACCESS: GRANTED<br/>
+          V 2.0.4
+        </div>
+
+        {/* Center Title */}
+        <div className="text-center relative z-20" style={{ transform: `translate(${mousePos.x * -1}px, ${mousePos.y * -1}px)`, transition: 'transform 0.1s ease-out' }}>
+          <h1 className="font-display font-black leading-none tracking-tighter mix-blend-difference" style={{ fontSize: 'clamp(5rem, 15vw, 12rem)' }}>
+            MOTTALIB
+          </h1>
+          <div className="mt-4 text-xs md:text-sm tracking-[5px] uppercase text-gray-400">
+            Tech Entrepreneur <span className="text-[var(--accent)] mx-2">///</span> Sys.Admin <span className="text-[var(--accent)] mx-2">///</span> AI Automation
+          </div>
+        </div>
+      </section>
+
+      {/* DOSSIER SECTION (About & Skills) */}
+      <section id="about" className="relative z-10 w-full max-w-[1400px] mx-auto px-6 py-20 border-t border-[var(--tactical-grey)]">
+        <div className="mb-12">
+          <h2 className="text-[10px] tracking-[5px] uppercase text-[var(--accent)] mb-2">[ SUBJECT_PROFILE ]</h2>
+          <h3 className="font-display text-4xl md:text-5xl font-bold">Dossier</h3>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
+          
+          {/* Left: Scanner Portrait */}
+          <div className="md:col-span-4 relative border border-[var(--tactical-grey)] bg-[#050505] overflow-hidden group h-[500px]">
+            <Image src="/Me.jpg" alt="Mottalib" fill className="object-cover object-top grayscale contrast-125 opacity-80" />
+            
+            {/* Laser Sweep Overlay */}
+            <div className="absolute left-0 w-full h-[2px] bg-[var(--accent)] opacity-70 animate-laser-sweep shadow-[0_0_15px_rgba(255,42,42,0.8)]" />
+            
+            {/* Corner brackets */}
+            <div className="absolute top-4 left-4 w-4 h-4 border-t border-l border-[var(--accent)]" />
+            <div className="absolute top-4 right-4 w-4 h-4 border-t border-r border-[var(--accent)]" />
+            <div className="absolute bottom-4 left-4 w-4 h-4 border-b border-l border-[var(--accent)]" />
+            <div className="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-[var(--accent)]" />
+            
+            <div className="absolute bottom-4 left-0 right-0 text-center text-[10px] bg-black/60 py-1 tracking-[2px] text-[var(--accent)]">
+              ID: MT-89 // VERIFIED
+            </div>
+          </div>
+
+          {/* Center: Biography Log */}
+          <div className="md:col-span-5 flex flex-col justify-center">
+            <div className="bg-[#050505] border border-[var(--tactical-grey)] p-6 md:p-8 relative">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--accent)] to-transparent opacity-20" />
+              
+              <h4 className="text-[10px] tracking-[2px] uppercase text-gray-500 mb-6">&gt;&gt; DECRYPTING_LOG...</h4>
+              <p className="text-sm md:text-base leading-relaxed text-gray-300 font-sans mb-6">
+                {t.about_intro_desc || "Building digital solutions at the grassroots level. Operating out of Sariakandi, Bogura, I specialize in robust Linux server administration, AI workflow automation, and custom web development. Known for diagnosing hardware and software anomalies with precision."}
               </p>
-            </AnimatedSection>
+              
+              <div className="grid grid-cols-2 gap-4 border-t border-[var(--tactical-grey)] pt-6">
+                <div>
+                  <span className="block text-[10px] text-gray-500 mb-1">OPERATING_BASE</span>
+                  <span className="text-xs">{t.about_location || "BOGURA, BD"}</span>
+                </div>
+                <div>
+                  <span className="block text-[10px] text-gray-500 mb-1">STATUS</span>
+                  <span className="text-xs text-[var(--accent)] flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-pulse"/> ACTIVE</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="absolute right-6 lg:right-20 top-1/2 -translate-y-1/2 pointer-events-auto z-10 hidden md:block">
-            <AnimatedSection direction="right" delay={200}>
-              <a href="#contact" className="btn-primary"><span>Book a free call</span></a>
-            </AnimatedSection>
+
+          {/* Right: Tech Stack Equipment */}
+          <div className="md:col-span-3">
+            <div className="border border-[var(--tactical-grey)] p-5 h-full bg-[#050505]">
+              <h4 className="text-[10px] tracking-[2px] uppercase text-gray-500 mb-6 border-b border-[var(--tactical-grey)] pb-2">[ EQUIPMENT_LOADOUT ]</h4>
+              
+              <div className="flex flex-col gap-2">
+                {techStack.map((tech, i) => (
+                  <div key={i} className="flex items-center justify-between text-xs border border-transparent hover:border-[var(--accent)] p-2 transition-colors cursor-default bg-[#0A0A0A]">
+                    <span className="text-gray-300">&gt; {tech}</span>
+                    <span className="text-[10px] text-[var(--accent)]">[ OK ]</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-          <div className="absolute bottom-32 left-0 right-0 flex flex-col items-center gap-5 md:hidden px-6 text-center pointer-events-auto z-10">
-            <span className="text-[.7rem] font-semibold tracking-[3px] uppercase" style={{ color: 'var(--accent)' }}>
-              <TypeWriter words={['Tech Entrepreneur', 'Linux Expert', 'AI Enthusiast']} typeSpeed={60} deleteSpeed={30} pauseDuration={2500} />
-            </span>
-            <p className="text-[.9rem] leading-[1.7] text-[var(--text-secondary)] font-light max-w-[300px]">
-              {t.hero_desc || "I create clean, modern interfaces and seamless experiences that turn user needs into business growth."}
+
+        </div>
+      </section>
+
+      {/* EVIDENCE BOARD (Projects) */}
+      <section id="projects" className="relative z-10 w-full max-w-[1400px] mx-auto px-6 py-20 border-t border-[var(--tactical-grey)]">
+        <div className="mb-12 flex justify-between items-end">
+          <div>
+            <h2 className="text-[10px] tracking-[5px] uppercase text-[var(--accent)] mb-2">[ EVIDENCE_BOARD ]</h2>
+            <h3 className="font-display text-4xl md:text-5xl font-bold">Classified Projects</h3>
+          </div>
+          <span className="text-[10px] text-gray-500 tracking-[2px]">FILE_COUNT: {t.projects?.length || 0}</span>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {t.projects?.map((proj, i) => (
+            <a key={i} href="#" className="block border border-[var(--tactical-grey)] bg-[#050505] p-6 hover:border-[var(--accent)] transition-all group clickable relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-3">
+                <span className="text-[9px] bg-[var(--accent)] text-black px-2 py-1 font-bold">{proj.category || 'OPERATION'}</span>
+              </div>
+              
+              <h4 className="text-xl font-bold mb-3 font-display group-hover:text-[var(--accent)] transition-colors">{proj.title}</h4>
+              <p className="text-sm text-gray-400 font-sans mb-6 line-clamp-2">{proj.desc}</p>
+              
+              <div className="flex flex-wrap gap-2">
+                {proj.tags?.map((tag, j) => (
+                  <span key={j} className="text-[10px] border border-gray-800 px-2 py-1 text-gray-500 group-hover:border-[var(--accent)]/30">{tag}</span>
+                ))}
+              </div>
+              
+              {/* Scanline hover effect */}
+              <div className="absolute inset-0 bg-[var(--accent)] opacity-0 group-hover:opacity-5 transition-opacity pointer-events-none" />
+            </a>
+          ))}
+        </div>
+      </section>
+
+      {/* CONTACT SECTION */}
+      <section id="contact" className="relative z-10 w-full max-w-[1400px] mx-auto px-6 py-20 border-t border-[var(--tactical-grey)]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+          <div>
+            <h2 className="text-[10px] tracking-[5px] uppercase text-[var(--accent)] mb-2">[ COMM_LINK ]</h2>
+            <h3 className="font-display text-4xl md:text-5xl font-bold mb-6">Initiate Contact</h3>
+            <p className="text-sm text-gray-400 font-sans mb-8">
+              {t.contact_desc || "Secure channel open. Send transmission for collaboration or inquiries."}
             </p>
-            <a href="#contact" className="btn-primary"><span>Book a free call</span></a>
+            <a href={`mailto:${config?.email || 'mottalib@example.com'}`} className="inline-flex items-center gap-3 border border-[var(--accent)] px-6 py-3 text-sm text-[var(--accent)] hover:bg-[var(--accent)] hover:text-black transition-all clickable">
+              [ TRANSMIT_MESSAGE ]
+            </a>
           </div>
-        </div>
-        <div className="hero-bottom-row">
-          <div className="max-w-[1400px] mx-auto flex justify-center">
-            <div className="service-pills pb-4 px-4 w-full justify-start md:justify-center">
-              {servicePills.map((pill, i) => (
-                <div key={i} className="service-pill">
-                  <div className="pill-icon" style={{ color: pill.color }}>{pill.icon}</div>
-                  <span className="text-[.82rem] font-medium text-[var(--text-secondary)]">{pill.label}</span>
-                </div>
-              ))}
+          
+          {/* Decorative Radar/Terminal block */}
+          <div className="border border-[var(--tactical-grey)] bg-[#050505] p-6 relative overflow-hidden flex items-center justify-center min-h-[300px]">
+            <div className="w-48 h-48 border border-[var(--accent)] rounded-full opacity-20 flex items-center justify-center relative">
+              <div className="w-32 h-32 border border-[var(--accent)] rounded-full" />
+              <div className="w-16 h-16 border border-[var(--accent)] rounded-full absolute" />
+              <div className="w-full h-[1px] bg-[var(--accent)] absolute top-1/2 left-0" />
+              <div className="h-full w-[1px] bg-[var(--accent)] absolute top-0 left-1/2" />
+              
+              {/* Radar sweep */}
+              <div className="absolute inset-0 rounded-full" style={{ background: 'conic-gradient(from 0deg, transparent 70%, rgba(255,42,42,0.4) 100%)', animation: 'spin 4s linear infinite' }} />
+            </div>
+            <div className="absolute top-4 left-4 text-[10px] text-[var(--accent)] tracking-[2px]">
+              SCANNING_FREQUENCIES...
             </div>
           </div>
         </div>
-        <div className="scroll-indicator hidden md:flex">
-          <span className="text-[.6rem] tracking-[3px] uppercase" style={{ color: 'var(--muted)' }}>Scroll</span>
-          <FaArrowDown size={10} style={{ color: 'var(--accent)', animation: 'fadeInUp 1.5s ease-in-out infinite' }} />
-        </div>
-      </header>
-
-      {/* ===== ABOUT + STATS ===== */}
-      <section id="about" className="relative z-10 py-20 lg:py-28" style={{ borderTop: '1px solid var(--border)' }}>
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-            <AnimatedSection direction="left">
-              <div className="sec-label mb-6">{t.sec_about}</div>
-              <h2 className="sec-title mb-4" style={{ fontSize: 'clamp(1.5rem,3vw,2.2rem)' }}>{t.about_intro_title}</h2>
-              <p className="text-[.95rem] leading-[1.9]" style={{ color: 'var(--muted)' }}>{t.about_intro_desc}</p>
-              <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-xl" style={{ background: 'var(--accent-dim)', border: '1px solid rgba(0,212,170,0.12)' }}>
-                <span className="text-[.78rem] font-semibold" style={{ color: 'var(--accent)' }}>{t.about_location}</span>
-              </div>
-            </AnimatedSection>
-            <AnimatedSection delay={100} direction="right">
-              <div className="flex gap-12 lg:gap-16 items-start pt-4 lg:pt-8">
-                <div className="stat-block" ref={yearsCounter.ref}>
-                  <span className="stat-number count-up">{yearsCounter.count}+</span>
-                  <span className="stat-label">{t.stat_years}</span>
-                </div>
-                <div className="stat-block" ref={clientsCounter.ref}>
-                  <span className="stat-number count-up">{clientsCounter.count}+</span>
-                  <span className="stat-label">{t.stat_clients}</span>
-                </div>
-              </div>
-            </AnimatedSection>
-          </div>
-        </div>
       </section>
 
-      <div className="animated-line" />
-
-      {/* ===== SERVICES (Clickable!) ===== */}
-      <section id="services" className="relative z-10 py-20 lg:py-28" style={{ background: 'var(--bg2)' }}>
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
-          <AnimatedSection><div className="sec-label mb-5">{t.sec_services}</div></AnimatedSection>
-          <AnimatedSection>
-            <h2 className="sec-title mb-14" style={{ fontSize: 'clamp(2rem,3.5vw,3rem)' }}>
-              {t.services_title_1} <span className="gradient-text">{t.services_title_2}</span>
-            </h2>
-          </AnimatedSection>
-          <AnimatedSection delay={80}>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {t.services.map((svc, i) => (
-                <div key={i}
-                  className={`service-card clickable ${i === 0 ? 'active' : ''}`}
-                  onClick={() => openDetail(svc, 'service')}
-                  role="button" tabIndex={0}
-                  onKeyDown={(e) => { if (e.key === 'Enter') openDetail(svc, 'service'); }}
-                >
-                  <div className="flex items-start justify-between mb-6">
-                    <div className="service-icon"><DynamicIcon name={svc.icon} size={22} /></div>
-                    <span className="service-num">{svc.num}</span>
-                  </div>
-                  <h4 className="text-[1rem] font-bold mb-3 tracking-tight" style={{ color: 'var(--text)' }}>{svc.title}</h4>
-                  <p className="text-[.85rem] leading-[1.7]" style={{ color: 'var(--muted)' }}>{svc.desc}</p>
-                  <div className="click-hint">
-                    <FaExpandAlt size={8} />
-                    <span>Click for details</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* ===== TECH STACK MARQUEE ===== */}
-      <section className="relative z-10 py-16" style={{ borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-8 mb-10">
-          <AnimatedSection>
-            <div className="sec-label mb-3">Tech Stack</div>
-            <h2 className="sec-title" style={{ fontSize: 'clamp(1.5rem,2.5vw,2rem)' }}>
-              Tools & <span className="gradient-text">Technologies</span>
-            </h2>
-          </AnimatedSection>
-        </div>
-        <div className="marquee-container mb-4">
-          <div className="marquee-track">
-            {[...techStack, ...techStack].map((tech, i) => (
-              <div key={i} className="tech-chip">
-                <span className="tech-icon">{tech.icon}</span>
-                <span>{tech.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="marquee-container">
-          <div className="marquee-track marquee-track-reverse">
-            {[...techStack.slice().reverse(), ...techStack.slice().reverse()].map((tech, i) => (
-              <div key={i} className="tech-chip">
-                <span className="tech-icon">{tech.icon}</span>
-                <span>{tech.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== PROJECTS (Clickable!) ===== */}
-      <section id="projects" className="relative z-10 py-20 lg:py-28">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
-          <AnimatedSection>
-            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-14">
-              <div>
-                <div className="sec-label mb-5">{t.sec_projects}</div>
-                <h2 className="sec-title" style={{ fontSize: 'clamp(2rem,3.5vw,3rem)' }}>
-                  {t.projects_title_1}<br /><span className="gradient-text">{t.projects_title_2}</span>
-                </h2>
-                <p className="max-w-[480px] mt-4 text-[.92rem] leading-[1.85]" style={{ color: 'var(--muted)' }}>{t.projects_sub}</p>
-              </div>
-              <a href="#" className="inline-flex items-center gap-2 text-[.85rem] font-semibold hover:gap-3 transition-all" style={{ color: 'var(--accent)' }}>
-                {t.projects_explore} <FaArrowRight size={12} />
-              </a>
-            </div>
-          </AnimatedSection>
-          <AnimatedSection delay={80}>
-            <div className="masonry-grid">
-              {t.projects.map((proj, i) => (
-                <div key={i}
-                  className="project-card group clickable"
-                  onClick={() => openDetail(proj, 'project')}
-                  role="button" tabIndex={0}
-                  onKeyDown={(e) => { if (e.key === 'Enter') openDetail(proj, 'project'); }}
-                >
-                  <div className="project-icon-area relative">
-                    <DynamicIcon name={proj.icon} size={56} className="transition-all duration-700 group-hover:scale-125" style={{ color: 'rgba(0,212,170,0.12)' }} />
-                    <div className="project-overlay">
-                      <div className="status-badge mb-2"><span className="dot" /><span>{proj.status}</span></div>
-                      <h4 className="text-[1.1rem] font-bold mb-1" style={{ color: 'var(--text)' }}>{proj.title}</h4>
-                      <span className="text-[.7rem] font-semibold tracking-[1px] uppercase" style={{ color: 'var(--accent)' }}>{proj.category}</span>
-                    </div>
-                  </div>
-                  <div className="p-5" style={{ borderTop: '1px solid var(--border)' }}>
-                    <p className="text-[.82rem] mb-4 leading-[1.7]" style={{ color: 'var(--muted)' }}>{proj.desc}</p>
-                    <div className="flex items-center justify-between">
-                      <div className="flex flex-wrap gap-1.5">
-                        {proj.tags.map((tag, j) => (<span key={j} className="tag-chip">{tag}</span>))}
-                      </div>
-                      <div className="click-hint" style={{ marginTop: 0 }}>
-                        <FaExpandAlt size={8} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* ===== BLOG (Clickable!) ===== */}
-      <section className="relative z-10 py-20 lg:py-28" style={{ background: 'var(--bg2)', borderTop: '1px solid var(--border)' }}>
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <AnimatedSection direction="left">
-              <div className="sec-label mb-4">{t.sec_blog}</div>
-              <h2 className="sec-title mb-2" style={{ fontSize: 'clamp(1.8rem,3vw,2.5rem)' }}>{t.blog_title}</h2>
-              <p className="text-[.92rem]" style={{ color: 'var(--muted)' }}>{t.blog_sub}</p>
-            </AnimatedSection>
-            <AnimatedSection delay={100} direction="right">
-              <div className="flex flex-col">
-                {t.blog_posts.map((post, i) => (
-                  <div key={i}
-                    className="blog-post-link group flex items-center justify-between py-5 transition-all hover:pl-2"
-                    style={{ borderBottom: '1px solid var(--border)', cursor: 'pointer' }}
-                    onClick={() => { setBlogModalData(post); setBlogModalOpen(true); }}
-                    role="button" tabIndex={0}
-                    onKeyDown={(e) => { if (e.key === 'Enter') { setBlogModalData(post); setBlogModalOpen(true); } }}
-                  >
-                    <div>
-                      <span className="block text-[.68rem] tracking-[1px] uppercase mb-1 font-semibold" style={{ color: 'var(--muted)' }}>{post.date}</span>
-                      <span className="text-[.92rem] font-medium group-hover:text-[var(--accent)] transition-colors" style={{ color: 'var(--text)' }}>{post.title}</span>
-                    </div>
-                    <FaArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-all" style={{ color: 'var(--accent)' }} />
-                  </div>
-                ))}
-              </div>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== TESTIMONIAL ===== */}
-      <TestimonialCarousel />
-      <div className="animated-line" />
-
-      {/* ===== CONTACT ===== */}
-      <section id="contact" className="relative z-10 py-20 lg:py-28">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-            <AnimatedSection direction="left">
-              <h2 className="sec-title mb-2" style={{ fontSize: 'clamp(2rem,4vw,3.5rem)' }}>{t.contact_cta_title}</h2>
-              <h2 className="sec-title mb-8 gradient-text" style={{ fontSize: 'clamp(2rem,4vw,3.5rem)' }}>{t.contact_cta_sub}</h2>
-              <p className="text-[.92rem] leading-[1.85] mb-8 max-w-[400px]" style={{ color: 'var(--muted)' }}>{t.contact_desc}</p>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl mb-8" style={{ background: 'var(--accent-dim)', border: '1px solid rgba(0,212,170,0.12)' }}>
-                <span className="text-[.78rem] font-semibold" style={{ color: 'var(--accent)' }}>{t.about_location}</span>
-              </div>
-              <div className="social-row mt-4">
-                {[
-                  { icon: <FaFacebookF size={14} />, href: config?.facebook || '#' },
-                  { icon: <FaGithub size={14} />, href: config?.github || '#' },
-                  { icon: <FaEnvelope size={14} />, href: `mailto:${email}` },
-                ].map((s, i) => (
-                  <a key={i} href={s.href} target={s.href.startsWith('http') ? '_blank' : undefined} rel="noopener">{s.icon}</a>
-                ))}
-              </div>
-            </AnimatedSection>
-            <AnimatedSection delay={100} direction="right">
-              <h3 className="text-[1.2rem] font-bold mb-1" style={{ color: 'var(--text)' }}>{t.contact_form_title}</h3>
-              <p className="text-[.85rem] mb-8" style={{ color: 'var(--muted)' }}>{t.contact_form_sub}</p>
-              <ContactForm />
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

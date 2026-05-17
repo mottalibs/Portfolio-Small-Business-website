@@ -14,23 +14,31 @@ module.exports = {
         primary: 'var(--accent)',
         muted: 'var(--muted)',
         border: 'var(--border)',
+        tactical: 'var(--tactical-grey)',
       },
       fontFamily: {
-        sans: ['Inter', 'Outfit', 'system-ui', 'sans-serif'],
-        display: ['Outfit', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Playfair Display', 'serif'],
+        mono: ['JetBrains Mono', 'monospace'],
       },
       animation: {
         'fade-in-up': 'fadeInUp 0.7s ease forwards',
-        'dot-pulse': 'dotPulse 2s ease-in-out infinite',
+        'pulse-fast': 'pulseFast 1s ease-in-out infinite',
+        'laser-sweep': 'laserSweep 3s linear infinite',
       },
       keyframes: {
         fadeInUp: {
           from: { opacity: '0', transform: 'translateY(28px)' },
           to: { opacity: '1', transform: 'none' },
         },
-        dotPulse: {
-          '0%, 100%': { opacity: '1', boxShadow: '0 0 0 0 rgba(212, 98, 43, 0.4)' },
-          '50%': { opacity: '0.6', boxShadow: '0 0 0 6px rgba(212, 98, 43, 0)' },
+        pulseFast: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.3' },
+        },
+        laserSweep: {
+          '0%': { top: '0%' },
+          '50%': { top: '100%' },
+          '100%': { top: '0%' },
         },
       },
     },

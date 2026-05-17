@@ -4,9 +4,6 @@ import LanguageProvider from '@/components/LanguageProvider';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import BackToTop from '@/components/BackToTop';
-import Preloader from '@/components/Preloader';
-import ScrollProgress from '@/components/ScrollProgress';
-import ParticleCanvas from '@/components/ParticleCanvas';
 import CustomCursor from '@/components/CustomCursor';
 
 export const metadata = {
@@ -32,10 +29,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <meta name="theme-color" content="#0a0a0f" />
+        <meta name="theme-color" content="#000000" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
         <script
           type="application/ld+json"
@@ -55,14 +52,10 @@ export default function RootLayout({ children }) {
       <body>
         <ThemeProvider>
           <LanguageProvider>
-            <Preloader />
-            <ScrollProgress />
-            <ParticleCanvas />
             <CustomCursor />
             <Navbar />
             <main>{children}</main>
             <Footer />
-            <BackToTop />
           </LanguageProvider>
         </ThemeProvider>
       </body>

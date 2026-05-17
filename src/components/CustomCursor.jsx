@@ -2,12 +2,11 @@
 import { useEffect, useRef, useState } from 'react';
 
 export default function CustomCursor() {
-  const dotRef = useRef(null);
-  const ringRef = useRef(null);
-  const [isHovering, setIsHovering] = useState(false);
+  const cursorRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
+  const [coords, setCoords] = useState({ x: 0, y: 0 });
   const pos = useRef({ x: 0, y: 0 });
-  const ringPos = useRef({ x: 0, y: 0 });
   const animRef = useRef(null);
 
   useEffect(() => {
@@ -15,6 +14,7 @@ export default function CustomCursor() {
 
     const handleMove = (e) => {
       pos.current = { x: e.clientX, y: e.clientY };
+      setCoords({ x: e.clientX, y: e.clientY });
       if (!isVisible) setIsVisible(true);
     };
     const handleEnter = () => setIsVisible(true);
@@ -27,7 +27,7 @@ export default function CustomCursor() {
     document.addEventListener('mouseleave', handleLeave);
 
     const addHoverListeners = () => {
-      const targets = document.querySelectorAll('a, button, [role="button"], input, textarea, select, .cursor-hover');
+      const targets = document.querySelectorAll('a, button, [role="button"], input, textarea, select, .clickable');
       targets.forEach((el) => {
         el.addEventListener('mouseenter', handleHoverStart);
         el.addEventListener('mouseleave', handleHoverEnd);
@@ -46,13 +46,8 @@ export default function CustomCursor() {
     observer.observe(document.body, { childList: true, subtree: true });
 
     const animate = () => {
-      ringPos.current.x += (pos.current.x - ringPos.current.x) * 0.12;
-      ringPos.current.y += (pos.current.y - ringPos.current.y) * 0.12;
-      if (dotRef.current) {
-        dotRef.current.style.transform = `translate(${pos.current.x}px, ${pos.current.y}px) translate(-50%, -50%)`;
-      }
-      if (ringRef.current) {
-        ringRef.current.style.transform = `translate(${ringPos.current.x}px, ${ringPos.current.y}px) translate(-50%, -50%) scale(${isHovering ? 2 : 1})`;
+      if (cursorRef.current) {
+        cursorRef.current.style.transform = `translate(${pos.current.x}px, ${pos.current.y}px) translate(-50%, -50%)`;
       }
       animRef.current = requestAnimationFrame(animate);
     };
@@ -69,30 +64,49 @@ export default function CustomCursor() {
         el.removeEventListener('mouseleave', handleHoverEnd);
       });
     };
-  }, [isVisible, isHovering]);
+  }, [isVisible]);
 
   if (typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0)) {
     return null;
   }
 
   return (
-    <>
-      <div ref={dotRef} style={{
-        position: 'fixed', top: 0, left: 0, width: 6, height: 6,
-        borderRadius: '50%', background: 'var(--accent)',
+    <div
+      ref={cursorRef}
+      style={{
+        position: 'fixed', top: 0, left: 0, 
         pointerEvents: 'none', zIndex: 99999,
         opacity: isVisible ? 1 : 0,
         transition: 'opacity 0.3s',
-        boxShadow: '0 0 10px rgba(0,212,170,0.5)',
-      }} />
-      <div ref={ringRef} style={{
-        position: 'fixed', top: 0, left: 0, width: 40, height: 40,
-        borderRadius: '50%',
-        border: `1.5px solid rgba(0, 212, 170, ${isHovering ? 0.6 : 0.25})`,
-        pointerEvents: 'none', zIndex: 99998,
-        opacity: isVisible ? 1 : 0,
-        transition: 'opacity 0.3s, border-color 0.3s, width 0.4s, height 0.4s',
-      }} />
-    </>
+        display: 'flex', alignItems: 'center', justifyContent: 'center'
+      }}
+    >
+      {/* Center dot */}
+      <div style={{ width: 4, height: 4, background: 'var(--accent)', borderRadius: '50%' }} />
+      
+      {/* Crosshair lines */}
+      <div style={{ position: 'absolute', width: 20, height: 1, background: 'var(--accent)', opacity: 0.5 }} />
+      <div style={{ position: 'absolute', width: 1, height: 20, background: 'var(--accent)', opacity: 0.5 }} />
+      
+      {/* Targeting brackets on hover */}
+      {isHovering && (
+        <>
+          <div style={{ position: 'absolute', width: 40, height: 40, border: '1px solid var(--accent)', opacity: 0.8, transition: 'all 0.2s', animation: 'spin 10s linear infinite' }} />
+          <style dangerouslySetInnerHTML={{__html: `
+            @keyframes spin { 100% { transform: rotate(360deg); } }
+          `}} />
+        </>
+      )}
+
+      {/* Coordinate tracker */}
+      <div style={{ 
+        position: 'absolute', top: 15, left: 15, 
+        fontFamily: "'JetBrains Mono', monospace", 
+        fontSize: '10px', color: 'var(--accent)', 
+        opacity: 0.7, whiteSpace: 'nowrap'
+      }}>
+        X:{coords.x} Y:{coords.y}
+      </div>
+    </div>
   );
 }
