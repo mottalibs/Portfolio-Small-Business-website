@@ -1,9 +1,11 @@
 'use client';
 import { useLanguage } from './LanguageProvider';
+import { useMode } from './ModeProvider';
 import { FaFacebookF, FaGithub, FaEnvelope } from 'react-icons/fa';
 
 export default function Footer({ config = {} }) {
   const { t } = useLanguage();
+  const { mode } = useMode();
   const email = config?.email || 'mottalib@example.com';
 
   return (
@@ -21,7 +23,9 @@ export default function Footer({ config = {} }) {
           </div>
 
           <div className="md:col-span-3">
-            <div className="text-mono text-[0.6rem] text-[var(--muted)] tracking-[2px] mb-6">SYS_DIRECTORIES</div>
+            <div className="text-mono text-[0.6rem] text-[var(--muted)] tracking-[2px] mb-6 uppercase">
+              {mode === 'cyberpunk' ? 'SYS_DIRECTORIES' : 'Navigation'}
+            </div>
             <div className="flex flex-col gap-3">
               {['#about', '#services', '#projects', '#contact'].map(link => (
                 <a key={link} href={link} className="text-mono text-[0.75rem] text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors w-fit">
@@ -32,7 +36,9 @@ export default function Footer({ config = {} }) {
           </div>
 
           <div className="md:col-span-4">
-             <div className="text-mono text-[0.6rem] text-[var(--muted)] tracking-[2px] mb-6">SECURE_NETWORK</div>
+             <div className="text-mono text-[0.6rem] text-[var(--muted)] tracking-[2px] mb-6 uppercase">
+               {mode === 'cyberpunk' ? 'SECURE_NETWORK' : 'Social Links'}
+             </div>
              <div className="flex gap-4">
               {[
                 { icon: <FaFacebookF size={14} />, href: config.facebook || '#' },
@@ -51,9 +57,9 @@ export default function Footer({ config = {} }) {
           <p className="text-mono text-[0.6rem] text-[var(--muted)] tracking-[1px]">
             &copy; {new Date().getFullYear()} MOTTALIB. ALL RIGHTS RESERVED.
           </p>
-          <div className="flex items-center gap-2 text-mono text-[0.6rem] text-[var(--muted)] tracking-[1px]">
+          <div className="flex items-center gap-2 text-mono text-[0.6rem] text-[var(--muted)] tracking-[1px] uppercase">
             <span className="w-1.5 h-1.5 bg-[var(--accent)] rounded-full animate-pulse"></span>
-            SYSTEM_ONLINE
+            {mode === 'cyberpunk' ? 'SYSTEM_ONLINE' : 'All Systems Operational'}
           </div>
         </div>
 

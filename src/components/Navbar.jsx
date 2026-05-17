@@ -1,12 +1,14 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { useLanguage } from './LanguageProvider';
+import { useMode } from './ModeProvider';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { lang, t, toggleLang } = useLanguage();
+  const { mode } = useMode();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -22,9 +24,9 @@ export default function Navbar() {
   const closeMenu = () => setMenuOpen(false);
 
   const navLinks = [
-    { href: '#about', label: t.nav_about },
-    { href: '#services', label: t.nav_skills },
-    { href: '#projects', label: t.nav_projects },
+    { href: '#about', label: t.nav_about[mode] },
+    { href: '#services', label: t.nav_skills[mode] },
+    { href: '#projects', label: t.nav_projects[mode] },
   ];
 
   return (
@@ -48,8 +50,8 @@ export default function Navbar() {
 
         {/* Right Controls */}
         <div className="flex items-center gap-4">
-          <a href="#contact" className="hidden md:inline-flex text-mono text-[0.65rem] tracking-[2px] text-[var(--accent)] border border-[var(--border)] px-4 py-2 hover:border-[var(--accent)] hover:bg-[var(--accent-dim)] transition-all">
-            {t.nav_contact}
+          <a href="#contact" className="hidden md:inline-flex text-mono text-[0.65rem] tracking-[2px] text-[var(--accent)] border border-[var(--border)] px-4 py-2 hover:border-[var(--accent)] hover:bg-[var(--accent-dim)] transition-all uppercase">
+            {t.nav_contact[mode]}
           </a>
 
           <button onClick={toggleLang} className="text-mono text-[0.65rem] border border-[var(--border)] px-2 py-2 hover:border-[var(--text)] transition-colors min-w-[32px]">
@@ -66,12 +68,12 @@ export default function Navbar() {
       <div className={`fixed inset-0 bg-[var(--bg)] z-[-1] transition-transform duration-500 flex flex-col justify-center items-center gap-8 ${menuOpen ? 'translate-y-0' : '-translate-y-full'}`}>
         <div className="absolute top-20 left-6 text-mono text-[0.6rem] text-[var(--muted)]">SYS_NAV_MENU</div>
         {navLinks.map((link) => (
-          <a key={link.href} href={link.href} onClick={closeMenu} className="heading-serif text-3xl uppercase tracking-widest text-[var(--text-secondary)] hover:text-white transition-colors">
+          <a key={link.href} href={link.href} onClick={closeMenu} className="heading-serif text-3xl uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--text)] transition-colors">
             {link.label.replace('_', ' ')}
           </a>
         ))}
-        <a href="#contact" onClick={closeMenu} className="text-mono text-[0.8rem] tracking-[3px] text-[var(--accent)] mt-8 border border-[var(--accent)] px-8 py-3">
-          {t.nav_contact}
+        <a href="#contact" onClick={closeMenu} className="text-mono text-[0.8rem] tracking-[3px] text-[var(--accent)] mt-8 border border-[var(--accent)] px-8 py-3 uppercase">
+          {t.nav_contact[mode]}
         </a>
       </div>
     </nav>

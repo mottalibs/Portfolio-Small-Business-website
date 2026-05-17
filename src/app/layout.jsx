@@ -1,5 +1,6 @@
 import './globals.css';
 import ThemeProvider from '@/components/ThemeProvider';
+import ModeProvider from '@/components/ModeProvider';
 import LanguageProvider from '@/components/LanguageProvider';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -51,12 +52,14 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <ThemeProvider>
-          <LanguageProvider>
-            <CustomCursor />
-            <Navbar />
-            <main>{children}</main>
-            <Footer />
-          </LanguageProvider>
+          <ModeProvider>
+            <LanguageProvider>
+              <CustomCursor />
+              <Navbar />
+              <main>{children}</main>
+              <Footer />
+            </LanguageProvider>
+          </ModeProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -1,0 +1,328 @@
+
+> charmatha-digital-next@1.0.0 build
+> next build
+
+  ▲ Next.js 14.2.3
+  - Environments: .env.local
+
+   Creating an optimized production build ...
+ ⚠ Failed to download the stylesheet for https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap. Skipped optimizing this font.
+ ✓ Compiled successfully
+   Skipping validation of types
+   Skipping linting
+   Collecting page data ...
+   Generating static pages (0/14) ...
+TypeError: Cannot read properties of undefined (reading 'replace')
+    at /home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14478
+    at Array.map (<anonymous>)
+    at c (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14288)
+    at nj (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46251)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47571)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61546)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64546)
+    at nB (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:67538)
+    at nD (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:66680)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64853) {
+  digest: '2077812452'
+}
+
+Error occurred prerendering page "/admin/settings". Read more: https://nextjs.org/docs/messages/prerender-error
+
+TypeError: Cannot read properties of undefined (reading 'replace')
+    at /home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14478
+    at Array.map (<anonymous>)
+    at c (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14288)
+    at nj (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46251)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47571)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61546)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64546)
+    at nB (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:67538)
+    at nD (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:66680)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64853)
+TypeError: Cannot read properties of undefined (reading 'replace')
+    at /home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14478
+    at Array.map (<anonymous>)
+    at c (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14288)
+    at nj (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46251)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47571)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61546)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64546)
+    at nB (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:67538)
+    at nD (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:66680)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64853) {
+  digest: '2077812452'
+}
+
+Error occurred prerendering page "/admin/store". Read more: https://nextjs.org/docs/messages/prerender-error
+
+TypeError: Cannot read properties of undefined (reading 'replace')
+    at /home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14478
+    at Array.map (<anonymous>)
+    at c (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14288)
+    at nj (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46251)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47571)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61546)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64546)
+    at nB (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:67538)
+    at nD (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:66680)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64853)
+TypeError: Cannot read properties of undefined (reading 'replace')
+    at /home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14478
+    at Array.map (<anonymous>)
+    at c (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14288)
+    at nj (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46251)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47571)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61546)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64546)
+    at nB (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:67538)
+    at nD (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:66680)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64853) {
+  digest: '2077812452'
+}
+
+Error occurred prerendering page "/admin/services". Read more: https://nextjs.org/docs/messages/prerender-error
+
+TypeError: Cannot read properties of undefined (reading 'replace')
+    at /home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14478
+    at Array.map (<anonymous>)
+    at c (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14288)
+    at nj (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46251)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47571)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61546)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64546)
+    at nB (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:67538)
+    at nD (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:66680)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64853)
+TypeError: Cannot read properties of undefined (reading 'replace')
+    at /home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14478
+    at Array.map (<anonymous>)
+    at c (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14288)
+    at nj (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46251)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47571)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61546)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64546)
+    at nB (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:67538)
+    at nD (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:66680)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64853) {
+  digest: '2077812452'
+}
+
+Error occurred prerendering page "/admin/messages". Read more: https://nextjs.org/docs/messages/prerender-error
+
+TypeError: Cannot read properties of undefined (reading 'replace')
+    at /home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14478
+    at Array.map (<anonymous>)
+    at c (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14288)
+    at nj (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46251)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47571)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61546)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64546)
+    at nB (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:67538)
+    at nD (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:66680)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64853)
+   Generating static pages (3/14) 
+TypeError: Cannot read properties of undefined (reading 'replace')
+    at /home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14478
+    at Array.map (<anonymous>)
+    at c (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14288)
+    at nj (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46251)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47571)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61546)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64546)
+    at nB (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:67538)
+    at nD (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:66680)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64853) {
+  digest: '2077812452'
+}
+
+Error occurred prerendering page "/upload-pic". Read more: https://nextjs.org/docs/messages/prerender-error
+
+TypeError: Cannot read properties of undefined (reading 'replace')
+    at /home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14478
+    at Array.map (<anonymous>)
+    at c (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14288)
+    at nj (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46251)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47571)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61546)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64546)
+    at nB (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:67538)
+    at nD (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:66680)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64853)
+TypeError: Cannot read properties of undefined (reading 'replace')
+    at /home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14478
+    at Array.map (<anonymous>)
+    at c (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14288)
+    at nj (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46251)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47571)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61546)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64546)
+    at nB (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:67538)
+    at nD (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:66680)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64853) {
+  digest: '2077812452'
+}
+
+Error occurred prerendering page "/admin/projects". Read more: https://nextjs.org/docs/messages/prerender-error
+
+TypeError: Cannot read properties of undefined (reading 'replace')
+    at /home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14478
+    at Array.map (<anonymous>)
+    at c (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14288)
+    at nj (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46251)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47571)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61546)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64546)
+    at nB (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:67538)
+    at nD (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:66680)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64853)
+TypeError: Cannot read properties of undefined (reading 'replace')
+    at /home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14478
+    at Array.map (<anonymous>)
+    at c (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14288)
+    at nj (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46251)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47571)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61546)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64546)
+    at nB (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:67538)
+    at nD (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:66680)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64853) {
+  digest: '2077812452'
+}
+
+Error occurred prerendering page "/admin/skills". Read more: https://nextjs.org/docs/messages/prerender-error
+
+TypeError: Cannot read properties of undefined (reading 'replace')
+    at /home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14478
+    at Array.map (<anonymous>)
+    at c (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14288)
+    at nj (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46251)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47571)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61546)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64546)
+    at nB (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:67538)
+    at nD (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:66680)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64853)
+   Generating static pages (6/14) 
+TypeError: Cannot read properties of undefined (reading 'replace')
+    at /home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14478
+    at Array.map (<anonymous>)
+    at c (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14288)
+    at nj (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46251)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47571)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61546)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64546)
+    at nB (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:67538)
+    at nD (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:66680)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64853) {
+  digest: '2077812452'
+}
+
+Error occurred prerendering page "/admin". Read more: https://nextjs.org/docs/messages/prerender-error
+
+TypeError: Cannot read properties of undefined (reading 'replace')
+    at /home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14478
+    at Array.map (<anonymous>)
+    at c (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14288)
+    at nj (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46251)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47571)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61546)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64546)
+    at nB (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:67538)
+    at nD (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:66680)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64853)
+TypeError: Cannot read properties of undefined (reading 'replace')
+    at /home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14478
+    at Array.map (<anonymous>)
+    at c (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14288)
+    at nj (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46251)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47571)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61546)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64546)
+    at nB (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:67538)
+    at nD (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:66680)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64853) {
+  digest: '2077812452'
+}
+
+Error occurred prerendering page "/_not-found". Read more: https://nextjs.org/docs/messages/prerender-error
+
+TypeError: Cannot read properties of undefined (reading 'replace')
+    at /home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14478
+    at Array.map (<anonymous>)
+    at c (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14288)
+    at nj (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46251)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47571)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61546)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64546)
+    at nB (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:67538)
+    at nD (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:66680)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64853)
+TypeError: Cannot read properties of undefined (reading 'replace')
+    at /home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14478
+    at Array.map (<anonymous>)
+    at c (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14288)
+    at nj (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46251)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47571)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61546)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64546)
+    at nB (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:67538)
+    at nD (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:66680)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64853) {
+  digest: '2077812452'
+}
+
+Error occurred prerendering page "/admin/login". Read more: https://nextjs.org/docs/messages/prerender-error
+
+TypeError: Cannot read properties of undefined (reading 'replace')
+    at /home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14478
+    at Array.map (<anonymous>)
+    at c (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14288)
+    at nj (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46251)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47571)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61546)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64546)
+    at nB (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:67538)
+    at nD (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:66680)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64853)
+   Generating static pages (10/14) 
+TypeError: Cannot read properties of undefined (reading 'replace')
+    at /home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14478
+    at Array.map (<anonymous>)
+    at c (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14288)
+    at nj (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46251)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47571)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61546)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64546)
+    at nB (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:67538)
+    at nD (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:66680)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64853) {
+  digest: '2077812452'
+}
+
+Error occurred prerendering page "/". Read more: https://nextjs.org/docs/messages/prerender-error
+
+TypeError: Cannot read properties of undefined (reading 'replace')
+    at /home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14478
+    at Array.map (<anonymous>)
+    at c (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/.next/server/chunks/62.js:3:14288)
+    at nj (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46251)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47571)
+    at nM (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61546)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64546)
+    at nB (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:67538)
+    at nD (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:66680)
+    at nN (/home/kingss/Documents/Charmatha_Website/Dynamic_NextJS_Version/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64853)
+ ✓ Generating static pages (14/14)
+
+> Export encountered errors on following paths:
+	/_not-found/page: /_not-found
+	/admin/login/page: /admin/login
+	/admin/messages/page: /admin/messages
+	/admin/page: /admin
+	/admin/projects/page: /admin/projects
+	/admin/services/page: /admin/services
+	/admin/settings/page: /admin/settings
+	/admin/skills/page: /admin/skills
+	/admin/store/page: /admin/store
+	/page: /
+	/upload-pic/page: /upload-pic

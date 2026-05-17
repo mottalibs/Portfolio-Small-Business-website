@@ -1,11 +1,13 @@
 'use client';
 import { useState } from 'react';
 import { useLanguage } from './LanguageProvider';
+import { useMode } from './ModeProvider';
 import { supabase, isSupabaseConfigured } from '@/lib/supabase';
 import { FaPaperPlane, FaSpinner, FaCheckSquare, FaExclamationTriangle } from 'react-icons/fa';
 
 export default function ContactForm() {
   const { t } = useLanguage();
+  const { mode } = useMode();
   const [sending, setSending] = useState(false);
   const [status, setStatus] = useState({ type: '', msg: '' });
 
@@ -37,21 +39,21 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="flex flex-col gap-6 font-mono">
       <div className="relative group">
         <label htmlFor="cf-name" className="block text-[0.65rem] tracking-[2px] text-[var(--muted)] mb-2 uppercase group-focus-within:text-[var(--accent)] transition-colors">
-          {t.f_name}
+          {t.f_name[mode]}
         </label>
         <input type="text" id="cf-name" name="name" required className="form-input" autoComplete="name" />
       </div>
 
       <div className="relative group">
         <label htmlFor="cf-email" className="block text-[0.65rem] tracking-[2px] text-[var(--muted)] mb-2 uppercase group-focus-within:text-[var(--accent)] transition-colors">
-          {t.f_email}
+          {t.f_email[mode]}
         </label>
         <input type="email" id="cf-email" name="email" required className="form-input" autoComplete="email" />
       </div>
 
       <div className="relative group">
         <label htmlFor="cf-msg" className="block text-[0.65rem] tracking-[2px] text-[var(--muted)] mb-2 uppercase group-focus-within:text-[var(--accent)] transition-colors">
-          {t.f_msg}
+          {t.f_msg[mode]}
         </label>
         <textarea id="cf-msg" name="message" rows={4} required className="form-input" />
       </div>
@@ -69,9 +71,9 @@ export default function ContactForm() {
 
       <button type="submit" disabled={sending} className="btn-brutalist mt-4 w-full disabled:opacity-50 disabled:cursor-not-allowed">
         {sending ? (
-          <><FaSpinner className="animate-spin" /> {t.f_sending}</>
+          <><FaSpinner className="animate-spin" /> {t.f_sending[mode]}</>
         ) : (
-          <>{t.f_send} <FaPaperPlane size={12} /></>
+          <>{t.f_send[mode]} <FaPaperPlane size={12} /></>
         )}
       </button>
     </form>

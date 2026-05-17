@@ -1,385 +1,248 @@
 export const translations = {
   en: {
     // Nav
-    nav_about: "Subject_Profile", 
-    nav_skills: "Operations", 
-    nav_projects: "Evidence_Board", 
-    nav_contact: "Transmission",
+    nav_about: { cyberpunk: "SUBJECT_PROFILE", corporate: "About Me" },
+    nav_skills: { cyberpunk: "ACTIVE_OPERATIONS", corporate: "Digital Shop & Services" },
+    nav_projects: { cyberpunk: "EVIDENCE_BOARD", corporate: "Tech Portfolio" },
+    nav_contact: { cyberpunk: "TRANSMISSION", corporate: "Contact" },
     
     // Hero
-    hero_tag: "STATUS: ACTIVE_OPERATIVE",
+    hero_headline: "Bridging Advanced Code with Practical Digital Solutions.",
+    hero_tag: { cyberpunk: "STATUS: ACTIVE_OPERATIVE", corporate: "Available for Work & Services" },
     hero_name: "MOTTALIB",
     hero_roles: [
-      "FULLSTACK_DEVELOPER.",
-      "FOUNDER @ CHAN_MATHA_DIGITAL.",
-      "LINUX_SYSTEM_ADMIN.",
-      "AI_AUTOMATION_SPECIALIST."
+      "Full-Stack Developer",
+      "Founder @ Chan Matha Digital",
+      "Linux System Administrator",
+      "Digital Service Provider"
     ],
-    hero_desc: "Executing grassroots digital operations. Deploying web solutions, automating systems, and providing comprehensive IT and retail services in rural sectors. Analyzing logic... Bug eliminated... System optimized.",
-    hero_btn1: "INITIALIZE PROTOCOL",
-    hero_btn2: "OPEN SECURE CHANNEL",
-    hero_terminal_prompt: "sys.auth >",
-    hero_terminal_output: "ACCESS_GRANTED_TO_DOSSIER",
+    hero_desc: "I build robust web applications and run a physical digital service hub in rural Bangladesh, providing essential IT and retail solutions to my community.",
+    hero_btn1: { cyberpunk: "INITIALIZE PROTOCOL", corporate: "View My Work" },
+    hero_btn2: { cyberpunk: "OPEN SECURE CHANNEL", corporate: "Get In Touch" },
     
     // About / Dossier
-    sec_about: "FILE_01: DOSSIER",
-    about_title_1: "SUBJECT",
-    about_title_2: "PROFILE",
-    about_title_3: "",
-    about_location: "COORD: 24.849, 89.574 (SARIAKANDI)",
-    about_bio: "<strong>CLASSIFIED REPORT:</strong> Subject is a dynamic technology operative currently embedded in a <strong>Diploma in Computer Science & Technology (7th Semester)</strong>. Possesses advanced capabilities in hardware diagnostics, local AI model deployment, and Linux server environments.",
-    about_bio_2: "<strong>CURRENT DIRECTIVE:</strong> Subject is simultaneously preparing for government service exams while successfully commanding <strong>Chan Matha Digital Point</strong> — a high-efficiency hybrid retail and IT service hub. Demonstrates exceptional adaptability and grassroots impact.",
-    about_card_1_label: "SECURITY_CLEARANCE",
-    about_card_1_value: "LEVEL_07 (CST)",
-    about_card_2_label: "OPERATIVE_ROLE",
-    about_card_2_value: "DIRECTOR / FOUNDER",
+    sec_about: { cyberpunk: "FILE_01: DOSSIER", corporate: "Professional Overview" },
+    about_title: { cyberpunk: "SUBJECT PROFILE", corporate: "About Me" },
+    about_location: "Sariakandi, Bogura, BD",
+    about_bio: "A dynamic tech professional holding a <strong>Diploma in Computer Science & Technology</strong>. Passionate about bridging the digital divide through advanced hardware diagnostics and local AI model deployment.",
+    about_bio_2: "Beyond code, I am the founder of <strong>Chan Matha Digital Point</strong>, a hybrid retail and IT service hub. I balance government service exam preparation with managing daily business operations, providing grassroots digital solutions.",
     
     // Skills / Telemetry
-    sec_skills: "SYS_TELEMETRY",
-    skills_title_1: "TECHNICAL",
-    skills_title_2: "INVENTORY",
+    sec_skills: { cyberpunk: "SYS_TELEMETRY", corporate: "Skills Matrix" },
+    skills_title: { cyberpunk: "TECHNICAL INVENTORY", corporate: "Core Competencies" },
     skills: [
       {
-        title: "SYS.OS.LINUX",
-        desc: "Arch Linux, EndeavourOS, Bash Scripting, Kernel Customization.",
-        level: 95,
+        category: "Technical",
+        items: [
+          { title: "React / Next.js / Supabase", level: 90 },
+          { title: "Linux (Arch/EndeavourOS)", level: 95 },
+          { title: "Local AI & Automation", level: 85 }
+        ]
       },
       {
-        title: "SYS.AI.MODELS",
-        desc: "Termux Deployment, OpenClaw, Google AI API, WhatsApp Auto-Bots.",
-        level: 88,
-      },
-      {
-        title: "SYS.WEB.DEV",
-        desc: "React, Next.js, Supabase, Tailwind CSS, Javascript ES6+.",
-        level: 85,
-      },
-      {
-        title: "SYS.HARDWARE",
-        desc: "Component-level diagnostics, mobile device teardown, micro-soldering theory.",
-        level: 80,
-      },
+        category: "Administrative & Business",
+        items: [
+          { title: "Advanced MS Office", level: 95 },
+          { title: "Digital Documentation & Design", level: 90 },
+          { title: "Hardware Troubleshooting", level: 80 }
+        ]
+      }
     ],
     
     // Services / Active Operations
-    sec_services: "ACTIVE_OPERATIONS",
-    services_title_1: "CHAN_MATHA",
-    services_title_2: "DIGITAL_POINT",
-    services_sub: "Commercial front providing essential digital and retail services to the local sector. High operational efficiency.",
+    sec_services: { cyberpunk: "ACTIVE_OPERATIONS", corporate: "Local Business Hub" },
+    services_title: { cyberpunk: "CHAN MATHA DIGITAL", corporate: "Chan Matha Digital Point" },
+    services_sub: "A hybrid hub providing high-speed digital services alongside daily retail essentials.",
     services: [
       {
-        id: 'OP_01',
-        title: "DOCUMENT_REPRODUCTION",
-        desc: "Lab-quality photo printing, A4 optimization, and high-fidelity scanning/photocopying. Graphic design of secure letterheads.",
-        longDesc: "A complete suite of document processing services designed to meet the rigorous demands of local businesses, students, and government applicants. We utilize high-fidelity printers to ensure that every pixel is rendered perfectly, from vibrant passport photographs to complex architectural A4 diagrams.",
-        features: [
-          "Lab-quality glossy and matte photo printing",
-          "High-resolution document scanning and archiving",
-          "Rapid photocopying for bulk academic materials",
-          "Custom graphic design for letterheads and event calendars"
-        ],
+        id: 'SRV_01',
+        title: "Digital Printing & Photocopying",
+        desc: "Lab-quality photo printing, A4 optimization, and high-fidelity scanning.",
         icon: "FaPrint"
       },
       {
-        id: 'OP_02',
-        title: "IDENTITY_FORGING",
-        desc: "Professional CV creation, ID card generation, and corporate business card design. Formatting for maximum aesthetic impact.",
-        longDesc: "In the competitive professional landscape, your documentation is your first impression. We specialize in crafting highly optimized, ATS-friendly Curriculum Vitaes (CVs) and striking physical identity materials that instantly convey professionalism and competence.",
-        features: [
-          "Data-driven, modern Curriculum Vitae (CV) writing",
-          "Corporate-grade employee ID card design and printing",
-          "Premium business card layouts with QR code integration",
-          "Lamination and secure binding services"
-        ],
-        icon: "FaIdCard"
-      },
-      {
-        id: 'OP_03',
-        title: "APPLICATION_PROCESSING",
-        desc: "Secure processing of government and private sector job applications. Error-free form fill-ups and data entry.",
-        longDesc: "Navigating complex bureaucratic and corporate application portals requires precision. We handle the secure processing of sensitive personal data to execute flawless job applications, university admissions, and government registrations on your behalf.",
-        features: [
-          "Government job circular tracking and application submission",
-          "University and academic admission form processing",
-          "Error-free digital data entry and record digitization",
-          "Online banking and secure payment processing assistance"
-        ],
+        id: 'SRV_02',
+        title: "Online Applications",
+        desc: "Secure processing of government and private sector job applications.",
         icon: "FaBriefcase"
       },
       {
-        id: 'OP_04',
-        title: "LEGAL_DOCUMENTATION",
-        desc: "Drafting of 'Chuktinama' (deeds/agreements), formal composing, and Bengali/English rapid transcription.",
-        longDesc: "Providing rigorous and legally sound documentation services. From real estate agreements to formal affidavits, we ensure that every document is drafted with correct terminology, precise formatting, and rapid turnaround times in both English and Bengali.",
-        features: [
-          "Drafting of formal 'Chuktinama' (Deeds and Agreements)",
-          "Rapid transcription and typing (Bengali Bijoy/Unicode & English)",
-          "Formatting of affidavits, legal notices, and official petitions",
-          "Secure cloud backup of finalized legal documents"
-        ],
+        id: 'SRV_03',
+        title: "Legal & Official Documentation",
+        desc: "Drafting of deeds (Chuktinama), formal CVs, and rapid transcription.",
         icon: "FaFileContract"
       }
     ],
+    retail_badge: "Retail Section: Premium Tea, Coffee, Chocolates, and Daily Essentials.",
 
     // Projects / Evidence Board
-    sec_projects: "FILE_02: EVIDENCE",
-    projects_title_1: "EVIDENCE",
-    projects_title_2: "BOARD",
-    projects_sub: "Declassified project files and operational blueprints. Click to decrypt full case study.",
+    sec_projects: { cyberpunk: "FILE_02: EVIDENCE", corporate: "Tech Portfolio" },
+    projects_title: { cyberpunk: "EVIDENCE BOARD", corporate: "Live Projects" },
+    projects_sub: "A selection of web applications and digital infrastructure projects.",
     projects: [
       {
-        title: "CHAN_MATHA_HUB",
-        desc: "Architecture of a hybrid business model. Combines complete IT/Computer Services with essential grocery logistics in Sariakandi.",
-        longDesc: "Chan Matha Digital Point is not just an IT service center; it is a meticulously designed hybrid logistical hub. Recognizing the specific needs of the rural demographic in Sariakandi, I engineered a business model that provides cutting-edge digital services alongside daily essential logistics. This dual-pipeline approach ensures continuous foot traffic, diversified revenue streams, and solidifies the hub as a crucial community asset.",
-        status: "OP_ACTIVE",
-        tags: ["LOGISTICS", "IT_SERVICES", "BUSINESS_MODEL"],
-        features: [
-          "Integrated Point of Sale (POS) system handling both IT services and physical goods",
-          "Automated inventory tracking for high-turnover retail items",
-          "Community-centric service design increasing daily local engagement by 400%",
-          "Sustainable hybrid revenue model securing long-term operational stability"
-        ],
+        title: "Chan Matha Hub Management",
+        desc: "Custom POS and inventory tracking system built with Next.js and Supabase.",
+        status: "Live",
+        tags: ["Next.js", "Supabase", "Tailwind"],
         icon: "FaStoreAlt",
-        color: "#ff3344"
+        github: "https://github.com/mottalibs/Portfolio-Small-Business-website",
+        preview: "https://mottalib.vercel.app/"
       },
       {
-        title: "ACADEMIC_PROTOCOL",
-        desc: "Engineered specialized lesson plans and dialogue formats for secondary education. Optimizes student data retention.",
-        longDesc: "An educational initiative targeting secondary school students. The traditional curriculum delivery mechanism was inefficient. I developed 'Academic Protocol', a framework of specialized lesson plans, interactive dialogue formats, and optimized study materials designed to drastically improve cognitive data retention and engagement during classroom execution.",
-        status: "IN_PROGRESS",
-        tags: ["EDUCATION", "PLANNING", "COGNITIVE_DESIGN"],
-        features: [
-          "Structured dialogue formats replacing standard monologue lectures",
-          "A/B tested study materials maximizing visual data retention",
-          "Digital distribution pipeline for rapid lesson plan updates",
-          "Integration of local context to improve student engagement metrics"
-        ],
+        title: "Academic Planner Platform",
+        desc: "Educational tool featuring specialized lesson plans and interactive dialogue formats.",
+        status: "In Progress",
+        tags: ["React", "Education"],
         icon: "FaFileAlt",
-        color: "#00f0ff"
+        github: "#",
+        preview: "#"
       },
       {
-        title: "NGO_SUPPORT_NET",
-        desc: "Providing administrative design and critical documentation infrastructure for local NGOs and Chaluabari High School.",
-        longDesc: "Local non-governmental organizations and educational institutions often lack the digital infrastructure required to secure funding and report progress. I established a secure support network providing rapid administrative design, formal documentation, and secure data handling for local NGOs and Chaluabari High School, effectively upgrading their operational capabilities.",
-        status: "ONGOING",
-        tags: ["INFRASTRUCTURE", "NGO", "DATA_MGMT"],
-        features: [
-          "Standardized reporting templates for NGO donor communications",
-          "Digital archiving system for Chaluabari High School academic records",
-          "Rapid design deployment for community awareness campaigns",
-          "Secure localized data management protocols"
-        ],
+        title: "NGO Support Network",
+        desc: "Administrative design and secure data infrastructure for local organizations.",
+        status: "Ongoing",
+        tags: ["Data Mgmt", "Infrastructure"],
         icon: "FaGlobe",
-        color: "#e5e5e5"
+        github: "#",
+        preview: "#"
       },
     ],
     
     // Contact / Transmission
-    sec_contact: "SECURE_CHANNEL",
-    contact_title: "INITIATE",
-    contact_accent: "TRANSMISSION",
-    contact_desc: "Signal encrypted. Ready to receive operational requests, project briefings, or collaboration proposals.",
-    contact_location: "SARIAKANDI_BASE",
-    f_name: "SENDER_ID (NAME)",
-    f_email: "ENCRYPTED_COMMS (EMAIL)",
-    f_msg: "TRANSMISSION_PAYLOAD",
-    f_send: "TRANSMIT_DATA",
-    f_sending: "ENCRYPTING...",
-    f_success: "[ SYS_ACK ] TRANSMISSION RECEIVED.",
-    f_error: "[ SYS_ERR ] SIGNAL LOST. RETRY.",
+    sec_contact: { cyberpunk: "SECURE_CHANNEL", corporate: "Get In Touch" },
+    contact_title: { cyberpunk: "INITIATE TRANSMISSION", corporate: "Contact Me" },
+    contact_desc: "Whether you need local IT services, web development, or just want to connect.",
+    f_name: { cyberpunk: "SENDER_ID (NAME)", corporate: "Your Name" },
+    f_email: { cyberpunk: "ENCRYPTED_COMMS (EMAIL)", corporate: "Email Address" },
+    f_msg: { cyberpunk: "TRANSMISSION_PAYLOAD", corporate: "Your Message" },
+    f_send: { cyberpunk: "TRANSMIT_DATA", corporate: "Send Message" },
+    f_sending: { cyberpunk: "ENCRYPTING...", corporate: "Sending..." },
     
     // Footer
-    footer_tagline: "Executing grassroots digital operations.",
-    cta_title: "INITIATE_CONTACT_PROTOCOL",
-    cta_desc: "Awaiting your signal. Open a secure channel for business inquiries or development projects.",
-    cta_btn: "CONNECT",
+    footer_tagline: "Bridging code with practical local solutions.",
   },
   bn: {
-    // English is the primary language for this high-end portfolio, so we will use the same detailed structure for Bengali.
-    nav_about: "প্রোফাইল", 
-    nav_skills: "অপারেশনস", 
-    nav_projects: "প্রমাণ_বোর্ড", 
-    nav_contact: "যোগাযোগ",
+    // Nav
+    nav_about: { cyberpunk: "প্রোফাইল", corporate: "আমার সম্পর্কে" },
+    nav_skills: { cyberpunk: "অপারেশনস", corporate: "ডিজিটাল শপ ও সার্ভিস" },
+    nav_projects: { cyberpunk: "প্রমাণ_বোর্ড", corporate: "টেক পোর্টফোলিও" },
+    nav_contact: { cyberpunk: "যোগাযোগ", corporate: "যোগাযোগ" },
     
-    hero_tag: "স্ট্যাটাস: অ্যাক্টিভ",
+    // Hero
+    hero_headline: "অ্যাডভান্সড কোডিং এবং প্র্যাকটিক্যাল ডিজিটাল সমাধানের সেতুবন্ধন।",
+    hero_tag: { cyberpunk: "স্ট্যাটাস: অ্যাক্টিভ", corporate: "কাজের জন্য প্রস্তুত" },
     hero_name: "মোত্তালিব",
     hero_roles: [
-      "ফুলস্ট্যাক_ডেভেলপার.",
-      "প্রতিষ্ঠাতা @ চান_মাথা_ডিজিটাল.",
-      "লিনাক্স_অ্যাডমিন.",
-      "AI_অটোমেশন_স্পেশালিস্ট."
+      "ফুলস্ট্যাক ডেভেলপার",
+      "প্রতিষ্ঠাতা @ চান মাথা ডিজিটাল",
+      "লিনাক্স সিস্টেম অ্যাডমিন",
+      "ডিজিটাল সার্ভিস প্রোভাইডার"
     ],
-    hero_desc: "তৃণমূল পর্যায়ে ডিজিটাল অপারেশন পরিচালনা করছি। ওয়েব সলিউশন, সিস্টেম অটোমেশন এবং আইটি সেবা প্রদান। বিশ্লেষণ চলছে... বাগ নির্মূল... সিস্টেম অপটিমাইজড।",
-    hero_btn1: "প্রটোকল চালু করুন",
-    hero_btn2: "সুরক্ষিত চ্যানেল খুলুন",
-    hero_terminal_prompt: "sys.auth >",
-    hero_terminal_output: "অ্যাক্সেস_অনুমোদিত",
+    hero_desc: "আমি গ্রামীণ বাংলাদেশে রোবাস্ট ওয়েব অ্যাপ্লিকেশন তৈরি করি এবং একটি ফিজিক্যাল ডিজিটাল সার্ভিস হাব পরিচালনা করি।",
+    hero_btn1: { cyberpunk: "প্রটোকল চালু করুন", corporate: "আমার কাজ দেখুন" },
+    hero_btn2: { cyberpunk: "সুরক্ষিত চ্যানেল খুলুন", corporate: "যোগাযোগ করুন" },
     
-    sec_about: "ফাইল_০১: প্রোফাইল",
-    about_title_1: "সাবজেক্ট",
-    about_title_2: "বিবরণ",
-    about_title_3: "",
-    about_location: "অবস্থান: সারিয়াকান্দি, বগুড়া",
-    about_bio: "<strong>গোপনীয় রিপোর্ট:</strong> সাবজেক্ট একজন প্রযুক্তি অপারেটিভ, বর্তমানে <strong>কম্পিউটার সায়েন্স এন্ড টেকনোলজিতে ডিপ্লোমা (৭ম সেমিস্টার)</strong> অধ্যয়নরত। হার্ডওয়্যার ডায়াগনস্টিকস এবং লিনাক্স সার্ভারে দক্ষ।",
-    about_bio_2: "<strong>বর্তমান লক্ষ্য:</strong> সরকারি চাকরির প্রস্তুতির পাশাপাশি <strong>চান মাথা ডিজিটাল পয়েন্ট</strong> সফলভাবে পরিচালনা করছেন — যা একটি হাইব্রিড আইটি ও রিটেইল হাব।",
-    about_card_1_label: "ক্লিয়ারেন্স",
-    about_card_1_value: "লেভেল_০৭ (CST)",
-    about_card_2_label: "ভূমিকা",
-    about_card_2_value: "ডিরেক্টর / প্রতিষ্ঠাতা",
+    // About
+    sec_about: { cyberpunk: "ফাইল_০১: প্রোফাইল", corporate: "প্রফেশনাল পরিচিতি" },
+    about_title: { cyberpunk: "সাবজেক্ট প্রোফাইল", corporate: "আমার সম্পর্কে" },
+    about_location: "সারিয়াকান্দি, বগুড়া, বাংলাদেশ",
+    about_bio: "আমি একজন প্রযুক্তিপ্রেমী এবং <strong>কম্পিউটার সায়েন্স এন্ড টেকনোলজিতে ডিপ্লোমা</strong> সম্পন্ন করেছি। হার্ডওয়্যার ডায়াগনস্টিকস এবং লিনাক্স সার্ভারে আমার গভীর আগ্রহ।",
+    about_bio_2: "কোডিংয়ের বাইরে আমি <strong>চান মাথা ডিজিটাল পয়েন্ট</strong>-এর প্রতিষ্ঠাতা। সরকারি চাকরির প্রস্তুতির পাশাপাশি আমি প্রতিদিনের ব্যবসায়িক কার্যক্রম সফলভাবে পরিচালনা করছি।",
     
-    sec_skills: "সিস্টেম_টেলিমেট্রি",
-    skills_title_1: "টেকনিক্যাল",
-    skills_title_2: "ইনভেন্টরি",
+    // Skills
+    sec_skills: { cyberpunk: "সিস্টেম_টেলিমেট্রি", corporate: "স্কিলস ম্যাট্রিক্স" },
+    skills_title: { cyberpunk: "টেকনিক্যাল ইনভেন্টরি", corporate: "মূল দক্ষতা" },
     skills: [
       {
-        title: "SYS.OS.LINUX",
-        desc: "আর্চ লিনাক্স, EndeavourOS, ব্যাশ স্ক্রিপ্টিং, কার্নেল কাস্টমাইজেশন।",
-        level: 95,
+        category: "টেকনিক্যাল",
+        items: [
+          { title: "React / Next.js / Supabase", level: 90 },
+          { title: "Linux (Arch/EndeavourOS)", level: 95 },
+          { title: "Local AI & Automation", level: 85 }
+        ]
       },
       {
-        title: "SYS.AI.MODELS",
-        desc: "টারমাক্সে AI মডেল, OpenClaw, Google AI API, হোয়াটসঅ্যাপ অটো-বট।",
-        level: 88,
-      },
-      {
-        title: "SYS.WEB.DEV",
-        desc: "React, Next.js, Supabase, Tailwind CSS, Javascript ES6+।",
-        level: 85,
-      },
-      {
-        title: "SYS.HARDWARE",
-        desc: "কম্পোনেন্ট লেভেল ডায়াগনস্টিকস, মোবাইল টিয়ারডাউন, মাইক্রো-সোল্ডারিং।",
-        level: 80,
-      },
+        category: "অ্যাডমিনিস্ট্রেটিভ ও বিজনেস",
+        items: [
+          { title: "Advanced MS Office", level: 95 },
+          { title: "Digital Documentation & Design", level: 90 },
+          { title: "Hardware Troubleshooting", level: 80 }
+        ]
+      }
     ],
     
-    sec_services: "অ্যাক্টিভ_অপারেশনস",
-    services_title_1: "চান_মাথা",
-    services_title_2: "ডিজিটাল_পয়েন্ট",
-    services_sub: "স্থানীয় সেক্টরে প্রয়োজনীয় আইটি এবং রিটেইল সেবা প্রদানকারী বাণিজ্যিক ফ্রন্ট। বিস্তারিত জানতে ক্লিক করুন।",
+    // Services
+    sec_services: { cyberpunk: "অ্যাক্টিভ_অপারেশনস", corporate: "লোকাল বিজনেস হাব" },
+    services_title: { cyberpunk: "চান মাথা ডিজিটাল", corporate: "চান মাথা ডিজিটাল পয়েন্ট" },
+    services_sub: "একটি হাইব্রিড হাব যা দৈনন্দিন রিটেইল পণ্যের পাশাপাশি দ্রুত গতির ডিজিটাল সেবা প্রদান করে।",
     services: [
       {
-        id: 'OP_01',
-        title: "ডকুমেন্ট_রিপ্রোডাকশন",
-        desc: "ল্যাব-কোয়ালিটি ফটো প্রিন্ট, স্ক্যানিং, ফটোকপি এবং গ্রাফিক ডিজাইন।",
-        longDesc: "স্থানীয় ব্যবসা, শিক্ষার্থী এবং সরকারি আবেদনকারীদের চাহিদার কথা মাথায় রেখে আমাদের ডকুমেন্ট প্রসেসিং সেবা তৈরি। ছবি প্রিন্ট থেকে শুরু করে জটিল গ্রাফিক ডিজাইন — সবকিছু নিখুঁতভাবে করা হয়।",
-        features: [
-          "ল্যাব-কোয়ালিটি গ্লসি এবং ম্যাট ফটো প্রিন্টিং",
-          "হাই-রেজোলিউশন ডকুমেন্ট স্ক্যানিং",
-          "একাডেমিক ম্যাটেরিয়ালের জন্য দ্রুত ফটোকপি",
-          "লেটারহেড এবং ক্যালেন্ডারের কাস্টম গ্রাফিক ডিজাইন"
-        ],
+        id: 'SRV_01',
+        title: "ডিজিটাল প্রিন্টিং ও ফটোকপি",
+        desc: "ল্যাব-কোয়ালিটি ফটো প্রিন্ট, A4 অপ্টিমাইজেশন এবং হাই-রেজোলিউশন স্ক্যানিং।",
         icon: "FaPrint"
       },
       {
-        id: 'OP_02',
-        title: "পরিচয়পত্র_তৈরি",
-        desc: "প্রফেশনাল সিভি, আইডি কার্ড এবং বিজনেস কার্ড ডিজাইন।",
-        longDesc: "প্রতিযোগিতামূলক পেশাদার ক্ষেত্রে, আপনার ডকুমেন্টেশনই আপনার প্রথম পরিচয়। আমরা অত্যন্ত অপ্টিমাইজড, আধুনিক সিভি (CV) এবং আকর্ষণীয় ফিজিক্যাল আইডি উপাদান তৈরি করি যা তাৎক্ষণিকভাবে আপনার পেশাদারিত্ব প্রকাশ করে।",
-        features: [
-          "আধুনিক এবং ডাটা-নির্ভর সিভি (CV) তৈরি",
-          "কর্পোরেট গ্রেড এমপ্লয়ি আইডি কার্ড ডিজাইন ও প্রিন্ট",
-          "QR কোড সহ প্রিমিয়াম বিজনেস কার্ড",
-          "ল্যামিনেশন এবং সুরক্ষিত বাইন্ডিং"
-        ],
-        icon: "FaIdCard"
-      },
-      {
-        id: 'OP_03',
-        title: "অ্যাপ্লিকেশন_প্রসেসিং",
-        desc: "সরকারি ও বেসরকারি চাকরির অনলাইন আবেদন এবং ডাটা এন্ট্রি।",
-        longDesc: "জটিল আমলাতান্ত্রিক এবং কর্পোরেট আবেদন পোর্টালে নির্ভুলতা অপরিহার্য। আমরা আপনার হয়ে চাকরি, বিশ্ববিদ্যালয়ে ভর্তি এবং সরকারি নিবন্ধনের কাজ অত্যন্ত সতর্কতার সাথে সম্পন্ন করি।",
-        features: [
-          "সরকারি চাকরির বিজ্ঞপ্তি ট্র্যাকিং এবং আবেদন",
-          "বিশ্ববিদ্যালয়ে ভর্তির ফরম পূরণ",
-          "নির্ভুল ডিজিটাল ডাটা এন্ট্রি",
-          "অনলাইন ব্যাংকিং এবং পেমেন্ট সহায়তা"
-        ],
+        id: 'SRV_02',
+        title: "অনলাইন অ্যাপ্লিকেশন",
+        desc: "সরকারি ও বেসরকারি চাকরির অনলাইন আবেদন সুরক্ষিতভাবে প্রসেস করা।",
         icon: "FaBriefcase"
       },
       {
-        id: 'OP_04',
-        title: "লিগ্যাল_ডকুমেন্টেশন",
-        desc: "চুক্তিনামা তৈরি, ফরমাল কম্পোজ এবং বাংলা/ইংরেজি দ্রুত টাইপিং।",
-        longDesc: "নির্ভুল এবং আইনগতভাবে নিখুঁত ডকুমেন্টেশন প্রদান। চুক্তিপত্র থেকে শুরু করে এফিডেভিট পর্যন্ত, প্রতিটি ডকুমেন্ট সঠিক পরিভাষা এবং নির্দিষ্ট ফরম্যাটে বাংলা ও ইংরেজিতে দ্রুত প্রস্তুত করা হয়।",
-        features: [
-          "ফরমাল চুক্তিনামা এবং দলিল ড্রাফটিং",
-          "বাংলা (বিজয়/ইউনিকোড) এবং ইংরেজি দ্রুত টাইপিং",
-          "এফিডেভিট এবং অফিশিয়াল নোটিশ ফরম্যাটিং",
-          "গুরুত্বপূর্ণ আইনি ডকুমেন্টের সুরক্ষিত ক্লাউড ব্যাকআপ"
-        ],
+        id: 'SRV_03',
+        title: "লিগ্যাল ও অফিশিয়াল ডকুমেন্টেশন",
+        desc: "চুক্তিনামা তৈরি, ফরমাল সিভি এবং দ্রুত টাইপিং সার্ভিস।",
         icon: "FaFileContract"
       }
     ],
+    retail_badge: "রিটেইল সেকশন: প্রিমিয়াম চা, কফি, চকলেট এবং দৈনন্দিন প্রয়োজনীয় পণ্য।",
 
-    sec_projects: "ফাইল_০২: প্রমাণ",
-    projects_title_1: "এভিডেন্স",
-    projects_title_2: "বোর্ড",
-    projects_sub: "ডিক্লাসিফাইড প্রজেক্ট ফাইল এবং অপারেশনাল ব্লুপ্রিন্ট। বিস্তারিত জানতে ক্লিক করুন।",
+    // Projects
+    sec_projects: { cyberpunk: "ফাইল_০২: প্রমাণ", corporate: "টেক পোর্টফোলিও" },
+    projects_title: { cyberpunk: "এভিডেন্স বোর্ড", corporate: "লাইভ প্রজেক্টস" },
+    projects_sub: "আমার তৈরি কিছু ওয়েব অ্যাপ্লিকেশন এবং ডিজিটাল ইনফ্রাস্ট্রাকচার প্রজেক্ট।",
     projects: [
       {
-        title: "চান_মাথা_হাব",
-        desc: "সারিয়াকান্দিতে আইটি সেবা ও মুদি পণ্যের সমন্বয়ে একটি হাইব্রিড মডেল।",
-        longDesc: "চান মাথা ডিজিটাল পয়েন্ট কেবল একটি আইটি সার্ভিস সেন্টার নয়; এটি একটি সুপরিকল্পিত হাইব্রিড লজিস্টিক হাব। সারিয়াকান্দির গ্রামীণ জনগোষ্ঠীর চাহিদার কথা বিবেচনা করে, আমি এমন একটি ব্যবসায়িক মডেল তৈরি করেছি যা দৈনন্দিন প্রয়োজনীয় পণ্যের পাশাপাশি আধুনিক ডিজিটাল সেবা প্রদান করে।",
-        status: "অ্যাক্টিভ",
-        tags: ["লজিস্টিকস", "আইটি_সেবা", "বিজনেস_মডেল"],
-        features: [
-          "আইটি সেবা এবং পণ্য বিক্রির জন্য ইন্টিগ্রেটেড পস (POS) সিস্টেম",
-          "খুচরা পণ্যের স্বয়ংক্রিয় ইনভেন্টরি ট্র্যাকিং",
-          "কমিউনিটি-কেন্দ্রিক সেবা ডিজাইন",
-          "দীর্ঘমেয়াদী আয়ের জন্য টেকসই হাইব্রিড মডেল"
-        ],
+        title: "চান মাথা হাব ম্যানেজমেন্ট",
+        desc: "Next.js এবং Supabase দিয়ে তৈরি কাস্টম POS এবং ইনভেন্টরি ট্র্যাকিং সিস্টেম।",
+        status: "লাইভ",
+        tags: ["Next.js", "Supabase", "Tailwind"],
         icon: "FaStoreAlt",
-        color: "#ff3344"
+        github: "https://github.com/mottalibs/Portfolio-Small-Business-website",
+        preview: "https://mottalib.vercel.app/"
       },
       {
-        title: "একাডেমিক_প্রটোকল",
-        desc: "মাধ্যমিক শিক্ষার্থীদের জন্য বিশেষায়িত পাঠ পরিকল্পনা তৈরি।",
-        longDesc: "মাধ্যমিক বিদ্যালয়ের শিক্ষার্থীদের লক্ষ্য করে একটি শিক্ষামূলক উদ্যোগ। আমি 'একাডেমিক প্রটোকল' নামে একটি ফ্রেমওয়ার্ক তৈরি করেছি, যা বিশেষায়িত পাঠ পরিকল্পনা এবং ইন্টারেক্টিভ ডায়ালগ ফরম্যাটের মাধ্যমে শিক্ষার্থীদের শেখার ক্ষমতা উল্লেখযোগ্যভাবে বৃদ্ধি করে।",
+        title: "একাডেমিক প্ল্যানার",
+        desc: "মাধ্যমিক শিক্ষার্থীদের জন্য বিশেষায়িত পাঠ পরিকল্পনা তৈরি করার প্ল্যাটফর্ম।",
         status: "চলমান",
-        tags: ["শিক্ষা", "প্ল্যানিং", "ডিজাইন"],
-        features: [
-          "সাধারণ লেকচারের পরিবর্তে কাঠামোবদ্ধ ডায়ালগ ফরম্যাট",
-          "ভিজ্যুয়াল ডাটা রিটেনশন বাড়ানোর জন্য স্টাডি ম্যাটেরিয়াল",
-          "লেসন প্ল্যানের দ্রুত আপডেটের জন্য ডিজিটাল ডিস্ট্রিবিউশন",
-          "শিক্ষার্থীদের মনোযোগ বাড়ানোর জন্য স্থানীয় প্রেক্ষাপটের সংযোজন"
-        ],
+        tags: ["React", "Education"],
         icon: "FaFileAlt",
-        color: "#00f0ff"
+        github: "#",
+        preview: "#"
       },
       {
-        title: "NGO_সাপোর্ট",
-        desc: "স্থানীয় NGO এবং চালুয়াবাড়ী উচ্চ বিদ্যালয়ের প্রশাসনিক সাপোর্ট।",
-        longDesc: "স্থানীয় এনজিও এবং শিক্ষা প্রতিষ্ঠানগুলোর অনেক সময় প্রয়োজনীয় ডিজিটাল পরিকাঠামো থাকে না। আমি একটি সুরক্ষিত সাপোর্ট নেটওয়ার্ক প্রতিষ্ঠা করেছি যা স্থানীয় এনজিও এবং চালুয়াবাড়ী উচ্চ বিদ্যালয়ের জন্য দ্রুত প্রশাসনিক ডিজাইন এবং ডাটা পরিচালনার সুবিধা দেয়।",
+        title: "NGO সাপোর্ট নেটওয়ার্ক",
+        desc: "স্থানীয় NGO দের জন্য প্রশাসনিক ডিজাইন এবং সুরক্ষিত ডাটা ইনফ্রাস্ট্রাকচার।",
         status: "চলমান",
-        tags: ["ইনফ্রাস্ট্রাকচার", "NGO", "ডাটা_ম্যানেজমেন্ট"],
-        features: [
-          "এনজিও ডোনারদের সাথে যোগাযোগের জন্য স্ট্যান্ডার্ড রিপোর্টিং টেমপ্লেট",
-          "চালুয়াবাড়ী উচ্চ বিদ্যালয়ের একাডেমিক রেকর্ডের ডিজিটাল আর্কাইভ",
-          "কমিউনিটি সচেতনতা ক্যাম্পেইনের জন্য দ্রুত ডিজাইন",
-          "সুরক্ষিত স্থানীয় ডাটা ম্যানেজমেন্ট প্রটোকল"
-        ],
+        tags: ["Data Mgmt", "Infrastructure"],
         icon: "FaGlobe",
-        color: "#e5e5e5"
+        github: "#",
+        preview: "#"
       },
     ],
     
-    sec_contact: "সিকিউর_চ্যানেল",
-    contact_title: "সিগন্যাল",
-    contact_accent: "ট্রান্সমিট",
-    contact_desc: "সিগন্যাল এনক্রিপ্টেড। অপারেশনাল রিকোয়েস্ট বা কোলাবোরেশনের জন্য প্রস্তুত।",
-    contact_location: "সারিয়াকান্দি_বেস",
-    f_name: "সেন্ডার_আইডি (নাম)",
-    f_email: "এনক্রিপ্টেড_কমিউনিকেশন (ইমেইল)",
-    f_msg: "ট্রান্সমিশন_পে-লোড",
-    f_send: "ডাটা_ট্রান্সমিট_করুন",
-    f_sending: "এনক্রিপ্ট_হচ্ছে...",
-    f_success: "[ SYS_ACK ] ট্রান্সমিশন সফল।",
-    f_error: "[ SYS_ERR ] সিগন্যাল লস্ট। আবার চেষ্টা করুন।",
+    // Contact
+    sec_contact: { cyberpunk: "সিকিউর_চ্যানেল", corporate: "যোগাযোগ" },
+    contact_title: { cyberpunk: "সিগন্যাল ট্রান্সমিট করুন", corporate: "যোগাযোগ করুন" },
+    contact_desc: "লোকাল আইটি সেবা, ওয়েব ডেভেলপমেন্ট বা যেকোনো প্রয়োজনে মেসেজ দিন।",
+    f_name: { cyberpunk: "সেন্ডার_আইডি (নাম)", corporate: "আপনার নাম" },
+    f_email: { cyberpunk: "এনক্রিপ্টেড_কমিউনিকেশন (ইমেইল)", corporate: "ইমেইল ঠিকানা" },
+    f_msg: { cyberpunk: "ট্রান্সমিশন_পে-লোড", corporate: "আপনার মেসেজ" },
+    f_send: { cyberpunk: "ডাটা_ট্রান্সমিট_করুন", corporate: "মেসেজ পাঠান" },
+    f_sending: { cyberpunk: "এনক্রিপ্ট_হচ্ছে...", corporate: "পাঠানো হচ্ছে..." },
     
-    footer_tagline: "তৃণমূল পর্যায়ে ডিজিটাল অপারেশন পরিচালনা করছি।",
-    cta_title: "কন্টাক্ট_প্রটোকল_শুরু_করুন",
-    cta_desc: "আপনার সিগন্যালের অপেক্ষায়। প্রজেক্ট বা ব্যবসায়ের জন্য যোগাযোগ করুন।",
-    cta_btn: "কানেক্ট_করুন",
+    // Footer
+    footer_tagline: "অ্যাডভান্সড কোডিং এবং প্র্যাকটিক্যাল ডিজিটাল সমাধানের সেতুবন্ধন।",
   }
 };
