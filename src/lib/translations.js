@@ -1,254 +1,287 @@
 export const translations = {
   en: {
     // Nav
-    nav_services: "Services", nav_works: "Works", nav_contact: "Contact",
+    nav_about: "Subject_Profile", 
+    nav_skills: "Operations", 
+    nav_projects: "Evidence_Board", 
+    nav_contact: "Transmission",
+    
     // Hero
-    hero_greeting: "Hello, I'm",
-    hero_name: "Mottalib.",
-    hero_title: "Tech Entrepreneur and Developer, based in Bangladesh.",
-    hero_desc: "Building digital solutions at the grassroots level. Passionate about Linux, AI automation, and bridging the technology gap in rural Bangladesh.",
-    hero_btn1: "My Works",
-    hero_btn2: "Contact Me",
-    // About / Intro
-    sec_about: "About Me",
-    about_intro_title: "Any Type Of Query & Discussion",
-    about_intro_desc: "You can't use up creativity, the more you use, more you have in your repertoire mind.",
-    about_location: "Sariakandi, Bogura",
-    // Stats
-    stat_years: "Years of Experience",
-    stat_clients: "Satisfied Clients",
-    stat_years_value: "3",
-    stat_clients_value: "187",
-    // Services
-    sec_services: "Services",
-    services_title_1: "What I",
-    services_title_2: "Offer",
+    hero_tag: "STATUS: ACTIVE_OPERATIVE",
+    hero_name: "MOTTALIB",
+    hero_roles: [
+      "FULLSTACK_DEVELOPER.",
+      "FOUNDER @ CHAN_MATHA_DIGITAL.",
+      "LINUX_SYSTEM_ADMIN.",
+      "AI_AUTOMATION_SPECIALIST."
+    ],
+    hero_desc: "Executing grassroots digital operations. Deploying web solutions, automating systems, and providing comprehensive IT and retail services in rural sectors. Analyzing logic... Bug eliminated... System optimized.",
+    hero_btn1: "INITIALIZE PROTOCOL",
+    hero_btn2: "OPEN SECURE CHANNEL",
+    hero_terminal_prompt: "sys.auth >",
+    hero_terminal_output: "ACCESS_GRANTED_TO_DOSSIER",
+    
+    // About / Dossier
+    sec_about: "FILE_01: DOSSIER",
+    about_title_1: "SUBJECT",
+    about_title_2: "PROFILE",
+    about_title_3: "",
+    about_location: "COORD: 24.849, 89.574 (SARIAKANDI)",
+    about_bio: "<strong>CLASSIFIED REPORT:</strong> Subject is a dynamic technology operative currently embedded in a <strong>Diploma in Computer Science & Technology (7th Semester)</strong>. Possesses advanced capabilities in hardware diagnostics, local AI model deployment, and Linux server environments.",
+    about_bio_2: "<strong>CURRENT DIRECTIVE:</strong> Subject is simultaneously preparing for government service exams while successfully commanding <strong>Chan Matha Digital Point</strong> — a high-efficiency hybrid retail and IT service hub. Demonstrates exceptional adaptability and grassroots impact.",
+    about_card_1_label: "SECURITY_CLEARANCE",
+    about_card_1_value: "LEVEL_07 (CST)",
+    about_card_2_label: "OPERATIVE_ROLE",
+    about_card_2_value: "DIRECTOR / FOUNDER",
+    
+    // Skills / Telemetry
+    sec_skills: "SYS_TELEMETRY",
+    skills_title_1: "TECHNICAL",
+    skills_title_2: "INVENTORY",
+    skills: [
+      {
+        title: "SYS.OS.LINUX",
+        desc: "Arch Linux, EndeavourOS, Bash Scripting, Kernel Customization.",
+        level: 95,
+      },
+      {
+        title: "SYS.AI.MODELS",
+        desc: "Termux Deployment, OpenClaw, Google AI API, WhatsApp Auto-Bots.",
+        level: 88,
+      },
+      {
+        title: "SYS.WEB.DEV",
+        desc: "React, Next.js, Supabase, Tailwind CSS, Javascript ES6+.",
+        level: 85,
+      },
+      {
+        title: "SYS.HARDWARE",
+        desc: "Component-level diagnostics, mobile device teardown, micro-soldering theory.",
+        level: 80,
+      },
+    ],
+    
+    // Services / Active Operations (Chan Matha Digital Point)
+    sec_services: "ACTIVE_OPERATIONS",
+    services_title_1: "CHAN_MATHA",
+    services_title_2: "DIGITAL_POINT",
+    services_sub: "Commercial front providing essential digital and retail services to the local sector. High operational efficiency.",
     services: [
       {
-        title: "IT & Digital Services",
-        desc: "Lab-quality photo printing, photo restoration, graphic design, document optimization, and complete computer services.",
-        icon: "FaPrint",
-        num: "01",
-        details: "We provide professional-grade digital services right at your doorstep in Sariakandi. From passport-size photos to large banners, from simple photocopies to complex legal document formatting — we handle it all with precision and care. Our equipment is regularly maintained to ensure the highest output quality.",
-        features: ["Lab-quality photo printing & restoration", "High-resolution scanning & digitization", "Professional CV & resume design", "Government form fill-up assistance", "Banner, poster & visiting card design", "Document formatting & optimization"],
+        id: 'OP_01',
+        title: "DOCUMENT_REPRODUCTION",
+        desc: "Lab-quality photo printing, A4 optimization, and high-fidelity scanning/photocopying. Graphic design of secure letterheads.",
+        icon: "FaPrint"
       },
       {
-        title: "AI & Automation",
-        desc: "Local AI model deployment, Google AI Studio integration, WhatsApp Business AI automation, and smart workflow solutions.",
-        icon: "FaRocket",
-        num: "02",
-        details: "Leveraging the power of artificial intelligence to automate repetitive tasks, enhance customer interactions, and streamline business operations. We deploy AI solutions locally so your data stays private and secure, while still benefiting from cutting-edge technology.",
-        features: ["Local AI model deployment & fine-tuning", "Google AI Studio integration", "WhatsApp Business AI chatbot automation", "Smart workflow & task automation", "AI-powered document processing", "Custom AI solutions for small businesses"],
+        id: 'OP_02',
+        title: "IDENTITY_FORGING",
+        desc: "Professional CV creation, ID card generation, and corporate business card design. Formatting for maximum aesthetic impact.",
+        icon: "FaIdCard"
       },
       {
-        title: "Linux & Hardware",
-        desc: "Expert-level Linux administration, Arch Linux setup, hardware diagnostics, component-level analysis, and system optimization.",
-        icon: "FaLaptopCode",
-        num: "03",
-        details: "With deep expertise in Linux systems and hardware diagnostics, we offer comprehensive technical support. Whether you need a fresh Arch Linux installation, system performance tuning, or component-level hardware repair — we deliver reliable solutions that keep your systems running at peak performance.",
-        features: ["Arch Linux & EndeavourOS setup", "Server administration & security hardening", "Hardware diagnostics & repair", "Component-level motherboard analysis", "System performance optimization", "Data recovery & backup solutions"],
+        id: 'OP_03',
+        title: "APPLICATION_PROCESSING",
+        desc: "Secure processing of government and private sector job applications. Error-free form fill-ups and data entry.",
+        icon: "FaBriefcase"
       },
+      {
+        id: 'OP_04',
+        title: "LEGAL_DOCUMENTATION",
+        desc: "Drafting of 'Chuktinama' (deeds/agreements), formal composing, and Bengali/English rapid transcription.",
+        icon: "FaFileContract"
+      }
     ],
-    // Projects
-    sec_projects: "Selected Projects",
-    projects_title_1: "All Creative Works,",
-    projects_title_2: "Selected Projects.",
-    projects_sub: "Initiatives I've built and contributed to — each solving real problems.",
-    projects_explore: "Explore more",
+
+    // Projects / Evidence Board
+    sec_projects: "FILE_02: EVIDENCE",
+    projects_title_1: "EVIDENCE",
+    projects_title_2: "BOARD",
+    projects_sub: "Declassified project files and operational blueprints. Hover to decrypt visual data.",
     projects: [
       {
-        title: "Chan Matha Digital Point",
-        desc: "A unique hybrid business model offering IT/Computer Services and daily essentials in Sariakandi.",
-        status: "Active",
-        tags: ["Business", "IT Services", "Retail"],
+        title: "CHAN_MATHA_HUB",
+        desc: "Architecture of a hybrid business model. Combines complete IT/Computer Services with essential grocery logistics in Sariakandi.",
+        status: "OP_ACTIVE",
+        tags: ["LOGISTICS", "IT_SERVICES"],
         icon: "FaStoreAlt",
-        category: "Business",
-        details: "Chan Matha Digital Point is a pioneering hybrid business in rural Sariakandi that combines modern IT/Computer services with a traditional retail store. It serves as the go-to destination for all digital needs — from printing and scanning to AI-powered solutions — while also providing daily essentials to the local community.",
-        features: ["Full-service IT & computer solutions", "Daily essentials & retail products", "Community tech hub & training center", "Digital literacy workshops"],
+        color: "#ff3344"
       },
       {
-        title: "Academic Planner",
-        desc: "Specialized lesson plans and dialogue formats for secondary school students.",
-        status: "In Progress",
-        tags: ["Education", "Planning", "Design"],
+        title: "ACADEMIC_PROTOCOL",
+        desc: "Engineered specialized lesson plans and dialogue formats for secondary education. Optimizes student data retention.",
+        status: "IN_PROGRESS",
+        tags: ["EDUCATION", "PLANNING"],
         icon: "FaFileAlt",
-        category: "Education",
-        details: "A comprehensive academic planning tool designed specifically for secondary school students and teachers in Bangladesh. Features professionally formatted lesson plans, dialogue scripts, and study materials that align with the national curriculum.",
-        features: ["Curriculum-aligned lesson planning", "Professionally designed templates", "Interactive dialogue formats", "Print-ready document output"],
+        color: "#00f0ff"
       },
       {
-        title: "NGO & School IT Support",
-        desc: "Administrative design and documentation support for local NGOs and Chaluabari High School.",
-        status: "Ongoing",
-        tags: ["NGO", "Education", "Community"],
+        title: "NGO_SUPPORT_NET",
+        desc: "Providing administrative design and critical documentation infrastructure for local NGOs and Chaluabari High School.",
+        status: "ONGOING",
+        tags: ["INFRASTRUCTURE", "NGO"],
         icon: "FaGlobe",
-        category: "Community",
-        details: "Providing end-to-end IT and administrative support to local non-governmental organizations and Chaluabari High School. From digitizing records to creating professional documentation, this initiative bridges the technology gap in community organizations.",
-        features: ["Digital record management", "Professional document design", "IT infrastructure setup", "Staff training & support"],
+        color: "#e5e5e5"
       },
     ],
-    // Testimonials
-    sec_testimonials: "Testimonials",
-    testimonials_title_1: "What Our",
-    testimonials_title_2: "Clients Say",
-    testimonials_sub: "Real feedback from our valued customers who trust us with their needs.",
-    testimonials_client: "Valued Client",
-    // Contact
-    sec_contact: "Contact",
-    contact_cta_title: "Got a project?",
-    contact_cta_sub: "Let's talk.",
-    contact_form_title: "Estimate your project.",
-    contact_form_sub: "Let me know here.",
-    contact_desc: "Have a project in mind or want to collaborate? Drop me a message and I'll get back to you.",
-    contact_location: "Sariakandi, Bogura, Bangladesh",
-    f_name: "What's your name?",
-    f_email: "Your fancy email",
-    f_msg: "Tell me about your project",
-    f_send: "Send Message",
-    f_sending: "Sending...",
-    f_success: "✅ Message sent successfully!",
-    f_error: "❌ Failed to send. Please try again.",
+    
+    // Contact / Transmission
+    sec_contact: "SECURE_CHANNEL",
+    contact_title: "INITIATE",
+    contact_accent: "TRANSMISSION",
+    contact_desc: "Signal encrypted. Ready to receive operational requests, project briefings, or collaboration proposals.",
+    contact_location: "SARIAKANDI_BASE",
+    f_name: "SENDER_ID (NAME)",
+    f_email: "ENCRYPTED_COMMS (EMAIL)",
+    f_msg: "TRANSMISSION_PAYLOAD",
+    f_send: "TRANSMIT_DATA",
+    f_sending: "ENCRYPTING...",
+    f_success: "[ SYS_ACK ] TRANSMISSION RECEIVED.",
+    f_error: "[ SYS_ERR ] SIGNAL LOST. RETRY.",
+    
     // Footer
-    footer_tagline: "Building digital solutions at the grassroots level.",
-    footer_copyright: "Thinking creatively, but with a plan.",
-    // CTA
-    cta_title: "Let's Build Something Together",
-    cta_desc: "Whether you need IT services, have a project idea, or just want to chat about tech — I'm always open.",
-    cta_btn: "Get In Touch",
-    // Blog
-    sec_blog: "Blog",
-    blog_title: "What's new?",
-    blog_sub: "My blog and news.",
-    blog_posts: [
-      { date: "Mar 21, Blog", title: "Let this be pleasant to you", content: "Exploring the joy of building digital solutions for local communities. How small tech initiatives can create big impact in rural areas and transform everyday life through accessible technology." },
-      { date: "May 11", title: "How do you use time looking for projects?", content: "Time management strategies for freelancers and entrepreneurs. Discovering the balance between searching for new opportunities and delivering excellence on current projects." },
-      { date: "Apr 17", title: "Tips and empathy in design", content: "Why empathy is the cornerstone of great design. Understanding your users, their pain points, and crafting solutions that genuinely improve their experience and workflow." },
-    ],
+    footer_tagline: "Executing grassroots digital operations.",
+    cta_title: "INITIATE_CONTACT_PROTOCOL",
+    cta_desc: "Awaiting your signal. Open a secure channel for business inquiries or development projects.",
+    cta_btn: "CONNECT",
   },
   bn: {
-    // Nav
-    nav_services: "সেবা", nav_works: "কাজ", nav_contact: "যোগাযোগ",
-    // Hero
-    hero_greeting: "হ্যালো, আমি",
-    hero_name: "মোত্তালিব।",
-    hero_title: "টেক উদ্যোক্তা ও ডেভেলপার, বাংলাদেশ থেকে।",
-    hero_desc: "তৃণমূল পর্যায়ে ডিজিটাল সমাধান তৈরি করছি। লিনাক্স, AI অটোমেশন এবং গ্রামীণ বাংলাদেশে প্রযুক্তির ব্যবধান কমানোর প্রতি আগ্রহী।",
-    hero_btn1: "আমার কাজ",
-    hero_btn2: "যোগাযোগ",
-    // About / Intro
-    sec_about: "আমার সম্পর্কে",
-    about_intro_title: "যেকোনো ধরনের প্রশ্ন ও আলোচনা",
-    about_intro_desc: "সৃজনশীলতা কখনো শেষ হয় না, যত ব্যবহার করবেন ততই আপনার ভাণ্ডার বাড়বে।",
-    about_location: "সারিয়াকান্দি, বগুড়া",
-    // Stats
-    stat_years: "বছরের অভিজ্ঞতা",
-    stat_clients: "সন্তুষ্ট গ্রাহক",
-    stat_years_value: "৩",
-    stat_clients_value: "১৮৭",
-    // Services
-    sec_services: "সেবাসমূহ",
-    services_title_1: "আমি যা",
-    services_title_2: "অফার করি",
+    // Exact same keys, translated to Bengali but keeping the brutalist/military vibe where appropriate.
+    nav_about: "প্রোফাইল", 
+    nav_skills: "অপারেশনস", 
+    nav_projects: "প্রমাণ_বোর্ড", 
+    nav_contact: "যোগাযোগ",
+    
+    hero_tag: "স্ট্যাটাস: অ্যাক্টিভ",
+    hero_name: "মোত্তালিব",
+    hero_roles: [
+      "ফুলস্ট্যাক_ডেভেলপার.",
+      "প্রতিষ্ঠাতা @ চান_মাথা_ডিজিটাল.",
+      "লিনাক্স_অ্যাডমিন.",
+      "AI_অটোমেশন_স্পেশালিস্ট."
+    ],
+    hero_desc: "তৃণমূল পর্যায়ে ডিজিটাল অপারেশন পরিচালনা করছি। ওয়েব সলিউশন, সিস্টেম অটোমেশন এবং আইটি সেবা প্রদান। বিশ্লেষণ চলছে... বাগ নির্মূল... সিস্টেম অপটিমাইজড।",
+    hero_btn1: "প্রটোকল চালু করুন",
+    hero_btn2: "সুরক্ষিত চ্যানেল খুলুন",
+    hero_terminal_prompt: "sys.auth >",
+    hero_terminal_output: "অ্যাক্সেস_অনুমোদিত",
+    
+    sec_about: "ফাইল_০১: প্রোফাইল",
+    about_title_1: "সাবজেক্ট",
+    about_title_2: "বিবরণ",
+    about_title_3: "",
+    about_location: "অবস্থান: সারিয়াকান্দি, বগুড়া",
+    about_bio: "<strong>গোপনীয় রিপোর্ট:</strong> সাবজেক্ট একজন প্রযুক্তি অপারেটিভ, বর্তমানে <strong>কম্পিউটার সায়েন্স এন্ড টেকনোলজিতে ডিপ্লোমা (৭ম সেমিস্টার)</strong> অধ্যয়নরত। হার্ডওয়্যার ডায়াগনস্টিকস এবং লিনাক্স সার্ভারে দক্ষ।",
+    about_bio_2: "<strong>বর্তমান লক্ষ্য:</strong> সরকারি চাকরির প্রস্তুতির পাশাপাশি <strong>চান মাথা ডিজিটাল পয়েন্ট</strong> সফলভাবে পরিচালনা করছেন — যা একটি হাইব্রিড আইটি ও রিটেইল হাব।",
+    about_card_1_label: "ক্লিয়ারেন্স",
+    about_card_1_value: "লেভেল_০৭ (CST)",
+    about_card_2_label: "ভূমিকা",
+    about_card_2_value: "ডিরেক্টর / প্রতিষ্ঠাতা",
+    
+    sec_skills: "সিস্টেম_টেলিমেট্রি",
+    skills_title_1: "টেকনিক্যাল",
+    skills_title_2: "ইনভেন্টরি",
+    skills: [
+      {
+        title: "SYS.OS.LINUX",
+        desc: "আর্চ লিনাক্স, EndeavourOS, ব্যাশ স্ক্রিপ্টিং, কার্নেল কাস্টমাইজেশন।",
+        level: 95,
+      },
+      {
+        title: "SYS.AI.MODELS",
+        desc: "টারমাক্সে AI মডেল, OpenClaw, Google AI API, হোয়াটসঅ্যাপ অটো-বট।",
+        level: 88,
+      },
+      {
+        title: "SYS.WEB.DEV",
+        desc: "React, Next.js, Supabase, Tailwind CSS, Javascript ES6+।",
+        level: 85,
+      },
+      {
+        title: "SYS.HARDWARE",
+        desc: "কম্পোনেন্ট লেভেল ডায়াগনস্টিকস, মোবাইল টিয়ারডাউন, মাইক্রো-সোল্ডারিং।",
+        level: 80,
+      },
+    ],
+    
+    sec_services: "অ্যাক্টিভ_অপারেশনস",
+    services_title_1: "চান_মাথা",
+    services_title_2: "ডিজিটাল_পয়েন্ট",
+    services_sub: "স্থানীয় সেক্টরে প্রয়োজনীয় আইটি এবং রিটেইল সেবা প্রদানকারী বাণিজ্যিক ফ্রন্ট।",
     services: [
       {
-        title: "IT ও ডিজিটাল সেবা",
-        desc: "ল্যাব-কোয়ালিটি ফটো প্রিন্টিং, ফটো রিস্টোরেশন, গ্রাফিক ডিজাইন, ডকুমেন্ট অপটিমাইজেশন।",
-        icon: "FaPrint",
-        num: "০১",
-        details: "সারিয়াকান্দিতে আপনার দোরগোড়ায় প্রফেশনাল-গ্রেড ডিজিটাল সেবা প্রদান করি। পাসপোর্ট সাইজ ফটো থেকে বড় ব্যানার, সাধারণ ফটোকপি থেকে জটিল আইনি ডকুমেন্ট ফরম্যাটিং — সবকিছু নিখুঁতভাবে করা হয়।",
-        features: ["ল্যাব-কোয়ালিটি ফটো প্রিন্টিং", "হাই-রেজোলিউশন স্ক্যানিং", "প্রফেশনাল সিভি ডিজাইন", "সরকারি ফরম ফিলাপ", "ব্যানার ও ভিজিটিং কার্ড ডিজাইন", "ডকুমেন্ট ফরম্যাটিং"],
+        id: 'OP_01',
+        title: "ডকুমেন্ট_রিপ্রোডাকশন",
+        desc: "ল্যাব-কোয়ালিটি ফটো প্রিন্ট, স্ক্যানিং, ফটোকপি এবং গ্রাফিক ডিজাইন।",
+        icon: "FaPrint"
       },
       {
-        title: "AI ও অটোমেশন",
-        desc: "লোকাল AI মডেল, Google AI Studio ইন্টিগ্রেশন, WhatsApp Business AI অটোমেশন।",
-        icon: "FaRocket",
-        num: "০২",
-        details: "কৃত্রিম বুদ্ধিমত্তার শক্তি কাজে লাগিয়ে পুনরাবৃত্তিমূলক কাজ স্বয়ংক্রিয় করা, গ্রাহক ইন্টারঅ্যাকশন উন্নত করা এবং ব্যবসায়িক কার্যক্রম সুগম করা হয়।",
-        features: ["লোকাল AI মডেল ডিপ্লয়মেন্ট", "Google AI Studio ইন্টিগ্রেশন", "WhatsApp Business AI চ্যাটবট", "স্মার্ট ওয়ার্কফ্লো অটোমেশন", "AI-ভিত্তিক ডকুমেন্ট প্রসেসিং", "ছোট ব্যবসার জন্য কাস্টম AI"],
+        id: 'OP_02',
+        title: "পরিচয়পত্র_তৈরি",
+        desc: "প্রফেশনাল সিভি, আইডি কার্ড এবং বিজনেস কার্ড ডিজাইন।",
+        icon: "FaIdCard"
       },
       {
-        title: "লিনাক্স ও হার্ডওয়্যার",
-        desc: "বিশেষজ্ঞ-স্তরের লিনাক্স প্রশাসন, আর্চ লিনাক্স সেটআপ, হার্ডওয়্যার ডায়াগনস্টিকস।",
-        icon: "FaLaptopCode",
-        num: "০৩",
-        details: "লিনাক্স সিস্টেম এবং হার্ডওয়্যার ডায়াগনস্টিকসে গভীর দক্ষতার সাথে ব্যাপক প্রযুক্তিগত সহায়তা প্রদান করি।",
-        features: ["আর্চ লিনাক্স ও EndeavourOS সেটআপ", "সার্ভার অ্যাডমিনিস্ট্রেশন", "হার্ডওয়্যার ডায়াগনস্টিকস ও মেরামত", "মাদারবোর্ড বিশ্লেষণ", "সিস্টেম পারফরম্যান্স অপটিমাইজেশন", "ডাটা রিকভারি"],
+        id: 'OP_03',
+        title: "অ্যাপ্লিকেশন_প্রসেসিং",
+        desc: "সরকারি ও বেসরকারি চাকরির অনলাইন আবেদন এবং ডাটা এন্ট্রি।",
+        icon: "FaBriefcase"
       },
+      {
+        id: 'OP_04',
+        title: "লিগ্যাল_ডকুমেন্টেশন",
+        desc: "চুক্তিনামা তৈরি, ফরমাল কম্পোজ এবং বাংলা/ইংরেজি দ্রুত টাইপিং।",
+        icon: "FaFileContract"
+      }
     ],
-    // Projects
-    sec_projects: "নির্বাচিত প্রজেক্ট",
-    projects_title_1: "সকল সৃজনশীল কাজ,",
-    projects_title_2: "নির্বাচিত প্রজেক্ট।",
-    projects_sub: "যে উদ্যোগগুলো আমি তৈরি করেছি — প্রতিটি বাস্তব সমস্যার সমাধান।",
-    projects_explore: "আরো দেখুন",
+
+    sec_projects: "ফাইল_০২: প্রমাণ",
+    projects_title_1: "এভিডেন্স",
+    projects_title_2: "বোর্ড",
+    projects_sub: "ডিক্লাসিফাইড প্রজেক্ট ফাইল এবং অপারেশনাল ব্লুপ্রিন্ট।",
     projects: [
       {
-        title: "চান মাথা ডিজিটাল পয়েন্ট",
-        desc: "সারিয়াকান্দিতে IT/কম্পিউটার সেবা ও মুদি পণ্যের অনন্য হাইব্রিড ব্যবসায়িক মডেল।",
-        status: "সক্রিয়",
-        tags: ["ব্যবসা", "IT সেবা", "খুচরা"],
+        title: "চান_মাথা_হাব",
+        desc: "সারিয়াকান্দিতে আইটি সেবা ও মুদি পণ্যের সমন্বয়ে একটি হাইব্রিড মডেল।",
+        status: "অ্যাক্টিভ",
+        tags: ["লজিস্টিকস", "আইটি_সেবা"],
         icon: "FaStoreAlt",
-        category: "ব্যবসা",
-        details: "চান মাথা ডিজিটাল পয়েন্ট সারিয়াকান্দিতে একটি অগ্রণী হাইব্রিড ব্যবসা যা আধুনিক IT সেবা ও ঐতিহ্যবাহী খুচরা দোকান একত্রিত করেছে।",
-        features: ["পূর্ণ-সেবা IT ও কম্পিউটার সমাধান", "দৈনন্দিন পণ্য ও খুচরা", "কমিউনিটি টেক হাব", "ডিজিটাল সাক্ষরতা কর্মশালা"],
+        color: "#ff3344"
       },
       {
-        title: "একাডেমিক প্ল্যানার",
-        desc: "মাধ্যমিক বিদ্যালয়ের শিক্ষার্থীদের জন্য বিশেষায়িত পাঠ পরিকল্পনা।",
+        title: "একাডেমিক_প্রটোকল",
+        desc: "মাধ্যমিক শিক্ষার্থীদের জন্য বিশেষায়িত পাঠ পরিকল্পনা তৈরি।",
         status: "চলমান",
-        tags: ["শিক্ষা", "পরিকল্পনা", "ডিজাইন"],
+        tags: ["শিক্ষা", "প্ল্যানিং"],
         icon: "FaFileAlt",
-        category: "শিক্ষা",
-        details: "বাংলাদেশের মাধ্যমিক বিদ্যালয়ের শিক্ষার্থী ও শিক্ষকদের জন্য বিশেষভাবে ডিজাইন করা একটি ব্যাপক একাডেমিক পরিকল্পনা টুল।",
-        features: ["পাঠ্যক্রম-সংযুক্ত পাঠ পরিকল্পনা", "প্রফেশনালভাবে ডিজাইন করা টেমপ্লেট", "ইন্টারেক্টিভ ডায়ালগ ফরম্যাট", "প্রিন্ট-রেডি আউটপুট"],
+        color: "#00f0ff"
       },
       {
-        title: "NGO ও স্কুল IT সাপোর্ট",
-        desc: "স্থানীয় NGO এবং চালুয়াবাড়ী উচ্চ বিদ্যালয়ের জন্য প্রশাসনিক সাপোর্ট।",
+        title: "NGO_সাপোর্ট",
+        desc: "স্থানীয় NGO এবং চালুয়াবাড়ী উচ্চ বিদ্যালয়ের প্রশাসনিক সাপোর্ট।",
         status: "চলমান",
-        tags: ["NGO", "শিক্ষা", "সম্প্রদায়"],
+        tags: ["ইনফ্রাস্ট্রাকচার", "NGO"],
         icon: "FaGlobe",
-        category: "সম্প্রদায়",
-        details: "স্থানীয় বেসরকারি সংস্থা ও চালুয়াবাড়ী উচ্চ বিদ্যালয়কে সম্পূর্ণ IT ও প্রশাসনিক সহায়তা প্রদান।",
-        features: ["ডিজিটাল রেকর্ড ম্যানেজমেন্ট", "প্রফেশনাল ডকুমেন্ট ডিজাইন", "IT অবকাঠামো সেটআপ", "কর্মী প্রশিক্ষণ ও সাপোর্ট"],
+        color: "#e5e5e5"
       },
     ],
-    // Testimonials
-    sec_testimonials: "প্রশংসাপত্র",
-    testimonials_title_1: "আমাদের",
-    testimonials_title_2: "গ্রাহকদের মতামত",
-    testimonials_sub: "আমাদের মূল্যবান গ্রাহকদের প্রকৃত মতামত।",
-    testimonials_client: "মূল্যবান গ্রাহক",
-    // Contact
-    sec_contact: "যোগাযোগ",
-    contact_cta_title: "কোনো প্রজেক্ট আছে?",
-    contact_cta_sub: "আসুন কথা বলি।",
-    contact_form_title: "আপনার প্রজেক্ট মূল্যায়ন করুন।",
-    contact_form_sub: "এখানে জানান।",
-    contact_desc: "কোনো প্রজেক্ট বা সহযোগিতার কথা ভাবছেন? আমাকে মেসেজ করুন।",
-    contact_location: "সারিয়াকান্দি, বগুড়া, বাংলাদেশ",
-    f_name: "আপনার নাম কী?",
-    f_email: "আপনার ইমেইল",
-    f_msg: "আপনার প্রজেক্ট সম্পর্কে বলুন",
-    f_send: "মেসেজ পাঠান",
-    f_sending: "পাঠানো হচ্ছে...",
-    f_success: "✅ মেসেজ সফলভাবে পাঠানো হয়েছে!",
-    f_error: "❌ মেসেজ পাঠাতে সমস্যা হয়েছে।",
-    // Footer
-    footer_tagline: "তৃণমূল পর্যায়ে ডিজিটাল সমাধান তৈরি করছি।",
-    footer_copyright: "সৃজনশীলভাবে ভাবছি, তবে পরিকল্পনা নিয়ে।",
-    // CTA
-    cta_title: "একসাথে কিছু তৈরি করি",
-    cta_desc: "IT সেবা, প্রজেক্ট আইডিয়া বা প্রযুক্তি নিয়ে কথা — আমি সবসময় প্রস্তুত।",
-    cta_btn: "যোগাযোগ করুন",
-    // Blog
-    sec_blog: "ব্লগ",
-    blog_title: "নতুন কী?",
-    blog_sub: "আমার ব্লগ ও খবর।",
-    blog_posts: [
-      { date: "মার্চ ২১, ব্লগ", title: "এটি আপনার জন্য আনন্দদায়ক হোক", content: "স্থানীয় সম্প্রদায়ের জন্য ডিজিটাল সমাধান তৈরির আনন্দ অন্বেষণ। ছোট প্রযুক্তি উদ্যোগ কীভাবে গ্রামীণ এলাকায় বড় প্রভাব তৈরি করতে পারে।" },
-      { date: "মে ১১", title: "প্রজেক্ট খোঁজার জন্য সময় কীভাবে ব্যবহার করবেন?", content: "ফ্রিল্যান্সার ও উদ্যোক্তাদের জন্য সময় ব্যবস্থাপনা কৌশল। নতুন সুযোগ খোঁজা ও বর্তমান প্রজেক্টে শ্রেষ্ঠত্ব অর্জনের মধ্যে ভারসাম্য।" },
-      { date: "এপ্রিল ১৭", title: "ডিজাইনে টিপস ও সহানুভূতি", content: "কেন সহানুভূতি দুর্দান্ত ডিজাইনের ভিত্তি। আপনার ব্যবহারকারীদের বোঝা এবং তাদের অভিজ্ঞতা উন্নত করার সমাধান তৈরি করা।" },
-    ],
+    
+    sec_contact: "সিকিউর_চ্যানেল",
+    contact_title: "সিগন্যাল",
+    contact_accent: "ট্রান্সমিট",
+    contact_desc: "সিগন্যাল এনক্রিপ্টেড। অপারেশনাল রিকোয়েস্ট বা কোলাবোরেশনের জন্য প্রস্তুত।",
+    contact_location: "সারিয়াকান্দি_বেস",
+    f_name: "সেন্ডার_আইডি (নাম)",
+    f_email: "এনক্রিপ্টেড_কমিউনিকেশন (ইমেইল)",
+    f_msg: "ট্রান্সমিশন_পে-লোড",
+    f_send: "ডাটা_ট্রান্সমিট_করুন",
+    f_sending: "এনক্রিপ্ট_হচ্ছে...",
+    f_success: "[ SYS_ACK ] ট্রান্সমিশন সফল।",
+    f_error: "[ SYS_ERR ] সিগন্যাল লস্ট। আবার চেষ্টা করুন।",
+    
+    footer_tagline: "তৃণমূল পর্যায়ে ডিজিটাল অপারেশন পরিচালনা করছি।",
+    cta_title: "কন্টাক্ট_প্রটোকল_শুরু_করুন",
+    cta_desc: "আপনার সিগন্যালের অপেক্ষায়। প্রজেক্ট বা ব্যবসায়ের জন্য যোগাযোগ করুন।",
+    cta_btn: "কানেক্ট_করুন",
   }
 };

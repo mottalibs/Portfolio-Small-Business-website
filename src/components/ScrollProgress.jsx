@@ -24,10 +24,10 @@ export default function ScrollProgress() {
         left: 0,
         height: '3px',
         width: `${progress}%`,
-        background: 'linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3))',
+        background: 'var(--accent)',
         zIndex: 10000,
         transition: 'width 0.1s linear',
-        boxShadow: '0 0 15px rgba(0, 212, 170, 0.5), 0 0 30px rgba(124, 92, 252, 0.3)',
+        boxShadow: 'var(--accent-glow)',
       }}
       role="progressbar"
       aria-valuenow={Math.round(progress)}

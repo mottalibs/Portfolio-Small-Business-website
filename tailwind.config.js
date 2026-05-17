@@ -10,16 +10,22 @@ module.exports = {
     extend: {
       colors: {
         background: 'var(--bg)',
+        'background-2': 'var(--bg2)',
+        'background-3': 'var(--bg3)',
+        'background-4': 'var(--bg4)',
         foreground: 'var(--text)',
         primary: 'var(--accent)',
+        'primary-2': 'var(--accent-2)',
         muted: 'var(--muted)',
         border: 'var(--border)',
-        tactical: 'var(--tactical-grey)',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Playfair Display', 'serif'],
+        serif: ['Playfair Display', 'serif'],
         mono: ['JetBrains Mono', 'monospace'],
+      },
+      borderRadius: {
+        'card': '2px',
       },
       animation: {
         'fade-in-up': 'fadeInUp 0.7s ease forwards',
