@@ -31,18 +31,18 @@ export default function ClockWidget() {
   }, [mode]);
 
   return (
-    <div className="bento-card justify-between h-full group">
+    <div className="bg-[var(--bg2)] p-8 lg:p-12 h-full flex flex-col justify-between group">
       <div>
         <div className="text-mono text-[0.65rem] text-[var(--muted)] tracking-[2px] mb-2 uppercase">
           {mode === 'cyberpunk' ? 'LOCAL_SYS_TIME' : 'Local Time (BD)'}
         </div>
-        <div className="heading-serif text-3xl font-bold">
+        <div className="text-[clamp(3rem,5vw,5rem)] font-bold tracking-tighter leading-none sani-heading">
           {time || '00:00:00'}
         </div>
       </div>
       
-      <div className="mt-8 pt-4 border-t border-[var(--border)] flex items-center justify-between">
-        <span className="text-mono text-[0.65rem] text-[var(--muted)]">
+      <div className="mt-16 pt-8 border-t-2 border-[var(--text)] flex items-center justify-between">
+        <span className="text-mono text-[0.8rem] text-[var(--muted)] uppercase tracking-[2px]">
           {mode === 'cyberpunk' ? 'OP_STATUS' : 'Current Status'}
         </span>
         <div className="flex items-center gap-2">
