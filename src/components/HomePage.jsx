@@ -17,11 +17,22 @@ export default function HomePage({ config }) {
   
   const [modalOpen, setModalOpen] = useState(false);
   const [modalData, setModalData] = useState(null);
+  
+  // Project Filtering State
+  const [activeCategory, setActiveCategory] = useState('All');
 
   const openModal = (data) => {
     setModalData(data);
     setModalOpen(true);
   };
+
+  // Get unique categories for the filter
+  const projectCategories = ['All', ...new Set(t.projects.map(p => p.category).filter(Boolean))];
+
+  // Filter projects based on active category
+  const filteredProjects = activeCategory === 'All' 
+    ? t.projects 
+    : t.projects.filter(p => p.category === activeCategory);
 
   return (
     <div className="relative overflow-hidden w-full pt-32 pb-32">
@@ -84,23 +95,47 @@ export default function HomePage({ config }) {
               {t.services_sub}
             </p>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
               {t.services.map((svc, i) => (
                 <div 
                   key={i} 
                   onClick={() => openModal(svc)}
-                  className="group cursor-pointer p-8 bg-[var(--bg2)] hover:bg-[var(--text)] hover:text-[var(--bg)] transition-colors duration-500 flex flex-col h-full"
+                  className={`group cursor-pointer p-8 transition-all duration-500 flex flex-col h-full rounded-2xl border ${mode === 'corporate' ? 'bg-white shadow-sm hover:shadow-xl hover:-translate-y-1 border-[var(--border)]' : 'bg-[var(--bg2)] border-[var(--border)] hover:border-[var(--accent)] hover:bg-[var(--bg3)]'}`}
                 >
-                  <div className="mb-12 opacity-50 group-hover:opacity-100 transition-opacity">
-                    <DynamicIcon name={svc.icon} size={48} />
+                  <div className="flex justify-between items-start mb-8">
+                    <div className={`p-4 rounded-xl ${mode === 'corporate' ? 'bg-[var(--bg3)] text-[var(--accent)]' : 'bg-[var(--bg)] text-[var(--text)]'}`}>
+                      <DynamicIcon name={svc.icon} size={32} />
+                    </div>
+                    {svc.price && (
+                      <span className={`text-xs font-bold px-3 py-1 rounded-full ${mode === 'corporate' ? 'bg-[#059669]/10 text-[#059669]' : 'bg-[var(--accent-dim)] text-[var(--accent)]'}`}>
+                        {svc.price}
+                      </span>
+                    )}
                   </div>
-                  <h4 className="text-2xl lg:text-3xl font-bold mb-4 tracking-tight">{svc.title}</h4>
-                  <p className="text-sm lg:text-base opacity-70 mb-8">{svc.desc}</p>
-                  <div className="mt-auto text-mono text-[0.65rem] tracking-[2px] uppercase opacity-0 group-hover:opacity-100 transition-opacity">
-                    [ View Details ]
+                  <h4 className="text-2xl font-bold mb-3 tracking-tight">{svc.title}</h4>
+                  <p className="text-[var(--text-secondary)] mb-6 flex-1">{svc.desc}</p>
+                  <div className="mt-auto font-medium text-sm text-[var(--accent)] flex items-center gap-2 group-hover:gap-4 transition-all">
+                    {mode === 'corporate' ? 'View Details' : 'ACCESS_FILE'} <span className="text-lg">→</span>
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* PROCESS STEPS */}
+            <div className="mb-16">
+               <h3 className="text-2xl lg:text-3xl font-bold mb-8">{t.process_title}</h3>
+               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-8 relative">
+                 <div className="hidden md:block absolute top-8 left-10 right-10 h-[2px] bg-[var(--border)] -z-10"></div>
+                 {t.process_steps?.map((step, idx) => (
+                   <div key={idx} className="relative flex flex-col items-center md:items-start text-center md:text-left bg-[var(--bg)] md:bg-transparent p-6 md:p-0 rounded-xl md:rounded-none border md:border-0 border-[var(--border)]">
+                     <div className={`w-16 h-16 rounded-full flex items-center justify-center text-xl font-bold mb-6 mx-auto md:mx-0 shadow-lg ${mode === 'corporate' ? 'bg-[var(--accent)] text-white' : 'bg-[var(--bg2)] border-2 border-[var(--accent)] text-[var(--accent)]'}`}>
+                       {step.num}
+                     </div>
+                     <h4 className="text-xl font-bold mb-2">{step.title}</h4>
+                     <p className="text-[var(--text-secondary)] text-sm">{step.desc}</p>
+                   </div>
+                 ))}
+               </div>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -145,10 +180,25 @@ export default function HomePage({ config }) {
         {/* EVIDENCE BOARD / PROJECTS */}
         <AnimatedSection>
           <div className="border-t-2 border-[var(--text)] pt-8">
-            <h2 className="sani-heading text-[clamp(3rem,6vw,8rem)] mb-16">{t.projects_title[mode]}</h2>
+            <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 gap-6">
+              <h2 className="sani-heading text-[clamp(3rem,6vw,8rem)]">{t.projects_title[mode]}</h2>
+              
+              {/* Filter Controls */}
+              <div className="flex flex-wrap gap-2">
+                {projectCategories.map(cat => (
+                  <button 
+                    key={cat}
+                    onClick={() => setActiveCategory(cat)}
+                    className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${activeCategory === cat ? (mode === 'corporate' ? 'bg-[var(--accent)] text-white' : 'bg-[var(--text)] text-[var(--bg)]') : 'bg-[var(--bg2)] text-[var(--text-secondary)] hover:text-[var(--text)] border border-[var(--border)]'}`}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
+            </div>
             
             <div className="flex flex-col">
-              {t.projects.map((proj, i) => (
+              {filteredProjects.map((proj, i) => (
                 <div 
                   key={i} 
                   onClick={() => openModal(proj)}

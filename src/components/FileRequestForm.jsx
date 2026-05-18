@@ -33,7 +33,7 @@ export default function FileRequestForm() {
   };
 
   return (
-    <div className="bg-[var(--bg2)] p-8 lg:p-12 h-full flex flex-col">
+    <div className={`p-8 lg:p-12 h-full flex flex-col rounded-2xl border ${mode === 'corporate' ? 'bg-white shadow-sm border-[var(--border)]' : 'bg-[var(--bg2)] border-[var(--border)]'}`}>
       <div className="flex items-center gap-3 mb-12">
         <FaCloudUploadAlt size={32} className="text-[var(--accent)]" />
         <h3 className="text-2xl lg:text-3xl font-bold tracking-tight">
@@ -57,15 +57,15 @@ export default function FileRequestForm() {
       ) : (
         <form onSubmit={handleSubmit} className="flex flex-col gap-4 flex-1">
           {/* File Upload Area */}
-          <div className="relative border-2 border-dashed border-[var(--text)] p-8 flex flex-col items-center justify-center text-center hover:bg-[var(--text)] hover:text-[var(--bg)] transition-colors duration-500 cursor-pointer group bg-transparent">
+          <div className="relative border-2 border-dashed border-[var(--border)] p-8 rounded-xl flex flex-col items-center justify-center text-center hover:bg-[var(--bg3)] hover:border-[var(--accent)] transition-all duration-300 cursor-pointer group bg-transparent">
             <input 
               type="file" 
               className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" 
               onChange={handleFileChange}
               accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
             />
-            <FaCloudUploadAlt size={32} className="mb-4 transition-colors" />
-            <span className="text-mono text-[0.8rem] transition-colors uppercase tracking-[1px]">
+            <FaCloudUploadAlt size={32} className="mb-4 text-[var(--muted)] group-hover:text-[var(--accent)] transition-colors" />
+            <span className="text-mono text-[0.8rem] text-[var(--muted)] group-hover:text-[var(--text)] transition-colors uppercase tracking-[1px]">
               {file ? file.name : (mode === 'cyberpunk' ? 'DRAG_FILE_HERE' : 'Click to Upload Document')}
             </span>
           </div>

@@ -6,7 +6,7 @@ export default function MapWidget() {
   const { mode } = useMode();
 
   return (
-    <div className="h-full min-h-[300px] w-full p-0 overflow-hidden relative group">
+    <div className={`h-full min-h-[300px] w-full p-0 overflow-hidden relative group rounded-2xl border ${mode === 'corporate' ? 'border-[var(--border)] shadow-sm' : 'border-[var(--border)]'}`}>
       {/* Map iframe placeholder using an inverted grayscale filter for cyberpunk mode */}
       <iframe 
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.324204558509!2d89.5694!3d24.8524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fc550009695629%3A0x8e826b685121c0af!2sSariakandi!5e0!3m2!1sen!2sbd!4v1700000000000!5m2!1sen!2sbd" 
@@ -20,13 +20,13 @@ export default function MapWidget() {
       ></iframe>
 
       {/* Overlay Information */}
-      <div className="absolute bottom-6 left-6 right-6 bg-[var(--bg)] border-2 border-[var(--text)] p-6 flex items-center gap-4 shadow-2xl">
+      <div className={`absolute bottom-6 left-6 right-6 backdrop-blur-md p-6 flex items-center gap-4 rounded-xl border ${mode === 'corporate' ? 'bg-white/90 border-[var(--border)] shadow-lg' : 'bg-[var(--bg2)]/90 border-[var(--border)]'}`}>
         <FaMapMarkerAlt size={24} className="text-[var(--accent)]" />
         <div>
           <div className="text-mono text-[0.7rem] text-[var(--muted)] tracking-[2px] uppercase mb-1">
             {mode === 'cyberpunk' ? 'BASE_COORDINATES' : 'Our Location'}
           </div>
-          <div className="font-bold text-lg uppercase tracking-tight">Sariakandi, Bogura</div>
+          <div className="font-bold text-lg tracking-tight">Sariakandi, Bogura</div>
         </div>
       </div>
       

@@ -58,20 +58,29 @@ export const translations = {
         id: 'SRV_01',
         title: "Digital Printing & Photocopying",
         desc: "Lab-quality photo printing, A4 optimization, and high-fidelity scanning.",
-        icon: "FaPrint"
+        icon: "FaPrint",
+        price: "From ৳5 / page"
       },
       {
         id: 'SRV_02',
         title: "Online Applications",
         desc: "Secure processing of government and private sector job applications.",
-        icon: "FaBriefcase"
+        icon: "FaBriefcase",
+        price: "Service Charge: ৳50+"
       },
       {
         id: 'SRV_03',
         title: "Legal & Official Documentation",
         desc: "Drafting of deeds (Chuktinama), formal CVs, and rapid transcription.",
-        icon: "FaFileContract"
+        icon: "FaFileContract",
+        price: "Custom Quote"
       }
+    ],
+    process_title: "How It Works",
+    process_steps: [
+      { num: "01", title: "Upload / Request", desc: "Drag your file into the secure dropzone above." },
+      { num: "02", title: "Instant Review", desc: "We review the document formatting immediately." },
+      { num: "03", title: "Ready for Pickup", desc: "Your high-quality prints are ready at the shop." }
     ],
     retail_badge: "Retail Section: Premium Tea, Coffee, Chocolates, and Daily Essentials.",
 
@@ -84,6 +93,7 @@ export const translations = {
         title: "Chan Matha Hub Management",
         desc: "Custom POS and inventory tracking system built with Next.js and Supabase.",
         status: "Live",
+        category: "Web App",
         tags: ["Next.js", "Supabase", "Tailwind"],
         icon: "FaStoreAlt",
         github: "https://github.com/mottalibs/Portfolio-Small-Business-website",
@@ -93,6 +103,7 @@ export const translations = {
         title: "Academic Planner Platform",
         desc: "Educational tool featuring specialized lesson plans and interactive dialogue formats.",
         status: "In Progress",
+        category: "Web App",
         tags: ["React", "Education"],
         icon: "FaFileAlt",
         github: "#",
@@ -102,6 +113,7 @@ export const translations = {
         title: "NGO Support Network",
         desc: "Administrative design and secure data infrastructure for local organizations.",
         status: "Ongoing",
+        category: "Infrastructure",
         tags: ["Data Mgmt", "Infrastructure"],
         icon: "FaGlobe",
         github: "#",
@@ -181,20 +193,29 @@ export const translations = {
         id: 'SRV_01',
         title: "ডিজিটাল প্রিন্টিং ও ফটোকপি",
         desc: "ল্যাব-কোয়ালিটি ফটো প্রিন্ট, A4 অপ্টিমাইজেশন এবং হাই-রেজোলিউশন স্ক্যানিং।",
-        icon: "FaPrint"
+        icon: "FaPrint",
+        price: "শুরু ৫৳ / পেজ"
       },
       {
         id: 'SRV_02',
         title: "অনলাইন অ্যাপ্লিকেশন",
         desc: "সরকারি ও বেসরকারি চাকরির অনলাইন আবেদন সুরক্ষিতভাবে প্রসেস করা।",
-        icon: "FaBriefcase"
+        icon: "FaBriefcase",
+        price: "সার্ভিস চার্জ: ৫০৳+"
       },
       {
         id: 'SRV_03',
         title: "লিগ্যাল ও অফিশিয়াল ডকুমেন্টেশন",
         desc: "চুক্তিনামা তৈরি, ফরমাল সিভি এবং দ্রুত টাইপিং সার্ভিস।",
-        icon: "FaFileContract"
+        icon: "FaFileContract",
+        price: "আলোচনা সাপেক্ষে"
       }
+    ],
+    process_title: "আমাদের কাজের ধাপ",
+    process_steps: [
+      { num: "০১", title: "ফাইল আপলোড করুন", desc: "উপরের বক্সে আপনার ডকুমেন্টটি ড্রপ করুন বা সিলেক্ট করুন।" },
+      { num: "০২", title: "তাৎক্ষণিক রিভিউ", desc: "আমরা সাথে সাথে ফাইল এবং ফরম্যাটিং চেক করি।" },
+      { num: "০৩", title: "সংগ্রহ করুন", desc: "আপনার নিখুঁত প্রিন্ট কপি দোকান থেকে সংগ্রহ করুন।" }
     ],
     retail_badge: "রিটেইল সেকশন: প্রিমিয়াম চা, কফি, চকলেট এবং দৈনন্দিন প্রয়োজনীয় পণ্য।",
 
@@ -207,6 +228,7 @@ export const translations = {
         title: "চান মাথা হাব ম্যানেজমেন্ট",
         desc: "Next.js এবং Supabase দিয়ে তৈরি কাস্টম POS এবং ইনভেন্টরি ট্র্যাকিং সিস্টেম।",
         status: "লাইভ",
+        category: "Web App",
         tags: ["Next.js", "Supabase", "Tailwind"],
         icon: "FaStoreAlt",
         github: "https://github.com/mottalibs/Portfolio-Small-Business-website",
@@ -216,6 +238,7 @@ export const translations = {
         title: "একাডেমিক প্ল্যানার",
         desc: "মাধ্যমিক শিক্ষার্থীদের জন্য বিশেষায়িত পাঠ পরিকল্পনা তৈরি করার প্ল্যাটফর্ম।",
         status: "চলমান",
+        category: "Web App",
         tags: ["React", "Education"],
         icon: "FaFileAlt",
         github: "#",
@@ -225,6 +248,7 @@ export const translations = {
         title: "NGO সাপোর্ট নেটওয়ার্ক",
         desc: "স্থানীয় NGO দের জন্য প্রশাসনিক ডিজাইন এবং সুরক্ষিত ডাটা ইনফ্রাস্ট্রাকচার।",
         status: "চলমান",
+        category: "Infrastructure",
         tags: ["Data Mgmt", "Infrastructure"],
         icon: "FaGlobe",
         github: "#",

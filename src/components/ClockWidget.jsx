@@ -31,7 +31,7 @@ export default function ClockWidget() {
   }, [mode]);
 
   return (
-    <div className="bg-[var(--bg2)] p-8 lg:p-12 h-full flex flex-col justify-between group">
+    <div className={`p-8 lg:p-12 h-full flex flex-col justify-between group rounded-2xl border ${mode === 'corporate' ? 'bg-white shadow-sm border-[var(--border)]' : 'bg-[var(--bg2)] border-[var(--border)]'}`}>
       <div>
         <div className="text-mono text-[0.65rem] text-[var(--muted)] tracking-[2px] mb-2 uppercase">
           {mode === 'cyberpunk' ? 'LOCAL_SYS_TIME' : 'Local Time (BD)'}
@@ -41,7 +41,7 @@ export default function ClockWidget() {
         </div>
       </div>
       
-      <div className="mt-16 pt-8 border-t-2 border-[var(--text)] flex items-center justify-between">
+      <div className={`mt-16 pt-8 border-t flex items-center justify-between ${mode === 'corporate' ? 'border-[var(--border)]' : 'border-[var(--text)]'}`}>
         <span className="text-mono text-[0.8rem] text-[var(--muted)] uppercase tracking-[2px]">
           {mode === 'cyberpunk' ? 'OP_STATUS' : 'Current Status'}
         </span>
