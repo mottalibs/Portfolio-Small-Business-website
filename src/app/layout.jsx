@@ -6,6 +6,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import BackToTop from '@/components/BackToTop';
 import CustomCursor from '@/components/CustomCursor';
+import FloatingComms from '@/components/FloatingComms';
 
 export const metadata = {
   title: 'Mottalib — Tech Entrepreneur | Linux & AI Enthusiast',
@@ -58,6 +59,7 @@ export default function RootLayout({ children }) {
               <Navbar />
               <main>{children}</main>
               <Footer />
+              <FloatingComms />
             </LanguageProvider>
           </ModeProvider>
         </ThemeProvider>
