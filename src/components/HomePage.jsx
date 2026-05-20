@@ -5,26 +5,21 @@ import { useLanguage } from '@/components/LanguageProvider';
 import { useMode } from '@/components/ModeProvider';
 import AnimatedSection from '@/components/AnimatedSection';
 import ContactForm from '@/components/ContactForm';
-import Modal from '@/components/Modal';
 import ClockWidget from '@/components/ClockWidget';
 import MapWidget from '@/components/MapWidget';
 import FileRequestForm from '@/components/FileRequestForm';
 import { DynamicIcon } from '@/lib/icons';
+import TypeWriter from '@/components/TypeWriter';
+import CountUp from '@/components/CountUp';
+import TestimonialCarousel from '@/components/TestimonialCarousel';
+import PricingCards from '@/components/PricingCards';
 
 export default function HomePage({ config }) {
   const { t } = useLanguage();
   const { mode, toggleMode } = useMode();
   
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalData, setModalData] = useState(null);
-  
   // Project Filtering State
   const [activeCategory, setActiveCategory] = useState('All');
-
-  const openModal = (data) => {
-    setModalData(data);
-    setModalOpen(true);
-  };
 
   // Get unique categories for the filter
   const projectCategories = ['All', ...new Set(t.projects.map(p => p.category).filter(Boolean))];
@@ -36,7 +31,6 @@ export default function HomePage({ config }) {
 
   return (
     <div className="relative overflow-hidden w-full pt-32 pb-32">
-      <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)} data={modalData} />
 
       {/* Mode Switcher Control */}
       <div className="fixed top-24 right-6 z-[100] pointer-events-none">
@@ -56,18 +50,62 @@ export default function HomePage({ config }) {
           <h1 className="sani-heading text-[clamp(3rem,8vw,10rem)] tracking-tighter leading-[0.9] uppercase">
             A DIGITAL <br /> PROFESSIONAL
           </h1>
+          <div className="mt-4 mb-2">
+            <TypeWriter 
+              words={t.hero_roles} 
+              className="text-mono text-[clamp(0.9rem,1.5vw,1.2rem)] tracking-[3px] text-[var(--accent)]"
+            />
+          </div>
           <div className="mt-8 flex flex-col md:flex-row gap-8 justify-between items-start md:items-end">
-            <p className="sani-text text-[clamp(1.5rem,3vw,3rem)] max-w-[800px] text-[var(--text-secondary)]">
-              who designs for <span className="text-[var(--text)]">clarity, utility, and impact</span>, bridging advanced code with practical local solutions.
-            </p>
+            <div className="flex flex-col gap-8">
+              <p className="sani-text text-[clamp(1.5rem,3vw,3rem)] max-w-[800px] text-[var(--text-secondary)]">
+                who designs for <span className="text-[var(--text)]">clarity, utility, and impact</span>, bridging advanced code with practical local solutions.
+              </p>
+              
+              {/* HERO BUTTONS (RESTORED) */}
+              <div className="flex flex-wrap gap-4 mt-4">
+                <a 
+                  href="#projects" 
+                  className={`px-8 py-4 text-sm tracking-[2px] font-bold uppercase transition-all duration-300 ${mode === 'cyberpunk' ? 'border border-[var(--accent)] text-[var(--accent)] hover:bg-[var(--accent)] hover:text-black' : 'bg-[var(--accent)] text-white shadow-lg hover:shadow-xl hover:-translate-y-1 rounded-sm'}`}
+                >
+                  {t.hero_btn1[mode]}
+                </a>
+                <a 
+                  href="#contact" 
+                  className={`px-8 py-4 text-sm tracking-[2px] font-bold uppercase transition-all duration-300 ${mode === 'cyberpunk' ? 'border border-[var(--text)] text-[var(--text)] hover:bg-[var(--text)] hover:text-black' : 'bg-transparent border-2 border-[var(--border)] text-[var(--text)] hover:border-[var(--accent)] hover:text-[var(--accent)] rounded-sm'}`}
+                >
+                  {t.hero_btn2[mode]}
+                </a>
+              </div>
+            </div>
+            
             <div className="text-mono text-sm tracking-[2px] uppercase text-[var(--muted)] border-l-2 border-[var(--accent)] pl-4">
               {t.hero_tag[mode]} <br/> {t.hero_name}
             </div>
           </div>
+
+          {/* IMPACT STATS BAR */}
+          <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-[var(--border)] pt-12">
+            {[
+              { target: 500, suffix: '+', label: mode === 'cyberpunk' ? 'DOCS_PROCESSED' : 'Documents Processed' },
+              { target: 100, suffix: '+', label: mode === 'cyberpunk' ? 'CLIENTS_SERVED' : 'Happy Customers' },
+              { target: 3, suffix: '+', label: mode === 'cyberpunk' ? 'YEARS_ONLINE' : 'Years of Service' },
+              { target: 95, suffix: '%', label: mode === 'cyberpunk' ? 'SATISFACTION_RATE' : 'Client Satisfaction' },
+            ].map((stat, i) => (
+              <div key={i} className="text-center">
+                <div className="text-[clamp(2rem,4vw,3.5rem)] font-black text-[var(--text)] leading-none">
+                  <CountUp target={stat.target} />{stat.suffix}
+                </div>
+                <div className="text-mono text-[0.6rem] tracking-[2px] text-[var(--muted)] mt-2 uppercase">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
         </AnimatedSection>
 
         {/* PROFILE / DOSSIER */}
-        <AnimatedSection>
+        <AnimatedSection id="about">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="aspect-[3/4] relative w-full max-w-[500px] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
               <Image src="/Me.jpg" alt="Mottalib" fill className="object-cover" />
@@ -88,7 +126,7 @@ export default function HomePage({ config }) {
         </AnimatedSection>
 
         {/* SERVICES / DIGITAL HUB */}
-        <AnimatedSection>
+        <AnimatedSection id="services">
           <div className="border-t-2 border-[var(--text)] pt-8">
             <h2 className="sani-heading text-[clamp(3rem,6vw,8rem)] mb-4">{t.services_title[mode]}</h2>
             <p className="sani-text text-2xl lg:text-4xl text-[var(--text-secondary)] mb-16 max-w-[900px]">
@@ -99,8 +137,7 @@ export default function HomePage({ config }) {
               {t.services.map((svc, i) => (
                 <div 
                   key={i} 
-                  onClick={() => openModal(svc)}
-                  className={`group cursor-pointer p-8 transition-all duration-500 flex flex-col h-full rounded-2xl border ${mode === 'corporate' ? 'bg-white shadow-sm hover:shadow-xl hover:-translate-y-1 border-[var(--border)]' : 'bg-[var(--bg2)] border-[var(--border)] hover:border-[var(--accent)] hover:bg-[var(--bg3)]'}`}
+                  className={`p-8 flex flex-col h-full rounded-2xl border ${mode === 'corporate' ? 'bg-white shadow-sm border-[var(--border)]' : 'bg-[var(--bg2)] border-[var(--border)]'}`}
                 >
                   <div className="flex justify-between items-start mb-8">
                     <div className={`p-4 rounded-xl ${mode === 'corporate' ? 'bg-[var(--bg3)] text-[var(--accent)]' : 'bg-[var(--bg)] text-[var(--text)]'}`}>
@@ -114,9 +151,6 @@ export default function HomePage({ config }) {
                   </div>
                   <h4 className="text-2xl font-bold mb-3 tracking-tight">{svc.title}</h4>
                   <p className="text-[var(--text-secondary)] mb-6 flex-1">{svc.desc}</p>
-                  <div className="mt-auto font-medium text-sm text-[var(--accent)] flex items-center gap-2 group-hover:gap-4 transition-all">
-                    {mode === 'corporate' ? 'View Details' : 'ACCESS_FILE'} <span className="text-lg">→</span>
-                  </div>
                 </div>
               ))}
             </div>
@@ -149,7 +183,7 @@ export default function HomePage({ config }) {
         </AnimatedSection>
 
         {/* SKILLS MATRIX */}
-        <AnimatedSection>
+        <AnimatedSection id="skills">
           <div className="border-t-2 border-[var(--text)] pt-8">
              <h2 className="sani-heading text-[clamp(3rem,6vw,8rem)] mb-16">{t.sec_skills[mode]}</h2>
              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -178,7 +212,7 @@ export default function HomePage({ config }) {
         </AnimatedSection>
 
         {/* EVIDENCE BOARD / PROJECTS */}
-        <AnimatedSection>
+        <AnimatedSection id="projects">
           <div className="border-t-2 border-[var(--text)] pt-8">
             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 gap-6">
               <h2 className="sani-heading text-[clamp(3rem,6vw,8rem)]">{t.projects_title[mode]}</h2>
@@ -201,20 +235,37 @@ export default function HomePage({ config }) {
               {filteredProjects.map((proj, i) => (
                 <div 
                   key={i} 
-                  onClick={() => openModal(proj)}
-                  className="group cursor-pointer border-b border-[var(--border)] py-12 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 hover:px-8 hover:bg-[var(--bg2)] transition-all duration-500"
+                  className="border-b border-[var(--border)] py-12 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8"
                 >
                   <div className="flex-1">
-                    <h3 className="text-3xl lg:text-6xl font-bold tracking-tight mb-4 group-hover:text-[var(--accent)] transition-colors">
+                    <h3 className="text-3xl lg:text-5xl font-bold tracking-tight mb-4 text-[var(--text)]">
                       {proj.title}
                     </h3>
-                    <p className="text-lg text-[var(--text-secondary)] max-w-[600px]">
+                    <p className="text-lg text-[var(--text-secondary)] max-w-[600px] mb-6">
                       {proj.desc}
                     </p>
+                    {/* Inline Links — with Coming Soon fallback */}
+                    <div className="flex gap-4">
+                      {proj.github && proj.github !== '#' ? (
+                        <a href={proj.github} target="_blank" rel="noreferrer" className="text-mono text-sm tracking-[1px] uppercase text-[var(--accent)] hover:underline">
+                          [ Source Code ]
+                        </a>
+                      ) : null}
+                      {proj.preview && proj.preview !== '#' ? (
+                        <a href={proj.preview} target="_blank" rel="noreferrer" className="text-mono text-sm tracking-[1px] uppercase text-[var(--text)] hover:underline">
+                          [ Live Preview ]
+                        </a>
+                      ) : null}
+                      {(!proj.github || proj.github === '#') && (!proj.preview || proj.preview === '#') && (
+                        <span className={`text-mono text-xs tracking-[2px] uppercase px-3 py-1 rounded-full border ${mode === 'cyberpunk' ? 'border-[var(--accent)] text-[var(--accent)] bg-[var(--accent-dim)]' : 'border-[var(--border)] text-[var(--muted)] bg-[var(--bg3)]'}`}>
+                          {mode === 'cyberpunk' ? '⟡ CLASSIFIED' : '🔜 Coming Soon'}
+                        </span>
+                      )}
+                    </div>
                   </div>
                   <div className="flex flex-wrap gap-2 lg:w-[300px] justify-start lg:justify-end">
                     {proj.tags.map(tag => (
-                      <span key={tag} className="text-mono text-[0.6rem] border border-[var(--border)] px-3 py-1 rounded-full uppercase tracking-[1px]">
+                      <span key={tag} className="text-mono text-[0.6rem] border border-[var(--border)] px-3 py-1 rounded-full uppercase tracking-[1px] bg-[var(--bg2)]">
                         {tag}
                       </span>
                     ))}
@@ -225,8 +276,14 @@ export default function HomePage({ config }) {
           </div>
         </AnimatedSection>
 
+        {/* TESTIMONIALS */}
+        <TestimonialCarousel />
+
+        {/* PRICING PACKAGES */}
+        <PricingCards />
+
         {/* CONTACT */}
-        <AnimatedSection>
+        <AnimatedSection id="contact">
           <div className="border-t-2 border-[var(--text)] pt-8 pb-16">
             <h2 className="sani-heading text-[clamp(3rem,8vw,10rem)] mb-16 break-words leading-[0.9]">
               LET'S CREATE <br/> SOMETHING.

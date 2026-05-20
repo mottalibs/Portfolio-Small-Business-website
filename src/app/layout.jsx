@@ -7,6 +7,9 @@ import Footer from '@/components/Footer';
 import BackToTop from '@/components/BackToTop';
 import CustomCursor from '@/components/CustomCursor';
 import FloatingComms from '@/components/FloatingComms';
+import Preloader from '@/components/Preloader';
+import ScrollProgress from '@/components/ScrollProgress';
+import ParticleCanvas from '@/components/ParticleCanvas';
 
 export const metadata = {
   title: 'Mottalib — Tech Entrepreneur | Linux & AI Enthusiast',
@@ -34,7 +37,7 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content="#000000" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
         <script
           type="application/ld+json"
@@ -50,11 +53,30 @@ export default function RootLayout({ children }) {
             }),
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "Chan Matha Digital Point",
+              "description": "Digital printing, photocopying, online applications, and IT services hub in Sariakandi, Bogura.",
+              "address": { "@type": "PostalAddress", "addressLocality": "Sariakandi", "addressRegion": "Bogura", "addressCountry": "BD" },
+              "openingHours": "Mo-Sa 09:00-21:00",
+              "priceRange": "৳৳",
+              "founder": { "@type": "Person", "name": "Mottalib" },
+              "knowsAbout": ["Digital Printing", "Photocopying", "Online Applications", "Legal Documentation"],
+            }),
+          }}
+        />
       </head>
       <body>
         <ThemeProvider>
           <ModeProvider>
             <LanguageProvider>
+              <Preloader />
+              <ScrollProgress />
+              <ParticleCanvas />
               <CustomCursor />
               <Navbar />
               <main>{children}</main>

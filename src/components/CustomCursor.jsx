@@ -5,7 +5,7 @@ export default function CustomCursor() {
   const cursorRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
-  const [coords, setCoords] = useState({ x: 0, y: 0 });
+
   const pos = useRef({ x: 0, y: 0 });
   const animRef = useRef(null);
 
@@ -14,7 +14,6 @@ export default function CustomCursor() {
 
     const handleMove = (e) => {
       pos.current = { x: e.clientX, y: e.clientY };
-      setCoords({ x: e.clientX, y: e.clientY });
       if (!isVisible) setIsVisible(true);
     };
     const handleEnter = () => setIsVisible(true);
@@ -98,15 +97,7 @@ export default function CustomCursor() {
         </>
       )}
 
-      {/* Coordinate tracker */}
-      <div style={{ 
-        position: 'absolute', top: 15, left: 15, 
-        fontFamily: "'JetBrains Mono', monospace", 
-        fontSize: '10px', color: 'var(--accent)', 
-        opacity: 0.7, whiteSpace: 'nowrap'
-      }}>
-        X:{coords.x} Y:{coords.y}
-      </div>
+
     </div>
   );
 }

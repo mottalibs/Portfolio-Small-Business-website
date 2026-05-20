@@ -97,7 +97,7 @@ export default function Preloader() {
             key={idx} 
             className={`preloader-log-line ${idx === logs.length - 1 ? 'active' : ''}`}
           >
-            > {log}
+            {'>'} {log}
           </span>
         ))}
       </div>
